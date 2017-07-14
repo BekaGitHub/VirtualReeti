@@ -14,15 +14,14 @@ import javafx.scene.shape.MeshView;
 import javafx.scene.transform.Rotate;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
 public class RightEyelid extends Parts
 {
     private MeshView mLeftEyeMesh;
 
-    public RightEyelid(Head head) {
+    public RightEyelid(Head head)
+    {
         mStart = head.getLeftEyebrowPostion();
         mZRotation = -30;
         mYRotation = 15;
@@ -41,7 +40,8 @@ public class RightEyelid extends Parts
     }
 
     @Override
-    public void init() {
+    public void init()
+    {
         super.init();
         mLeftEyeMesh.setTranslateX(mStart.x - 50);
         mLeftEyeMesh.setTranslateY(mStart.y + 45);
@@ -49,7 +49,8 @@ public class RightEyelid extends Parts
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
 
         Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
         Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);

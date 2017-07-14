@@ -4,9 +4,7 @@ import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 
 /**
- *
  * @author Robbie
- *
  */
 
 /*
@@ -14,15 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-public class StartIdle extends AnimationSwing {
+public class StartIdle extends AnimationSwing
+{
 
-    public StartIdle(StickmanSwing sm, int duration, boolean block) {
+    public StartIdle(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (!mStickman.mIdleBehavior.isAlive()) {
+    public void playAnimation()
+    {
+        if (!mStickman.mIdleBehavior.isAlive())
+        {
             mStickman.mIdleRun = true;
             mStickman.mIdleBehavior = new IdleBehavior(mStickman, mStickman.simplexNoise);
             mStickman.mIdleBehavior.start();

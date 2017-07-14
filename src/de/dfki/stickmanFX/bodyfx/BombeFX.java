@@ -14,15 +14,18 @@ import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 /**
- *
  * @author Beka movement = Animator3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
  */
-public class BombeFX extends BodyPartFX {
+public class BombeFX extends BodyPartFX
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, BOMBETRANSITION, BOMBEEXPLOSION;
-    };
+    }
+
+    ;
 
     HeadFX mHeadFX;
     URL url;
@@ -31,7 +34,8 @@ public class BombeFX extends BodyPartFX {
     double mColorOpacity = 0;
     public BombeFX.SHAPE mShape = BombeFX.SHAPE.DEFAULT;
 
-    public BombeFX(HeadFX head) {
+    public BombeFX(HeadFX head)
+    {
         mHeadFX = head;
         mLength = 16;
         mSize = new Dimension(mLength, 5);
@@ -41,31 +45,36 @@ public class BombeFX extends BodyPartFX {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         BombeFX.SHAPE shape = BombeFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : BombeFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = BombeFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHeadFX.getBombeStartPosition();
         mEnd = mHeadFX.getBombeEndPosition();
 
         double movement;
 
         //clearChildren(this);
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 clearChildren(this);
                 break;
 
             case BOMBETRANSITION:
-                if (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep == 0) {
+                if (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep == 0)
+                {
                     clearChildren(this);
                     url = getClass().getClassLoader().getResource("bombe.gif");
                     image = new Image(url.toString());
@@ -83,7 +92,8 @@ public class BombeFX extends BodyPartFX {
                 }
                 break;
             case BOMBEEXPLOSION:
-                if (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep == 0) {
+                if (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep == 0)
+                {
                     clearChildren(this);
                     url = getClass().getClassLoader().getResource("explosion.gif");
                     image = new Image(url.toString());

@@ -14,18 +14,20 @@ import javafx.application.Platform;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class GoDown extends Animation3D {
+public class GoDown extends Animation3D
+{
 
-    public GoDown() {
+    public GoDown()
+    {
         mAnimType = ANIMTYPE.ON;
     }
+
     double recordOriginLeaveSpeed;
 
-    public GoDown(Stickman3D sm, int duration, boolean block) {
+    public GoDown(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
         recordOriginLeaveSpeed = mStickmanFX.leaveSpeed;
@@ -33,19 +35,22 @@ public class GoDown extends Animation3D {
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 5;
 
         // bring upper arm and fore arm in position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -rotationUnit * 30));
         playAnimationPart(200);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             // wave right
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -rotationUnit));
 
@@ -55,7 +60,8 @@ public class GoDown extends Animation3D {
             }
 
             // wave left
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit));
 
@@ -67,12 +73,13 @@ public class GoDown extends Animation3D {
 
         // go back in the default position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", rotationUnit * 30));
         playAnimationPart(20);
         mStickmanFX.leaveSpeed = recordOriginLeaveSpeed;
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

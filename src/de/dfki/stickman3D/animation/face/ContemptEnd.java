@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class ContemptEnd extends Animation3D {
+public class ContemptEnd extends Animation3D
+{
 
-    public ContemptEnd(Stickman3D sm, int duration, boolean block) {
+    public ContemptEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // Contempt end
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "CONTEMPTEND"));

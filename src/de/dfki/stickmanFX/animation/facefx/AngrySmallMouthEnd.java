@@ -8,25 +8,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class AngrySmallMouthEnd extends AnimationFX {
+public class AngrySmallMouthEnd extends AnimationFX
+{
 
-    public AngrySmallMouthEnd() {
+    public AngrySmallMouthEnd()
+    {
         super();
     }
 
-    public AngrySmallMouthEnd(StickmanFX sm, int duration, boolean block) {
+    public AngrySmallMouthEnd(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry with small mouth end
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "ANGRYSMALLMOUTHEND"));

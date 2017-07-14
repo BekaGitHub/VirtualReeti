@@ -7,22 +7,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class CoverMouth extends AnimationFX {
+public class CoverMouth extends AnimationFX
+{
 
-    public CoverMouth() {
+    public CoverMouth()
+    {
         mAnimType = ANIMTYPE.Gesture;
     }
 
-    public CoverMouth(StickmanFX sm, int duration, boolean block) {
+    public CoverMouth(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 16;
 
         // bring upper arm and fore arm in position

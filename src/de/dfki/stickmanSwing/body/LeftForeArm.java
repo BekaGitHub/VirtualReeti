@@ -16,11 +16,10 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class LeftForeArm extends BodyPart {
+public class LeftForeArm extends BodyPart
+{
 
     LeftUpperArm mUpperArm;
     int mArmLength = 80;
@@ -31,7 +30,8 @@ public class LeftForeArm extends BodyPart {
 
     GeneralPath mArm;
 
-    public LeftForeArm(LeftUpperArm arm) {
+    public LeftForeArm(LeftUpperArm arm)
+    {
         mUpperArm = arm;
 
         mDefaultRotation = 20;
@@ -43,12 +43,14 @@ public class LeftForeArm extends BodyPart {
         calculate(0);
     }
 
-    public Point getHandStartPosition() {
+    public Point getHandStartPosition()
+    {
         return (mArm != null) ? new Point((int) mArm.getCurrentPoint().getX(), (int) mArm.getCurrentPoint().getY()) : new Point(0, 0);
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         mStart = mUpperArm.getLeftUpperArmEndPosition();
         mEnd = new Point(mStart.x, mStart.y + mArmLength);
 
@@ -62,7 +64,8 @@ public class LeftForeArm extends BodyPart {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -70,17 +73,21 @@ public class LeftForeArm extends BodyPart {
         // draw outlines
         g2.setColor(new Color(80, 80, 80));
 
-        if (mUpperArm.mLeftShoulder.mBody.mNeck.mHead.mStickman.setCharacterInvisible == true) {
+        if (mUpperArm.mLeftShoulder.mBody.mNeck.mHead.mStickman.setCharacterInvisible == true)
+        {
             if (mUpperArm.mLeftShoulder.mBody.mNeck.mHead.mStickman.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mUpperArm.mLeftShoulder.mBody.mNeck.mHead.mStickman.mMouth.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 g2.setColor(new Color(80, 80, 80, fadeFactor));
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mUpperArm.mLeftShoulder.mBody.mNeck.mHead.mStickman.mMouth.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     fadeFactor = 255;
                 }
                 g2.setColor(new Color(80, 80, 80, fadeFactor));

@@ -14,22 +14,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
 ////////////nod 3 time by Guo
-public class Nod2 extends AnimationFX {
+public class Nod2 extends AnimationFX
+{
 
-    public Nod2(StickmanFX sm, int duration, boolean block) {
+    public Nod2(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             // head down
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightEyebrowFX, "translate", translationUnit));
@@ -38,9 +40,11 @@ public class Nod2 extends AnimationFX {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyeFX, "translate", translationUnit));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "translate", translationUnit));
 
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "translate", translationUnit));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "translate", translationUnit));
             }
 
@@ -56,9 +60,11 @@ public class Nod2 extends AnimationFX {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyeFX, "translate", -translationUnit));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "translate", -translationUnit));
 
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "translate", -translationUnit));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "translate", -translationUnit));
             }
 

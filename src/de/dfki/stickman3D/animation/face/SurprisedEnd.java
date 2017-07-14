@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class SurprisedEnd extends Animation3D {
+public class SurprisedEnd extends Animation3D
+{
 
-    public SurprisedEnd(Stickman3D sm, int duration, boolean block) {
+    public SurprisedEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // no surprised
         mAnimationPartFX = new ArrayList<>();

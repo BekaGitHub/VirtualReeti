@@ -1,9 +1,9 @@
 package de.dfki.stickmanSwing.stage;
 
-import de.dfki.common.interfaces.Stickman;
-import de.dfki.common.interfaces.StickmanStage;
+import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.StickmansOnStage;
+import de.dfki.common.AgentsOnStage;
 import de.dfki.stickmanSwing.StickmanSwing;
 
 import java.awt.image.BufferedImage;
@@ -11,102 +11,121 @@ import java.awt.image.BufferedImage;
 /**
  * Created by alvaro on 9/19/16.
  */
-public class StageRoomSwing implements StageRoom {
+public class StageRoomSwing implements StageRoom
+{
 
-    private StickmansOnStage commonStickmansOnStage;
-    private StickmanStage stickmanStage;
+    private AgentsOnStage commonStickmansOnStage;
+    private AgentStage stickmanStage;
     private boolean fullScreen = false;
 
-    public StageRoomSwing() {
+    public StageRoomSwing()
+    {
         stickmanStage = new StickmanStageSwing();
         commonStickmansOnStage = new StickmansOnStageSwing(stickmanStage, this);
-        //stickmanStage.setStickamnsOnStage(commonStickmansOnStage);
+        //agentStage.setAgentsOnStage(agentsOnStage);
     }
 
     @Override
-    public void clearStage() {
+    public void clearStage()
+    {
         commonStickmansOnStage.clearStage();
         ((StickmanStageSwing) stickmanStage).clearStage();
     }
 
     @Override
-    public void animate(String stickmanname, String name, int duration, String text, boolean block) {
-        StickmanSwing sm = (StickmanSwing) commonStickmansOnStage.getStickman(stickmanname);
+    public void animate(String stickmanname, String name, int duration, String text, boolean block)
+    {
+        StickmanSwing sm = (StickmanSwing) commonStickmansOnStage.getAgent(stickmanname);
         sm.doAnimation(name, duration, text, block);
     }
 
     @Override
-    public boolean ismNetwork() {
+    public boolean ismNetwork()
+    {
         return false;
     }
 
     @Override
-    public void sendTimeMarkInformation(String timemark) {
+    public void sendTimeMarkInformation(String timemark)
+    {
     }
 
     @Override
-    public void sendAnimationUpdate(String state, String id) {
+    public void sendAnimationUpdate(String state, String id)
+    {
     }
 
     @Override
-    public void addStickman(String name) {
-        commonStickmansOnStage.addStickman(name, fullScreen);
-        ((StickmanStageSwing) stickmanStage).addStickmanToPanel((StickmanSwing) commonStickmansOnStage.getStickman(name));
+    public void addAgent(String name)
+    {
+        commonStickmansOnStage.addAgent(name, fullScreen);
+        ((StickmanStageSwing) stickmanStage).addStickmanToPanel((StickmanSwing) commonStickmansOnStage.getAgent(name));
         ((StickmanStageSwing) stickmanStage).pack();
         ((StickmanStageSwing) stickmanStage).setVisible(true);
     }
 
     @Override
-    public Stickman getStickman(String name) {
-        return commonStickmansOnStage.getStickman(name);
+    public Agent getAgent(String name)
+    {
+        return commonStickmansOnStage.getAgent(name);
     }
 
     @Override
-    public void launchStickmanStage(boolean show) {
+    public void launchAgentStage(boolean show)
+    {
     }
 
     @Override
-    public StickmanStage getStickmanStage() {
+    public AgentStage getAgentStage()
+    {
         return stickmanStage;
     }
 
-    public StickmansOnStage getCommonStickmansOnStage() {
+    public AgentsOnStage getCommonAgentsOnStage()
+    {
         return commonStickmansOnStage;
     }
 
     @Override
-    public String getStageIdentifier() {
+    public String getStageIdentifier()
+    {
         return "";
     }
 
     @Override
-    public void setFullScreen(boolean fullS) {
+    public void setFullScreen(boolean fullS)
+    {
         fullScreen = fullS;
         ((StickmanStageSwing) stickmanStage).setFullScreenSize();
     }
 
     @Override
-    public void addStickman(String name, boolean onlyFace) {
-        addStickman(name);
+    public void addAgent(String name, boolean onlyFace)
+    {
+        addAgent(name);
     }
 
     @Override
-    public BufferedImage getStageAsImage() {
+    public BufferedImage getStageAsImage()
+    {
         return null;
     }
 
     @Override
-    public void launchConfiguration() {
+    public void launchConfiguration()
+    {
 
     }
 
     @Override
-    public void launchConfiguration(String filepath) {
+    public void launchConfiguration(String filepath)
+    {
 
     }
 
     @Override
-    public void launchStage(boolean show, String filepath) {
+    public void launchStage(boolean show, String filepath)
+    {
 
     }
 }

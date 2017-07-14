@@ -6,6 +6,7 @@
 package de.dfki.stickman3D.animation.face;
 
 import de.dfki.common.Gender;
+
 import java.util.ArrayList;
 
 import de.dfki.stickman3D.Stickman3D;
@@ -14,22 +15,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import de.dfki.stickman3D.animationlogic.Animation3D;
 
 /**
- *
  * @author Beka
- *
  */
-public class Fear extends Animation3D {
+public class Fear extends Animation3D
+{
 
-    public Fear() {
+    public Fear()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Fear(Stickman3D sm, int duration, boolean block) {
+    public Fear(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // fear
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "FEAR"));
@@ -37,7 +40,8 @@ public class Fear extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "SAD"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", 10));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             // Left Hand
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -60));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -70));
@@ -53,7 +57,8 @@ public class Fear extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 30));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 130));
 
-        } else {
+        } else
+        {
             // Left Hand
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -55));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -60));
@@ -81,7 +86,8 @@ public class Fear extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "SADEND"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", -10));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             // Left Hand
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 60));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 70));
@@ -96,7 +102,8 @@ public class Fear extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", 95));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -30));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -130));
-        } else {
+        } else
+        {
             // Left Hand
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 55));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 60));
@@ -123,7 +130,8 @@ public class Fear extends Animation3D {
         // mAnimationPart.add(new AnimationContent3D(mStickman.mUpperBody,
         // "yrotate", -90));
         // playAnimationPart(500);
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

@@ -5,9 +5,7 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
 
 /*
@@ -15,23 +13,27 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
  * To change this template file, choose Tools | Templates and open the template
  * in the editor.
  */
-public class StartBlinking extends AnimationReeti {
+public class StartBlinking extends AnimationReeti
+{
 
-    public StartBlinking() {
+    public StartBlinking()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
     int frequent;
     int actionDuration;
 
-    public StartBlinking(Reeti sm, int frequent, int actionDuration, boolean block) {
+    public StartBlinking(Reeti sm, int frequent, int actionDuration, boolean block)
+    {
         super(sm, frequent, actionDuration, block);
         mReeti = sm;
         this.frequent = frequent;
         this.actionDuration = actionDuration;
     }
 
-    public StartBlinking(Reeti sm, int frequent, boolean block) {
+    public StartBlinking(Reeti sm, int frequent, boolean block)
+    {
         super(sm, frequent, block);
         mReeti = sm;
         this.frequent = 5000;
@@ -39,10 +41,12 @@ public class StartBlinking extends AnimationReeti {
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.mBlinking = new Blinking(mReeti, frequent, actionDuration);
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

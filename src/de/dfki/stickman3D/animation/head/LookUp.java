@@ -8,22 +8,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class LookUp extends Animation3D {
+public class LookUp extends Animation3D
+{
 
-    public LookUp() {
+    public LookUp()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public LookUp(Stickman3D sm, int duration, boolean block) {
+    public LookUp(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKUP"));
@@ -37,7 +39,8 @@ public class LookUp extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "LOOKUPEND"));
         playAnimationPart(100);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

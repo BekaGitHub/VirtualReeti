@@ -7,18 +7,19 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class LookRight extends AnimationFX {
+public class LookRight extends AnimationFX
+{
 
-    public LookRight(StickmanFX sm, int duration, boolean block) {
+    public LookRight(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 3;
 
         // look left

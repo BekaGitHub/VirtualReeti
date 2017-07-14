@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Mouth_O extends AnimationSwing {
+public class Mouth_O extends AnimationSwing
+{
 
-    public Mouth_O(StickmanSwing sm, int duration, boolean block) {
+    public Mouth_O(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // smile
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "O"));

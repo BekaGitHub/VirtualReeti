@@ -8,22 +8,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class LookRight extends Animation3D {
+public class LookRight extends Animation3D
+{
 
-    public LookRight() {
+    public LookRight()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public LookRight(Stickman3D sm, int duration, boolean block) {
+    public LookRight(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKRIGHT"));

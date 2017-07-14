@@ -10,23 +10,25 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
-public class Relaxed extends AnimationReeti {
+public class Relaxed extends AnimationReeti
+{
 
-    public Relaxed() {
+    public Relaxed()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Relaxed(Reeti sm, int duration, boolean block) {
+    public Relaxed(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.neckTilt(75);
         mReeti.leftEyeLid(25);
         mReeti.rightEyeLid(25);
@@ -41,7 +43,8 @@ public class Relaxed extends AnimationReeti {
         mReeti.topLip(3);
 
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

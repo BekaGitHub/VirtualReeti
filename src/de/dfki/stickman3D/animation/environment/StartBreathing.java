@@ -5,9 +5,7 @@ import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.Animation3D;
 
 /**
- *
  * @author Beka
- *
  */
 
 /*
@@ -15,23 +13,27 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
  * To change this template file, choose Tools | Templates and open the template
  * in the editor.
  */
-public class StartBreathing extends Animation3D {
+public class StartBreathing extends Animation3D
+{
 
-    public StartBreathing() {
+    public StartBreathing()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
     int frequent;
     int actionDuration;
 
-    public StartBreathing(Stickman3D sm, int frequent, int actionDuration, boolean block) {
+    public StartBreathing(Stickman3D sm, int frequent, int actionDuration, boolean block)
+    {
         super(sm, frequent, actionDuration, block);
         mStickmanFX = sm;
         this.frequent = frequent;
         this.actionDuration = actionDuration;
     }
 
-    public StartBreathing(Stickman3D sm, int frequent, boolean block) {
+    public StartBreathing(Stickman3D sm, int frequent, boolean block)
+    {
         super(sm, frequent, block);
         mStickmanFX = sm;
         this.frequent = 4000;
@@ -39,10 +41,12 @@ public class StartBreathing extends Animation3D {
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mStickmanFX.mBreathing = new Breathing(mStickmanFX, frequent, actionDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

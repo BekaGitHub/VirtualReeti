@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Loved extends AnimationSwing {
+public class Loved extends AnimationSwing
+{
 
-    public Loved() {
+    public Loved()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Loved(StickmanSwing sm, int duration, boolean block) {
+    public Loved(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // loved
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILE"));

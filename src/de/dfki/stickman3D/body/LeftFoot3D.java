@@ -37,7 +37,7 @@ public class LeftFoot3D extends BodyPartFX
         mLength = 20;
         if (mLeftForeLeg.getUpperLeg().getDownBody().getUpperBody().getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             mColor = Color.rgb(80, 80, 80, 1);
-         else
+        else
             mColor = Color.rgb(154, 83, 198, 1);
         setDefaulRotation(0);
         mYRotation = 50;
@@ -80,7 +80,7 @@ public class LeftFoot3D extends BodyPartFX
         mLeftFootMeshView.setTranslateX(mStart.x + 3);
         if (mLeftForeLeg.getUpperLeg().getDownBody().getUpperBody().getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             mLeftFootMeshView.setTranslateY(mStart.y + 85);
-         else
+        else
             mLeftFootMeshView.setTranslateY(mStart.y + 79);
         mLeftFootMeshView.setTranslateZ(0);
 

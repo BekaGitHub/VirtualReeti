@@ -8,25 +8,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Embarrassed extends AnimationFX {
+public class Embarrassed extends AnimationFX
+{
 
-    public Embarrassed() {
+    public Embarrassed()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Embarrassed(StickmanFX sm, int duration, boolean block) {
+    public Embarrassed(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // embarrassed
         mAnimationPartFX = new ArrayList<>();

@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class FearStart extends AnimationSwing {
+public class FearStart extends AnimationSwing
+{
 
-    public FearStart(StickmanSwing sm, int duration, boolean block) {
+    public FearStart(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // fear start
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "FEAR"));

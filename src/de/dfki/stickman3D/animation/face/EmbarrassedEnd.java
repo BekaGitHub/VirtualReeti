@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class EmbarrassedEnd extends Animation3D {
+public class EmbarrassedEnd extends Animation3D
+{
 
-    public EmbarrassedEnd(Stickman3D sm, int duration, boolean block) {
+    public EmbarrassedEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // no embarrassed
         mAnimationPartFX = new ArrayList<>();

@@ -12,25 +12,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author Beka
- *
  */
-public class UnsynchronizedConversationHandsStart extends AbstractConversationHands {
+public class UnsynchronizedConversationHandsStart extends AbstractConversationHands
+{
 
-    private  static   boolean movementStarted = false;
+    private static boolean movementStarted = false;
 
-    public UnsynchronizedConversationHandsStart(Stickman3D sm, int duration, boolean block) {
+    public UnsynchronizedConversationHandsStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         intensity = 10;
     }
-    public UnsynchronizedConversationHandsStart(Stickman3D sm, int duration, boolean block, HashMap<String, String> extraParams) {
+
+    public UnsynchronizedConversationHandsStart(Stickman3D sm, int duration, boolean block, HashMap<String, String> extraParams)
+    {
         super(sm, duration, block, extraParams);
     }
 
     @Override
-    public void playAnimation() {
-        if(!movementStarted) {
+    public void playAnimation()
+    {
+        if (!movementStarted)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -38));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "yrotate", 13));
@@ -43,7 +47,6 @@ public class UnsynchronizedConversationHandsStart extends AbstractConversationHa
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 0));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", -54));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "zrotate", 7));
-
 
 
             //Right Part
@@ -69,13 +72,15 @@ public class UnsynchronizedConversationHandsStart extends AbstractConversationHa
     }
 
 
-    protected int getLeftArmMovement(){
+    protected int getLeftArmMovement()
+    {
         int leftForeArmZ;
         leftForeArmZ = START_LEFT_FORE_ARM_POSITION - getMovementDistance();
         return leftForeArmZ;
     }
 
-    protected int getRightArmMovement(){
+    protected int getRightArmMovement()
+    {
         int rightForeArmZ;
         rightForeArmZ = START_RIGHT_FORE_ARM_POSITION + getMovementDistance();
         return rightForeArmZ;

@@ -61,7 +61,7 @@ public class UpperBody3D extends BodyPartFX
         this.setTranslateX(mStart.x);
         if (mNeck.getHead().getStickman().mType == Gender.TYPE.MALE)
             this.setTranslateY(mStart.y + 155);
-         else
+        else
             this.setTranslateY(mStart.y + 135);
         this.setTranslateZ(-105);
 

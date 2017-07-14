@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class SurprisedEnd extends AnimationSwing {
+public class SurprisedEnd extends AnimationSwing
+{
 
-    public SurprisedEnd(StickmanSwing sm, int duration, boolean block) {
+    public SurprisedEnd(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // surprised end
         mAnimationPart = new ArrayList<>();

@@ -14,14 +14,15 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;
 
 /**
- *
  * @author Patrick Gebhard
  */
-public class LeftLegFX extends BodyPartFX {
+public class LeftLegFX extends BodyPartFX
+{
 
     BodyFX mBodyFX;
 
-    public LeftLegFX(BodyFX body) {
+    public LeftLegFX(BodyFX body)
+    {
         mBodyFX = body;
         mLength = 150;
         mSize = new Dimension(10, mLength);
@@ -30,7 +31,8 @@ public class LeftLegFX extends BodyPartFX {
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mBodyFX.getLeftLegStartPostion();
         mEnd = new Point(mStart.x, mStart.y + mLength);
 
@@ -38,19 +40,24 @@ public class LeftLegFX extends BodyPartFX {
         clearChildren(this);
 //        if (mBodyFX.mNeck.mHead.mStickman.setCharacterInvisible == false)
 //        	mColorRecorder = mColor;
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true)
+        {
             if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
                 }
             }
@@ -71,8 +78,10 @@ public class LeftLegFX extends BodyPartFX {
         this.update();
     }
 
-    protected void recordColor() {
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
+    protected void recordColor()
+    {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
     }

@@ -8,25 +8,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Fear extends AnimationFX {
+public class Fear extends AnimationFX
+{
 
-    public Fear() {
+    public Fear()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Fear(StickmanFX sm, int duration, boolean block) {
+    public Fear(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // fear
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "FEAR"));

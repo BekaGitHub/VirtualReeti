@@ -6,6 +6,7 @@
 package de.dfki.stickmanFX.bodyfx;
 
 import de.dfki.stickmanFX.animationlogic.AnimatorFX;
+
 import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -32,15 +33,17 @@ import javafx.scene.transform.Affine;
 import javafx.util.Duration;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public abstract class BodyPartFX extends Pane {
+public abstract class BodyPartFX extends Pane
+{
 
-    public enum SHAPE {
+    public enum SHAPE
+    {
         DEFAULT
-    };
+    }
+
+    ;
 
     // variables for size and drawing
     public Dimension mSize = new Dimension(10, 10);
@@ -65,7 +68,7 @@ public abstract class BodyPartFX extends Pane {
 
     public Color mColor = Color.rgb(0, 0, 0);
     public float mColoropacity = 1.0f;
-    
+
     // used by RestButton.
     public Color mColorRest = Color.rgb(0, 0, 0);
     public float mColoropacityRest = 1.0f;
@@ -74,105 +77,125 @@ public abstract class BodyPartFX extends Pane {
 
     public BasicStroke mStroke = new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
-    public void init() {
+    public void init()
+    {
         this.setPrefHeight(mSize.height);
         this.setPrefWidth(mSize.width);
 
         calculate(0);
     }
 
-    public void setTranslation(int length) {
+    public void setTranslation(int length)
+    {
         mToTranslation = mTranslation + length;
         mTranslationStep = (double) length / AnimatorFX.sMAX_ANIM_STEPS;
     }
 
-    public synchronized void calculateTranslation(int step) {
+    public synchronized void calculateTranslation(int step)
+    {
         mTranslation += mTranslationStep;
         mTranslation = (double) Math.round(mTranslation * 1000d) / 1000d; // the poor man's round method
 
         Platform.runLater(() -> calculate(step));
     }
 
-    public void resetTranslation() {
+    public void resetTranslation()
+    {
         mTranslationStep = 0.0d;
     }
 
-    public void setDefaulRotation(int degree) {
+    public void setDefaulRotation(int degree)
+    {
         mDefaultRotation = degree;
         mRotation = mDefaultRotation;
         mToDegree = mDefaultRotation;
         mRotationStep = 0.0f;
     }
 
-    public void setRotation(int degree) {
+    public void setRotation(int degree)
+    {
         mToDegree = mRotation + degree;
         mRotationStep = (double) degree / AnimatorFX.sMAX_ANIM_STEPS;
     }
 
-    public void setTilt(int degree) {
+    public void setTilt(int degree)
+    {
         mToDegree = mRotation + degree;
         mRotationStep = (double) degree / AnimatorFX.sMAX_ANIM_STEPS;
     }
 
-    public synchronized void calculateRotation(int step) {
+    public synchronized void calculateRotation(int step)
+    {
         mRotation += mRotationStep;
         mRotation = (double) Math.round(mRotation * 1000d) / 1000d; // the poor man's round method
         Platform.runLater(() -> calculate(step));
 
     }
 
-    public void resetRotation() {
+    public void resetRotation()
+    {
 
         mTranslationStep = 0.0d;
 
     }
 
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         // place code for setting shape
     }
 
-    public void createShape() {
+    public void createShape()
+    {
         // create the shape
     }
 
-    public synchronized void calculateShape(int step) {
+    public synchronized void calculateShape(int step)
+    {
         mShapeAnimationStep = step;
 
         Platform.runLater(() -> calculate(step));
     }
 
-    public void resetShape() {
+    public void resetShape()
+    {
         mShapeAnimationStep = 0;
     }
 
-    public void clearDrawObjects() {
+    public void clearDrawObjects()
+    {
         mGraphicPaths = new ArrayList<>();
     }
 
-    public void clearChildren(BodyPartFX bodyPartFX) {
+    public void clearChildren(BodyPartFX bodyPartFX)
+    {
         bodyPartFX.getChildren().clear();
     }
 
-    public void addToDrawObjects(Path gp) {
+    public void addToDrawObjects(Path gp)
+    {
         mGraphicPaths.add(gp);
     }
 
-    public synchronized void calculate(int step) {
+    public synchronized void calculate(int step)
+    {
         createShape();
 
         Affine af = new Affine();
         af.appendTranslation(0, mTranslation);
         af.appendRotation(mRotation, mDefaultRotationPoint.x, mDefaultRotationPoint.y);
 
-        for (Path gp : mGraphicPaths) {
+        for (Path gp : mGraphicPaths)
+        {
             gp.getTransforms().clear();
             gp.getTransforms().add(af);
         }
     }
 
-    public void update() {
+    public void update()
+    {
         recordColor();
-        for (Path gp : mGraphicPaths) {
+        for (Path gp : mGraphicPaths)
+        {
             gp.setStroke(mColor);
             gp.setStrokeLineCap(StrokeLineCap.ROUND);
             gp.setStrokeLineJoin(StrokeLineJoin.ROUND);
@@ -180,16 +203,19 @@ public abstract class BodyPartFX extends Pane {
         }
     }
 
-    protected void recordColor() {
+    protected void recordColor()
+    {
 
     }
 
-    public void showHearts(HeadFX mHeadFX, double xMovement, double yMovement1, double yMovement2) {
+    public void showHearts(HeadFX mHeadFX, double xMovement, double yMovement1, double yMovement2)
+    {
         int numHearts = 7;
 
         Ellipse path = new Ellipse(mHeadFX.mHalfWidth + 4, mHeadFX.mHalfHeight - 50, 60, 20);
 
-        for (int i = 0; i < numHearts; i++) {
+        for (int i = 0; i < numHearts; i++)
+        {
             Path heart = new Path();
             heart.getElements().add(new MoveTo(mStart.x - 10, mStart.y));
             heart.getElements().add(new QuadCurveTo(mStart.x - 10 - xMovement - 5, mEnd.y - yMovement2, mStart.x - 10, mEnd.y + yMovement1 + 15));
@@ -214,7 +240,8 @@ public abstract class BodyPartFX extends Pane {
 
     }
 
-    private PathTransition createPathTransition(Shape shape, Node node) {
+    private PathTransition createPathTransition(Shape shape, Node node)
+    {
         final PathTransition transition = new PathTransition(Duration.seconds(10), shape, node);
 
         transition.setAutoReverse(false);
@@ -224,7 +251,8 @@ public abstract class BodyPartFX extends Pane {
         return transition;
     }
 
-    public void rotatePerlinNoise(double mWobble, int x, int y) {
+    public void rotatePerlinNoise(double mWobble, int x, int y)
+    {
         Affine af = new Affine();
         //Out put perlin noise
         af.appendRotation(Math.toRadians(mWobble), x, y);

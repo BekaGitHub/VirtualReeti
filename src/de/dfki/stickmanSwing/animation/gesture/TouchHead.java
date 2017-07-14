@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class TouchHead extends AnimationSwing {
+public class TouchHead extends AnimationSwing
+{
 
-    public TouchHead(StickmanSwing sm, int duration, boolean block) {
+    public TouchHead(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // bring Shoulder, upper arm and fore arm in position

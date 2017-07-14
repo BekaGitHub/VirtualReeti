@@ -13,29 +13,35 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 
 import java.util.ArrayList;
 
-public class TurnRight extends Animation3D {
+public class TurnRight extends Animation3D
+{
 
-    public TurnRight() {
+    public TurnRight()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public TurnRight(Stickman3D sm, int duration, boolean block) {
+    public TurnRight(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
         playAnimationPart(100);
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 40));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", 60));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
             playAnimationPart(500);
-        } else {
+        } else
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 70));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", 60));
@@ -45,13 +51,15 @@ public class TurnRight extends Animation3D {
 
         pauseAnimation(1000);
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -40));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -40));
             playAnimationPart(500);
-        } else {
+        } else
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -70));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));
@@ -59,7 +67,8 @@ public class TurnRight extends Animation3D {
             playAnimationPart(500);
         }
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

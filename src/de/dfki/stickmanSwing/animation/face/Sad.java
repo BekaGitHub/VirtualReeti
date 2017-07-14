@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Sad extends AnimationSwing {
+public class Sad extends AnimationSwing
+{
 
-    public Sad() {
+    public Sad()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Sad(StickmanSwing sm, int duration, boolean block) {
+    public Sad(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // sad
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SAD"));

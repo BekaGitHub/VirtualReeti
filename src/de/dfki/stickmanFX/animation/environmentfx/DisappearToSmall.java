@@ -13,22 +13,23 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import javafx.application.Platform;
 
 /**
- *
  * @author Beka
- *
  */
-public class DisappearToSmall extends AnimationFX {
+public class DisappearToSmall extends AnimationFX
+{
 
     private StickmanFX mStickmanFX;
 
-    public DisappearToSmall(StickmanFX sm, int duration, boolean block) {
+    public DisappearToSmall(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mStickmanFX.mScaleOriginal = mStickmanFX.mScale;
         mStickmanFX.starShowControler = false;
         int rotationUnit = 5;
@@ -53,9 +54,11 @@ public class DisappearToSmall extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit * 8));
         playAnimationPart(180);
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++)
+        {
             // wave right
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", -rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", -rotationUnit));
@@ -66,7 +69,8 @@ public class DisappearToSmall extends AnimationFX {
             }
 
             // wave left
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit));

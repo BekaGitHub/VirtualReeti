@@ -13,14 +13,13 @@ import javafx.scene.text.Font;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Beka
- *
  */
 public class SpeechBubbleFX extends Parts
 {
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, SPEAK, THINK
     }
@@ -34,40 +33,45 @@ public class SpeechBubbleFX extends Parts
 
     GeneralPath mBubble;
 
-    public SpeechBubbleFX(Head head) {
+    public SpeechBubbleFX(Head head)
+    {
         mHeadFX = head;
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         SpeechBubbleFX.SHAPE shape = SpeechBubbleFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : SpeechBubbleFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = SpeechBubbleFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         clearChildren(this);
 
         message = new Label();
         Path face;
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 break;
 
             case SPEAK:
                 bubbleBox = new HBox();
                 bubbleBox.setAlignment(Pos.TOP_CENTER);
-                face = createLeftFace(Color.rgb(222,222,222));
+                face = createLeftFace(Color.rgb(222, 222, 222));
                 message.setText(mText);
                 message.setMaxWidth(200);
                 message.setMinHeight(70);
-                message.setPadding(new Insets(5,5,5,5));
+                message.setPadding(new Insets(5, 5, 5, 5));
                 message.setWrapText(true);
                 createMessageStyle(message);
                 bubbleBox.getChildren().addAll(face, message);
@@ -103,6 +107,6 @@ public class SpeechBubbleFX extends Parts
                 "-fx-border-width: 2;"
                 + "-fx-border-radius: 10 10 10 10;\n"
                 + "-fx-background-radius: 10 10 10 10;");
-        message.setFont(new Font("Comic Sans MS",16));
+        message.setFont(new Font("Comic Sans MS", 16));
     }
 }

@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class WaveRight extends AnimationSwing {
+public class WaveRight extends AnimationSwing
+{
 
-    public WaveRight(StickmanSwing sm, int duration, boolean block) {
+    public WaveRight(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // 50 is the sum of all animation parts

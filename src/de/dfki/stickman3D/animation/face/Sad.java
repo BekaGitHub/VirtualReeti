@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Sad extends Animation3D {
+public class Sad extends Animation3D
+{
 
-    public Sad() {
+    public Sad()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Sad(Stickman3D sm, int duration, boolean block) {
+    public Sad(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // sad
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "SAD"));
@@ -45,7 +47,8 @@ public class Sad extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "SADEND")); // add by Robbie
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

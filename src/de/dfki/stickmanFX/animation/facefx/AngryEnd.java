@@ -8,6 +8,7 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
@@ -16,22 +17,24 @@ import java.util.ArrayList;
  * receives a new command.
  *
  * @author Beka Aptsiauri
- *
  */
-public class AngryEnd extends AnimationFX {
+public class AngryEnd extends AnimationFX
+{
 
     /**
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public AngryEnd() {
+    public AngryEnd()
+    {
         super();
     }
 
-    public AngryEnd(StickmanFX sm, int duration, boolean block) {
+    public AngryEnd(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -39,7 +42,8 @@ public class AngryEnd extends AnimationFX {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry end
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "ANGRYEND"));

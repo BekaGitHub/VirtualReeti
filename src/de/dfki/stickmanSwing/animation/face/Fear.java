@@ -8,26 +8,29 @@ package de.dfki.stickmanSwing.animation.face;
 import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Fear extends AnimationSwing {
+public class Fear extends AnimationSwing
+{
 
-//	mType ) ANIMTYPE.EmotionExpression;
-    public Fear() {
+    //	mType ) ANIMTYPE.EmotionExpression;
+    public Fear()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Fear(StickmanSwing sm, int duration, boolean block) {
+    public Fear(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // fear
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "FEAR"));

@@ -3,6 +3,7 @@ package de.dfki.stickmanSwing.environment;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 import de.dfki.stickmanSwing.body.BodyPart;
 import de.dfki.stickmanSwing.body.Head;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,16 +22,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class SpeechBubble extends BodyPart {
+public class SpeechBubble extends BodyPart
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, SPEAK, THINK
-    };
+    }
+
+    ;
 
     Head mHead;
     public SpeechBubble.SHAPE mShape = SpeechBubble.SHAPE.DEFAULT;
@@ -45,7 +48,8 @@ public class SpeechBubble extends BodyPart {
 
     GeneralPath mBubble;
 
-    public SpeechBubble(Head head) {
+    public SpeechBubble(Head head)
+    {
         mHead = head;
         mColor = new Color(255, 255, 255, 192);
 
@@ -64,21 +68,25 @@ public class SpeechBubble extends BodyPart {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         SpeechBubble.SHAPE shape = SpeechBubble.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : SpeechBubble.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = SpeechBubble.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHead.getSpeechBubbleStartPosition();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 mBubble = new GeneralPath();
                 break;
@@ -104,7 +112,8 @@ public class SpeechBubble extends BodyPart {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -114,7 +123,8 @@ public class SpeechBubble extends BodyPart {
         g2.fill(mBubble);
 
         // draw text
-        if (mShape != SHAPE.DEFAULT) {
+        if (mShape != SHAPE.DEFAULT)
+        {
             // compute font correction offsets
             final int hOffset = mFontMetrics.getAscent() - mFontMetrics.getDescent() + 4;
             //final int wIdOffset = mFontMetrics.stringWidth(mText) / 2;
@@ -128,7 +138,8 @@ public class SpeechBubble extends BodyPart {
 
             AttributedString attributedString = new AttributedString(mText);
             attributedString.addAttribute(TextAttribute.FONT, mFont);
-            if (endB > startB) {
+            if (endB > startB)
+            {
                 //mHeadGroup.mStickman.mLogger.info("total >" + mText + "< current >" + mCurrentlySpokenText + "< start " + startB + " end " + endB);
                 //attributedString.addAttribute(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON, startB, endB);
                 //attributedString.addAttribute(TextAttribute.INPUT_METHOD_UNDERLINE, TextAttribute.UNDERLINE_LOW_TWO_PIXEL, startB, endB);
@@ -138,9 +149,11 @@ public class SpeechBubble extends BodyPart {
 
             // get lines ...
             int lines = 0;
-            while (textBreak.getPosition() < mLength) {
+            while (textBreak.getPosition() < mLength)
+            {
                 TextLayout layout = textBreak.nextLayout(mLength);
-                if (layout == null) {
+                if (layout == null)
+                {
                     break;
                 }
                 lines++;
@@ -154,11 +167,13 @@ public class SpeechBubble extends BodyPart {
             lines = 1;
             int start = 0;
             int end = 0;
-            while (textBreak.getPosition() < mLength) {
+            while (textBreak.getPosition() < mLength)
+            {
                 start = end;
                 end = textBreak.getPosition();
                 TextLayout layout = textBreak.nextLayout(mLength);
-                if (layout == null) {
+                if (layout == null)
+                {
                     break;
                 }
                 float textCunkWidth = layout.getAdvance();
@@ -167,9 +182,11 @@ public class SpeechBubble extends BodyPart {
             }
         }
 
-        if (mCurrentlySpokenText.isEmpty()) {
+        if (mCurrentlySpokenText.isEmpty())
+        {
             g2.setColor(new Color(0, 0, 0, 64 - (AnimatorSwing.sMAX_ANIM_STEPS - (new Double(mShapeAnimationStep)).intValue()) * 3));
-        } else {
+        } else
+        {
             g2.setColor(new Color(0, 0, 0, 64));
         }
         g2.setStroke(new BasicStroke(3));

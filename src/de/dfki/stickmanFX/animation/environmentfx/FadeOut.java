@@ -14,22 +14,23 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class FadeOut extends AnimationFX {
+public class FadeOut extends AnimationFX
+{
 
     private StickmanFX mStickmanFX;
 
-    public FadeOut(StickmanFX sm, int duration, boolean block) {
+    public FadeOut(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // bring upper arm and fore arm in position
         int rotationUnit = 10;
         mAnimationPartFX = new ArrayList<>();
@@ -75,9 +76,11 @@ public class FadeOut extends AnimationFX {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "shape", "DEFAULT"));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "shape", "DEFAULT"));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "shape", "DEFAULT"));
         }
 

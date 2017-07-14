@@ -16,19 +16,20 @@ import javafx.application.Platform;
 import javafx.scene.paint.Color;
 
 /**
- *
  * @author Beka
- *
  */
-public class BombeExplosion extends AnimationFX {
+public class BombeExplosion extends AnimationFX
+{
 
-    public BombeExplosion(StickmanFX sm, int duration, boolean block) {
+    public BombeExplosion(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 8;
         int rotationUnit = 10;
 
@@ -44,9 +45,11 @@ public class BombeExplosion extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "tilt", translationUnit));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "tilt", translationUnit));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "tilt", translationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "tilt", translationUnit));
         }
 
@@ -72,9 +75,11 @@ public class BombeExplosion extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "tilt", -translationUnit));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "tilt", -translationUnit));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "tilt", -translationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "tilt", -translationUnit));
         }
 
@@ -94,7 +99,8 @@ public class BombeExplosion extends AnimationFX {
         pauseAnimation(1000);
 
         //Blink
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "shape", "SURPRISED"));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightEyebrowFX, "shape", "SURPRISED"));
@@ -121,9 +127,11 @@ public class BombeExplosion extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "tilt", translationUnit));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "tilt", translationUnit));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "tilt", translationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "tilt", translationUnit));
         }
 
@@ -145,7 +153,8 @@ public class BombeExplosion extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftFootFX, "rotate", rotationUnit * 3));
         playAnimationPart(mDuration);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeLegFX, "rotate", -rotationUnit));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftFootFX, "rotate", -rotationUnit * 3));
@@ -190,9 +199,11 @@ public class BombeExplosion extends AnimationFX {
         mAnimationPartFX = new ArrayList<>();
         mStickmanFX.mHeadFX.translateRight = true;
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "Translate", -2000));
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "Translate", -2000));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "Translate", -2000));
         }
         mStickmanFX.mBodyFX.setVisible(false);

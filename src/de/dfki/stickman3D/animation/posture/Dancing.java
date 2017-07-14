@@ -19,30 +19,38 @@ import java.util.ArrayList;
  *
  * @author Beka Aptsiauri
  */
-public class Dancing extends Animation3D {
+public class Dancing extends Animation3D
+{
 
-    public Dancing() {
+    public Dancing()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Dancing(Stickman3D sm, int duration, boolean block) {
+    public Dancing(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -40));
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -110));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -30));
         }
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -40));
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 110));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 30));
         }
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", -60));
@@ -70,56 +78,69 @@ public class Dancing extends Animation3D {
 
         pauseAnimation(500);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -30));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -30));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -10));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -10));
             }
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "rotate", 5));
-            if (i == 3) {
+            if (i == 3)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFoot, "yrotate", 30));
             }
-            if (i > 3) {
+            if (i > 3)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", 10));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperLeg, "rotate", -50));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeLeg, "rotate", 50));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mDownBody, "rotate", 10));
             }
 
-            if (i == 6) {
+            if (i == 6)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "TWO"));
             }
-            if (i == 13) {
+            if (i == 13)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "SMILE"));
             }
             playAnimationPart(200);
 
             mAnimationPartFX = new ArrayList<>();
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 30));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 30));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 10));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 10));
             }
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "rotate", -5));
-            if (i > 3) {
+            if (i > 3)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", -10));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperLeg, "rotate", 50));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeLeg, "rotate", -50));
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mDownBody, "rotate", -10));
             }
-            if (i == 12) {
+            if (i == 12)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "DEFAULT"));
             }
-            if (i == 17) {
+            if (i == 17)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "SMILEEND"));
             }
-            if (i == 19) {
+            if (i == 19)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFoot, "yrotate", -30));
             }
             playAnimationPart(200);
@@ -128,15 +149,19 @@ public class Dancing extends Animation3D {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 40));
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 110));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 30));
         }
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 40));
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -110));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -30));
         }
 
@@ -163,7 +188,8 @@ public class Dancing extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "zrotate", 10));
         playAnimationPart(500);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

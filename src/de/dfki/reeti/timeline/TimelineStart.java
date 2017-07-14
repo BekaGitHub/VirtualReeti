@@ -7,7 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class TimelineStart {
+public class TimelineStart
+{
 
     private Reeti reeti = null;
     private Stage ownerStage = null;
@@ -22,7 +23,8 @@ public class TimelineStart {
         this.reeti = reeti;
     }
 
-    public void show() throws Exception{
+    public void show() throws Exception
+    {
         Stage timelineStage = new Stage();
 
         FXMLLoader loader = new FXMLLoader();
@@ -43,15 +45,18 @@ public class TimelineStart {
         timelineStage.show();
     }
 
-    public Reeti getReeti() {
+    public Reeti getReeti()
+    {
         return reeti;
     }
 
-    public void setReeti(Reeti reeti) {
+    public void setReeti(Reeti reeti)
+    {
         this.reeti = reeti;
     }
 
-    public void setOwnerStage(Stage ownerStage) {
+    public void setOwnerStage(Stage ownerStage)
+    {
         this.ownerStage = ownerStage;
     }
 }

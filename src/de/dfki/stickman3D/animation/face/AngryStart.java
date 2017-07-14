@@ -12,17 +12,19 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
  */
-public class AngryStart extends Animation3D {
+public class AngryStart extends Animation3D
+{
 
-    public AngryStart(Stickman3D sm, int duration, boolean block) {
+    public AngryStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry start
         Animation3D.isAngryInAction = true;
         mAnimationPartFX = new ArrayList<>();

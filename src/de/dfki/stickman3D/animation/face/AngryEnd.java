@@ -17,18 +17,19 @@ import java.util.ArrayList;
  * receives a new command.
  *
  * @author Beka Aptsiauri
- *
  */
-public class AngryEnd extends Animation3D {
+public class AngryEnd extends Animation3D
+{
 
     /**
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public AngryEnd(Stickman3D sm, int duration, boolean block) {
+    public AngryEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -36,7 +37,8 @@ public class AngryEnd extends Animation3D {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry end
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRYEND"));

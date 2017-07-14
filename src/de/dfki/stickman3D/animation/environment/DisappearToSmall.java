@@ -14,31 +14,33 @@ import javafx.application.Platform;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class DisappearToSmall extends Animation3D {
+public class DisappearToSmall extends Animation3D
+{
 
-    public DisappearToSmall() {
+    public DisappearToSmall()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public DisappearToSmall(Stickman3D sm, int duration, boolean block) {
+    public DisappearToSmall(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         float recordOriginScale = mStickmanFX.mScale;
         mStickmanFX.starShowControler = false;
         int rotationUnit = 5;
 
         // bring upper arm and fore arm in position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -rotationUnit * 30));
         playAnimationPart(200);
         pauseAnimation(100);
@@ -53,9 +55,11 @@ public class DisappearToSmall extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit * 8));
         playAnimationPart(180);
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++)
+        {
             // wave right
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -rotationUnit));
 
@@ -65,7 +69,8 @@ public class DisappearToSmall extends Animation3D {
             }
 
             // wave left
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit));
 
@@ -77,7 +82,7 @@ public class DisappearToSmall extends Animation3D {
 
         // go back in the default position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", rotationUnit * 30));
         playAnimationPart(20);
 
@@ -85,7 +90,8 @@ public class DisappearToSmall extends Animation3D {
         mStickmanFX.hideAllPartsWithout(mStickmanFX.mStars);
         mStickmanFX.mScale = recordOriginScale;
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

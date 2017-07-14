@@ -13,28 +13,31 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class TiltLeft extends Animation3D {
+public class TiltLeft extends Animation3D
+{
 
-    public TiltLeft() {
+    public TiltLeft()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public TiltLeft(Stickman3D sm, int duration, boolean block) {
+    public TiltLeft(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", 10));
         playAnimationPart(200);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

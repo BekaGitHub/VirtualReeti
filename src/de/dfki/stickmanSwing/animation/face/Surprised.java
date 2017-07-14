@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Surprised extends AnimationSwing {
+public class Surprised extends AnimationSwing
+{
 
-    public Surprised() {
+    public Surprised()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Surprised(StickmanSwing sm, int duration, boolean block) {
+    public Surprised(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // surprised
         mAnimationPart = new ArrayList<>();

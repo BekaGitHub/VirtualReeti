@@ -12,22 +12,23 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class ComeUp extends AnimationSwing {
+public class ComeUp extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public ComeUp(StickmanSwing sm, int duration, boolean block) {
+    public ComeUp(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 4;
 
@@ -40,9 +41,11 @@ public class ComeUp extends AnimationSwing {
         mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit * 32));
         playAnimationPart(100);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             // wave right
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", -rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit));
@@ -52,7 +55,8 @@ public class ComeUp extends AnimationSwing {
             }
 
             // wave left
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit));
@@ -70,10 +74,13 @@ public class ComeUp extends AnimationSwing {
         playAnimationPart(200);
     }
 
-    private void playComeSpeed(int Speed) {
-        if (mStickman.leaveSpeed > 0) {
+    private void playComeSpeed(int Speed)
+    {
+        if (mStickman.leaveSpeed > 0)
+        {
             mStickman.leaveSpeed = mStickman.leaveSpeed - Speed;
-        } else {
+        } else
+        {
             mStickman.leaveSpeed = 0;
         }
     }

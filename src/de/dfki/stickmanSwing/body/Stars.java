@@ -7,21 +7,24 @@ import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Stars extends BodyPart {
+public class Stars extends BodyPart
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, SAYBYE, SAYHI, STARSDISAPPEAR, STARSFADEOUT, STARSFADEIN
-    };
+    }
+
+    ;
 
     Body mBody;
     public Stars.SHAPE mShape = Stars.SHAPE.DEFAULT;
 
-    public Stars(Body body) {
+    public Stars(Body body)
+    {
 
         mBody = body;
         mLength = 150;
@@ -33,17 +36,20 @@ public class Stars extends BodyPart {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         Stars.SHAPE shape = Stars.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : Stars.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = Stars.SHAPE.DEFAULT;
     }
 
-    private void creatStar(int radius, Point center, GeneralPath gp) {
+    private void creatStar(int radius, Point center, GeneralPath gp)
+    {
         int r = radius;
         double ch = 72 * Math.PI / 180;
         int x0 = center.x;
@@ -69,7 +75,8 @@ public class Stars extends BodyPart {
 
     // Start.x left leg side
     @Override
-    public void createShape() {
+    public void createShape()
+    {
 
         mStart = mBody.getLeftLegStartPostion();
         mEnd = new Point(mStart.x, mStart.y + mLength);
@@ -77,7 +84,8 @@ public class Stars extends BodyPart {
         clearDrawObjects();
         GeneralPath gp = new GeneralPath();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 gp.moveTo(mStart.x, mStart.y);
                 mColor = new Color(0, 0, 0, 0);
@@ -137,9 +145,11 @@ public class Stars extends BodyPart {
             case STARSDISAPPEAR:
                 int movement = mShapeAnimationStep - 1;
                 int starColorChange = (int) (movement * 10);
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
                     mColor = new Color(240, 212, 0, starColorChange);
 
                     // STAR 1
@@ -216,9 +226,11 @@ public class Stars extends BodyPart {
             case STARSFADEOUT:
                 movement = mShapeAnimationStep - 1;
                 starColorChange = (int) (movement * 10);
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
                     mColor = new Color(240, 212, 0, starColorChange);
 
                     mStart = mBody.getLeftLegStartPostion();
@@ -237,9 +249,11 @@ public class Stars extends BodyPart {
             case STARSFADEIN:
                 movement = 21 - mShapeAnimationStep;
                 starColorChange = (int) (movement * 10);
-                if (movement >= 20) {
+                if (movement >= 20)
+                {
                     mColor = new Color(240, 212, 0, 255);
-                } else {
+                } else
+                {
                     mColor = new Color(240, 212, 0, starColorChange);
 
                     mStart = mBody.getLeftLegStartPostion();

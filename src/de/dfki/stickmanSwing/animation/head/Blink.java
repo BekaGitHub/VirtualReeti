@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Blink extends AnimationSwing {
+public class Blink extends AnimationSwing
+{
 
-    public Blink(StickmanSwing sm, int duration, boolean block) {
+    public Blink(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "BLINK"));
         mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "BLINK"));

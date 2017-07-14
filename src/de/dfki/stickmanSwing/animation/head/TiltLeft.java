@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class TiltLeft extends AnimationSwing {
+public class TiltLeft extends AnimationSwing
+{
 
-    public TiltLeft(StickmanSwing sm, int duration, boolean block) {
+    public TiltLeft(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 8;
 
         // head down

@@ -12,22 +12,23 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class FadeOut extends AnimationSwing {
+public class FadeOut extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public FadeOut(StickmanSwing sm, int duration, boolean block) {
+    public FadeOut(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // bring upper arm and fore arm in position	
         int rotationUnit = 10;
         mAnimationPart = new ArrayList<>();

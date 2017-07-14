@@ -12,22 +12,23 @@ import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class DisappearToSmall extends AnimationSwing {
+public class DisappearToSmall extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public DisappearToSmall(StickmanSwing sm, int duration, boolean block) {
+    public DisappearToSmall(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mStickman.starShowControler = false;
         int rotationUnit = 5;
 
@@ -51,9 +52,11 @@ public class DisappearToSmall extends AnimationSwing {
         mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit * 8));
         playAnimationPart(180);
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++)
+        {
             // wave right		
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", -rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit));
@@ -63,7 +66,8 @@ public class DisappearToSmall extends AnimationSwing {
             }
 
             // wave left
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit));

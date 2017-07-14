@@ -81,7 +81,7 @@ public class RightFoot3D extends BodyPartFX
         mRightFootMeshView.setTranslateX(mStart.x);
         if (mRightForeLeg.getUpperLeg().getDownBody().getUpperBody().getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             mRightFootMeshView.setTranslateY(mStart.y + 85);
-         else
+        else
             mRightFootMeshView.setTranslateY(mStart.y + 80);
         mRightFootMeshView.setTranslateZ(0);
 

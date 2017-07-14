@@ -1,38 +1,48 @@
 package de.dfki.common.commonFX3D;
 
 import de.dfki.common.interfaces.ApplicationLauncher;
-import de.dfki.common.interfaces.StickmanStage;
+import de.dfki.common.interfaces.AgentStage;
 
-public abstract class ApplicationLauncherImpl implements ApplicationLauncher {
+public abstract class ApplicationLauncherImpl implements ApplicationLauncher
+{
 
     private static boolean isRunning = false;
 
     @Override
-    public void waitForApplicationToStart() {
-        while (!isRunning) { //New class for running
-            try {
+    public void waitForApplicationToStart()
+    {
+        while (!isRunning)
+        { //New class for running
+            try
+            {
                 Thread.sleep(200);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException e)
+            {
                 e.printStackTrace();
             }
         }
     }
 
     @Override
-    public Thread getLaunchStickmanThread(final StickmanStage fx) {
-        return new Thread() {
-            public void run() {
-                fx.lauchStickman();
+    public Thread getLaunchStickmanThread(final AgentStage fx)
+    {
+        return new Thread()
+        {
+            public void run()
+            {
+                fx.launcher();
             }
 
         };
     }
 
-    public static boolean isRunning() {
+    public static boolean isRunning()
+    {
         return isRunning;
     }
 
-    public static synchronized void setIsRunning() {
+    public static synchronized void setIsRunning()
+    {
         isRunning = true;
     }
 }

@@ -11,25 +11,28 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 
 import java.util.ArrayList;
+
 import javafx.scene.paint.Color;
 
 /**
- *
  * @author Beka
- *
  */
-public class Sad extends AnimationReeti {
+public class Sad extends AnimationReeti
+{
 
-    public Sad() {
+    public Sad()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Sad(Reeti sm, int duration, boolean block) {
+    public Sad(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.leftEyeLid(60);
         mReeti.rightEyeLid(60);
         mReeti.leftEyeTilt(15);
@@ -42,7 +45,8 @@ public class Sad extends AnimationReeti {
         mReeti.neckTilt(0);
 
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

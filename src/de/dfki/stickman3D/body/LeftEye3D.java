@@ -41,7 +41,7 @@ public class LeftEye3D extends BodyPartFX
 
         if (mHead.getStickman().mType == Gender.TYPE.MALE)
             mColor = Color.rgb(0, 0, 0, 1);
-         else
+        else
             mColor = Color.rgb(0, 0, 255, 1);
 
         smallPupileColor = Color.rgb(255, 255, 255, 1);

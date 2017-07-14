@@ -13,22 +13,23 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import javafx.application.Platform;
 
 /**
- *
  * @author Beka
- *
  */
-public class ComeUp extends AnimationFX {
+public class ComeUp extends AnimationFX
+{
 
     private StickmanFX mStickmanFX;
 
-    public ComeUp(StickmanFX sm, int duration, boolean block) {
+    public ComeUp(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 7;
 
@@ -41,9 +42,11 @@ public class ComeUp extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit * 32));
         playAnimationPart(100);
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++)
+        {
             // wave right
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", -rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", -rotationUnit));
@@ -53,7 +56,8 @@ public class ComeUp extends AnimationFX {
             }
 
             // wave left
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit));
@@ -71,10 +75,13 @@ public class ComeUp extends AnimationFX {
         playAnimationPart(200);
     }
 
-    private void playComeSpeed(int Speed) {
-        if (mStickmanFX.voffset > 0) {
+    private void playComeSpeed(int Speed)
+    {
+        if (mStickmanFX.voffset > 0)
+        {
             mStickmanFX.voffset = mStickmanFX.voffset - Speed;
-        } else {
+        } else
+        {
             mStickmanFX.voffset = 0;
         }
         Platform.runLater(() -> mStickmanFX.update());

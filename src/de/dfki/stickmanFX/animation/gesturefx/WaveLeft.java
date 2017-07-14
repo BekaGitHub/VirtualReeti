@@ -12,22 +12,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class WaveLeft extends AnimationFX {
+public class WaveLeft extends AnimationFX
+{
 
-    public WaveLeft() {
+    public WaveLeft()
+    {
         mAnimType = ANIMTYPE.Gesture;
     }
 
-    public WaveLeft(StickmanFX sm, int duration, boolean block) {
+    public WaveLeft(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // mStickman.stopIdleBehavior();
         // mStickman.startIdleBehavior("TouchHead");
         int rotationUnit = 10;

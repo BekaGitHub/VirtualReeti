@@ -12,24 +12,25 @@ import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class LeftLC extends AnimationReeti {
+public class LeftLC extends AnimationReeti
+{
 
 
-    public LeftLC(Reeti sm, int duration, int pos, boolean block) {
+    public LeftLC(Reeti sm, int duration, int pos, boolean block)
+    {
         super(sm, duration, pos, block);
     }
 
     @Override
-    public void playAnimation() {
-        
+    public void playAnimation()
+    {
+
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentReeti(mReeti.mMouthLeftCorner, "shape", "LEFTCORNERACTION"));
         playAnimationPart(mDuration);
-        
+
 
     }
 }

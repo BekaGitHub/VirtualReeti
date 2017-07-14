@@ -72,6 +72,7 @@ public class LeftUpperLeg3D extends BodyPartFX
 
         init();
     }
+
     @Override
     public void setShape(String s)
     {

@@ -11,15 +11,15 @@ import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Neck extends BodyPart {
+public class Neck extends BodyPart
+{
 
     Head mHead;
 
-    public Neck(Head head) {
+    public Neck(Head head)
+    {
         mHead = head;
         mLength = 8;
         mSize = new Dimension(4, mLength);
@@ -28,28 +28,34 @@ public class Neck extends BodyPart {
         init();
     }
 
-    public Point getBodyStartPosition() {
+    public Point getBodyStartPosition()
+    {
         return new Point(mEnd.x, mEnd.y);
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHead.getNeckStartPosition();
         mEnd = new Point(mStart.x, mStart.y + mLength);
 
         clearDrawObjects();
 
-        if (mHead.mStickman.setCharacterInvisible == true) {
+        if (mHead.mStickman.setCharacterInvisible == true)
+        {
             if (mHead.mStickman.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mHead.mStickman.mMouth.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(80, 80, 80, fadeFactor);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mHead.mStickman.mMouth.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     fadeFactor = 255;
                 }
                 mColor = new Color(80, 80, 80, fadeFactor);

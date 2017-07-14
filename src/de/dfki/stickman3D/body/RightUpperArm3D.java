@@ -48,7 +48,7 @@ public class RightUpperArm3D extends BodyPartFX
         URL url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/UpperArm.dae");
         if (mUpperBody.getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             mDefaultRotation = 10;
-         else
+        else
             mDefaultRotation = 15;
 
         mZRotation = mDefaultRotation;

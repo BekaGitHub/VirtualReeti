@@ -8,25 +8,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class SadStart extends AnimationFX {
+public class SadStart extends AnimationFX
+{
 
-    public SadStart() {
+    public SadStart()
+    {
         super();
     }
 
-    public SadStart(StickmanFX sm, int duration, boolean block) {
+    public SadStart(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // sad
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SAD"));

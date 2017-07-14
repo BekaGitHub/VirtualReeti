@@ -5,16 +5,17 @@ import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.body.BodyPart;
 import de.dfki.stickmanSwing.util.TimingInfo;
+
 import static java.lang.Thread.sleep;
+
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class AnimatorSwing {
+public class AnimatorSwing
+{
 
     public static int sMAX_ANIM_STEPS = 20;
     public int mCurrentStep = sMAX_ANIM_STEPS;
@@ -27,7 +28,8 @@ public class AnimatorSwing {
     public Semaphore mRenderingPause = new Semaphore(0);
 
     //private long mPreparationTime = 0;
-    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps) {
+    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps)
+    {
         mStickman = sm;
         mAnimation = a;
         mAnimationComponents = animComps;
@@ -37,7 +39,8 @@ public class AnimatorSwing {
         render();
     }
 
-    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps, int duration) {
+    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps, int duration)
+    {
         //mPreparationTime = System.currentTimeMillis();
         mStickman = sm;
         mAnimation = a;
@@ -49,7 +52,8 @@ public class AnimatorSwing {
         render();
     }
 
-    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps, WordTimeMarkSequence wts) {
+    public AnimatorSwing(StickmanSwing sm, AnimationSwing a, ArrayList<AnimationContentSwing> animComps, WordTimeMarkSequence wts)
+    {
         //mPreparationTime = System.currentTimeMillis();
         mStickman = sm;
         mAnimation = a;
@@ -60,13 +64,17 @@ public class AnimatorSwing {
         renderEventAnimation();
     }
 
-    private void renderEventAnimation() {
-        for (ArrayList<Entry> cluster : mWTS.getClusters()) {
+    private void renderEventAnimation()
+    {
+        for (ArrayList<Entry> cluster : mWTS.getClusters())
+        {
             //mStickman.mLogger.info("Cluster is a " + WordTimeMarkSequence.getClusterType(cluster).name());
-            if (WordTimeMarkSequence.getClusterType(cluster) == Entry.TYPE.WORD) {
+            if (WordTimeMarkSequence.getClusterType(cluster) == Entry.TYPE.WORD)
+            {
                 String text = "";
 
-                for (Entry e : cluster) {
+                for (Entry e : cluster)
+                {
                     //mStickman.mLogger.info("entry " + e.mContent);
                     text += e.mContent + " ";
                 }
@@ -93,10 +101,12 @@ public class AnimatorSwing {
                 render();
             }
 
-            if (WordTimeMarkSequence.getClusterType(cluster) == Entry.TYPE.TIMEMARK) {
+            if (WordTimeMarkSequence.getClusterType(cluster) == Entry.TYPE.TIMEMARK)
+            {
                 // here we have to spread the word that a specific timemark has been reached
                 // the interface is the runActionAtTimemark method in the EventActionPlayer
-                for (Entry e : cluster) {
+                for (Entry e : cluster)
+                {
                     // we have 2 options!
                     // 1) API Call
                     // 2) send to Player
@@ -107,52 +117,66 @@ public class AnimatorSwing {
         }
     }
 
-    private void render() {
+    private void render()
+    {
         mCurrentStep = sMAX_ANIM_STEPS;
-        while (mCurrentStep > 0) {
+        while (mCurrentStep > 0)
+        {
             //for (mCurrentStep = sMAX_ANIM_STEPS; mCurrentStep > 0; mCurrentStep--) {
             // DEBUG mStickman.mLogger.info("currentstep " + mCurrentStep + " max steps " + sMAX_ANIM_STEPS);
-            if (mCurrentStep == sMAX_ANIM_STEPS) {
+            if (mCurrentStep == sMAX_ANIM_STEPS)
+            {
                 //mStickman.mLogger.info("\t\t\tpreparing " + mDescription);
                 // renderEventAnimatione animation components
-                mAnimationComponents.stream().forEach((comp) -> {
+                mAnimationComponents.stream().forEach((comp) ->
+                {
                     BodyPart bodypart = comp.mBodyPart;
                     String action = comp.mAction;
                     int param = comp.mParam;
                     String paramString = comp.mParamString;
-                    if (action.equalsIgnoreCase("rotate")) {
+                    if (action.equalsIgnoreCase("rotate"))
+                    {
                         bodypart.setRotation(param);
                     }
-                    if (action.equalsIgnoreCase("tilt")) {
+                    if (action.equalsIgnoreCase("tilt"))
+                    {
                         bodypart.setTilt(param);
                     }
-                    if (action.equalsIgnoreCase("translate")) {
+                    if (action.equalsIgnoreCase("translate"))
+                    {
                         bodypart.setTranslation(param);
                     }
-                    if (action.equalsIgnoreCase("shape")) {
+                    if (action.equalsIgnoreCase("shape"))
+                    {
                         bodypart.setShape(paramString);
                     }
                 });
             }
 
-            if (mCurrentStep > 1) {
-                for (AnimationContentSwing ba : mAnimationComponents) {
+            if (mCurrentStep > 1)
+            {
+                for (AnimationContentSwing ba : mAnimationComponents)
+                {
                     BodyPart bodypart = ba.mBodyPart;
                     String action = ba.mAction;
 
-                    if (action.equalsIgnoreCase("rotate")) {
+                    if (action.equalsIgnoreCase("rotate"))
+                    {
                         bodypart.calculateRotation(mCurrentStep);
                     }
 
-                    if (action.equalsIgnoreCase("tilt")) {
+                    if (action.equalsIgnoreCase("tilt"))
+                    {
                         bodypart.calculateRotation(mCurrentStep);
                     }
 
-                    if (action.equalsIgnoreCase("translate")) {
+                    if (action.equalsIgnoreCase("translate"))
+                    {
                         bodypart.calculateTranslation(mCurrentStep);
                     }
 
-                    if (action.equalsIgnoreCase("shape")) {
+                    if (action.equalsIgnoreCase("shape"))
+                    {
                         bodypart.calculateShape(mCurrentStep);
                     }
                 }
@@ -161,27 +185,34 @@ public class AnimatorSwing {
 
                 new WaitThread(mRenderPauseDuration).start();
                 // block this until WaitThread will unblock 
-                try {
+                try
+                {
                     mRenderingPause.acquire(1);
-                } catch (InterruptedException ex) {
+                } catch (InterruptedException ex)
+                {
                     mStickman.mLogger.severe(ex.getMessage());
                 }
             }
 
-            if (mCurrentStep == 1) {
-                for (AnimationContentSwing ba : mAnimationComponents) {
+            if (mCurrentStep == 1)
+            {
+                for (AnimationContentSwing ba : mAnimationComponents)
+                {
                     String action = ba.mAction;
                     BodyPart bodypart = ba.mBodyPart;
 
-                    if (action.equalsIgnoreCase("rotate")) {
+                    if (action.equalsIgnoreCase("rotate"))
+                    {
                         bodypart.resetRotation();
                     }
 
-                    if (action.equalsIgnoreCase("tilt")) {
+                    if (action.equalsIgnoreCase("tilt"))
+                    {
                         bodypart.resetRotation();
                     }
 
-                    if (action.equalsIgnoreCase("translate")) {
+                    if (action.equalsIgnoreCase("translate"))
+                    {
                         bodypart.resetTranslation();
                     }
                 }
@@ -190,9 +221,11 @@ public class AnimatorSwing {
 
                 new WaitThread(mRenderPauseDuration).start();
                 // block this until WaitThread will unblock 
-                try {
+                try
+                {
                     mRenderingPause.acquire(1);
-                } catch (InterruptedException ex) {
+                } catch (InterruptedException ex)
+                {
                     mStickman.mLogger.severe(ex.getMessage());
                 }
 
@@ -204,20 +237,25 @@ public class AnimatorSwing {
         }
     }
 
-    private class WaitThread extends Thread {
+    private class WaitThread extends Thread
+    {
 
         int mSleepTime = 0;
 
-        public WaitThread(int time) {
+        public WaitThread(int time)
+        {
             mSleepTime = time;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             // directly go to sleep
-            try {
+            try
+            {
                 sleep(mSleepTime, 0);
-            } catch (InterruptedException ex) {
+            } catch (InterruptedException ex)
+            {
                 mStickman.mLogger.severe(ex.getMessage());
             }
             // release sempahore

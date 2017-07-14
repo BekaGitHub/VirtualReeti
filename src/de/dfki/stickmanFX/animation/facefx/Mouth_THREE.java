@@ -5,28 +5,32 @@ package de.dfki.stickmanFX.animation.facefx;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Mouth_THREE extends AnimationFX {
+public class Mouth_THREE extends AnimationFX
+{
 
-    public Mouth_THREE() {
+    public Mouth_THREE()
+    {
         super();
     }
 
-    public Mouth_THREE(StickmanFX sm, int duration, boolean block) {
+    public Mouth_THREE(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // smile
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "ONE"));

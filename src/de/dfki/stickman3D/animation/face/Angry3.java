@@ -6,6 +6,7 @@
 package de.dfki.stickman3D.animation.face;
 
 import de.dfki.common.Gender;
+
 import java.util.ArrayList;
 
 import de.dfki.stickman3D.Stickman3D;
@@ -19,24 +20,26 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
  *
  * @author Beka Aptsiauri
  */
-public class Angry3 extends Animation3D {
+public class Angry3 extends Animation3D
+{
 
     Stickman3D mStickmanFX;
     int rotationUnit;
 
-    public Angry3() {
+    public Angry3()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
     /**
-     *
-     * @param sm Stickman
+     * @param sm       Agent
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public Angry3(Stickman3D sm, int duration, boolean block) {
+    public Angry3(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
@@ -45,7 +48,8 @@ public class Angry3 extends Animation3D {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRY"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "ANGRY"));
@@ -60,12 +64,14 @@ public class Angry3 extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "yrotate", -25));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", 110));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", 90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger3, "rotate", 90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger4, "rotate", 90));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", 70));
@@ -77,7 +83,8 @@ public class Angry3 extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -40));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 10));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", 13));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", -70));
@@ -86,7 +93,8 @@ public class Angry3 extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "rotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "rotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "rotate", 120));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", 10));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", -60));
@@ -100,7 +108,8 @@ public class Angry3 extends Animation3D {
         playAnimationPart(500);
 
         // foot
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "rotate", 40));
             playAnimationPart(200);
@@ -111,13 +120,17 @@ public class Angry3 extends Animation3D {
         }
 
         // Head3D
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
-            if (i == 0 || i == 6) {
+            if (i == 0 || i == 6)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -10));
-            } else if (i % 2 == 1) {
+            } else if (i % 2 == 1)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
-            } else if (i % 2 == 0) {
+            } else if (i % 2 == 0)
+            {
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -20));
             }
             playAnimationPart(200);
@@ -139,12 +152,14 @@ public class Angry3 extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "yrotate", 25));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -110));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", -90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger3, "rotate", -90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger4, "rotate", -90));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", -70));
@@ -154,8 +169,9 @@ public class Angry3 extends Animation3D {
 
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 40));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -10));
-        
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", -13));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", 70));
@@ -164,7 +180,8 @@ public class Angry3 extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "rotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "rotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "rotate", -120));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", -10));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", 60));
@@ -177,7 +194,8 @@ public class Angry3 extends Animation3D {
 
         playAnimationPart(500);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

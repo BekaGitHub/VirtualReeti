@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author beka Aptsiauri
- *
  */
-public class AngrySmallMouthStart extends Animation3D {
+public class AngrySmallMouthStart extends Animation3D
+{
 
-    public AngrySmallMouthStart(Stickman3D sm, int duration, boolean block) {
+    public AngrySmallMouthStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry with small mouth start
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRYSMALLMOUTH"));

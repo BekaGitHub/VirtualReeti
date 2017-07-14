@@ -1,7 +1,7 @@
 package de.dfki.stickmanSwing.stage;
 
-import de.dfki.common.StickmansOnStage;
-import de.dfki.common.interfaces.StickmanStage;
+import de.dfki.common.AgentsOnStage;
+import de.dfki.common.interfaces.AgentStage;
 import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.util.StickmanStageLayout;
 import de.dfki.stickmanFX.StickmanFX;
@@ -18,11 +18,10 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class StickmanStageSwing extends JFrame implements StickmanStage {
+public class StickmanStageSwing extends JFrame implements AgentStage
+{
 
     public static final float STICKMAN_SIZE_FACTOR = 0.8f;
     public static final float HEIGHT_ADJUSTMENT = 2 / 3.0f;
@@ -36,7 +35,8 @@ public class StickmanStageSwing extends JFrame implements StickmanStage {
     // logging
     public static final Logger mLogger = Logger.getAnonymousLogger();
 
-    public StickmanStageSwing() {
+    public StickmanStageSwing()
+    {
         super("StickmanSwing Stage");
         sStickmanPanel = new JPanel();
         sStickmanPanel.setLayout(new StickmanStageLayout());
@@ -47,8 +47,10 @@ public class StickmanStageSwing extends JFrame implements StickmanStage {
         ch.setFormatter(new StickmanStageLogFormatter());
     }
 
-    public void setFullScreenSize() {
-        Dimension size = java.awt.Toolkit.getDefaultToolkit().getScreenSize();;
+    public void setFullScreenSize()
+    {
+        Dimension size = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        ;
         /*        setUndecorated(true);*/
 
         setBackground(new Color(128, 0, 5, 255));
@@ -58,76 +60,87 @@ public class StickmanStageSwing extends JFrame implements StickmanStage {
         sStickmanPanel.repaint();
     }
 
-    public void addStickmanToPanel(StickmanSwing s) {
+    public void addStickmanToPanel(StickmanSwing s)
+    {
         sStickmanPanel.add(s);
         sStickmanPanel.revalidate();
     }
 
-    public StickmanSwing getStickman(String name) {
-        if (sStickmansOnStage.containsKey(name.toLowerCase())) {
+    public StickmanSwing getStickman(String name)
+    {
+        if (sStickmansOnStage.containsKey(name.toLowerCase()))
+        {
             return sStickmansOnStage.get(name.toLowerCase());
-        } else {
+        } else
+        {
             return null;
         }
     }
 
-    public void showStickmanName(boolean show) {
-        for (StickmanSwing s : sStickmansOnStage.values()) {
+    public void showStickmanName(boolean show)
+    {
+        for (StickmanSwing s : sStickmansOnStage.values())
+        {
             s.mShowName = show;
         }
     }
 
-    public static void sendTimeMarkInformation(String timemark) {
+    public static void sendTimeMarkInformation(String timemark)
+    {
     }
 
-    public static void sendAnimationUpdate(String state, String id) {
+    public static void sendAnimationUpdate(String state, String id)
+    {
     }
 
     @Override
-    public float getFullScreenScale() {
+    public float getFullScreenScale()
+    {
         Dimension size = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         float mHeight = (float) size.getHeight();
         return mHeight / (float) StickmanSwing.mDefaultSize.height * sScale * STICKMAN_SIZE_FACTOR;
     }
 
     @Override
-    public Dimension getFullScreenDimension() {
+    public Dimension getFullScreenDimension()
+    {
         Dimension size = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         float mHeight = (float) size.getHeight();
         return new Dimension(new Float(mHeight * HEIGHT_ADJUSTMENT * sScale).intValue(), new Float(mHeight * sScale * STICKMAN_IN_BETWEEN_DISTANCE_FACTOR).intValue());
     }
 
     @Override
-    public void addStickmanToStage(String stageIdentifier) {
+    public void addAgentToStage(String stageIdentifier)
+    {
 
     }
 
     @Override
-    public void setStageFullScreen(String stageIdentifier) {
+    public void setStageFullScreen(String stageIdentifier)
+    {
         sFullScreen = true;
     }
 
     @Override
-    public void setStageNonFullScreen(String stageIdentifier) {
-        sFullScreen = false;
+    public void setAgentsOnStage(AgentsOnStage stickamnsOnStage, String identifier)
+    {
+        AgentsOnStage stickamnsOnStage1 = stickamnsOnStage;
     }
 
     @Override
-    public void setStickamnsOnStage(StickmansOnStage stickamnsOnStage, String identifier) {
-        StickmansOnStage stickamnsOnStage1 = stickamnsOnStage;
-    }
-
-    @Override
-    public HBox getStickmanBox(String stageIdentifier) throws Exception {
+    public HBox getAgentBox(String stageIdentifier) throws Exception
+    {
         return null;
     }
 
-    public void clearStage() {
+    public void clearStage()
+    {
         dispose();
     }
 
     @Override
-    public BufferedImage getStageAsImage(String stageIdentifier) {
+    public BufferedImage getStageAsImage(String stageIdentifier)
+    {
         BufferedImage image = new BufferedImage(sStickmanPanel.getWidth(), sStickmanPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics g = image.createGraphics();
         sStickmanPanel.paint(g);
@@ -135,37 +148,44 @@ public class StickmanStageSwing extends JFrame implements StickmanStage {
         return image;
     }
 
-    private static class StickmanStageLogFormatter extends Formatter {
+    private static class StickmanStageLogFormatter extends Formatter
+    {
 
         @Override
-        public String format(LogRecord record) {
+        public String format(LogRecord record)
+        {
             return ((new StringBuffer()).append(record.getLevel()).append(": ").append(record.getMessage()).append("\n")).toString();
         }
     }
 
     @Override
-    public void addStickmanToStage(String mStageIdentifier, StickmanFX mStickmanFX) throws Exception {
+    public void addAgentToStage(String mStageIdentifier, StickmanFX mStickmanFX) throws Exception
+    {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void lauchStickman() {
+    public void launcher()
+    {
 
     }
 
     @Override
-    public void clearStage(String stageIdentifier) {
+    public void clearStage(String stageIdentifier)
+    {
 
     }
 
     @Override
-    public void showStage(String configStage) {
+    public void showStage(String configStage)
+    {
 
     }
 
     @Override
-    public String createNewStage(int x, int y, boolean decoration) throws IOException {
+    public String createNewStage(int x, int y, boolean decoration) throws IOException
+    {
         return null;
     }
 }

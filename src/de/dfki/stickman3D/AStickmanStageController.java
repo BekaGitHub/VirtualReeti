@@ -5,11 +5,13 @@
  */
 package de.dfki.stickman3D;
 
-import de.dfki.common.StickmansOnStage;
+import de.dfki.common.AgentsOnStage;
 import de.dfki.stickman3D.stage.StickmanStage3D;
 import de.dfki.stickman3D.xmlsettings.StickmanData3D;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -24,10 +26,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 /**
- *
  * @author EmpaT
  */
-public abstract class AStickmanStageController {
+public abstract class AStickmanStageController
+{
     public static final String PACKAGE_EMOTIONEXPRESSION = "de.dfki.stickman3D.animation.face";
     public static final String PACKAGE_GESTURE = "de.dfki.stickman3D.animation.gesture";
     public static final String PACKAGE_HEAD = "de.dfki.stickman3D.animation.head";
@@ -395,7 +397,7 @@ public abstract class AStickmanStageController {
     public TextField rightForeLegYRotationField;
     @FXML
     public TextField rightForeLegZRotationField;
-    
+
     @FXML
     public Slider hairOpacitySlider;
     @FXML
@@ -445,7 +447,7 @@ public abstract class AStickmanStageController {
     @FXML
     public Slider leftForeLegZSlider;
     @FXML
-    public Label recCounter0; 
+    public Label recCounter0;
     @FXML
     public Label recCounter1;
     @FXML
@@ -486,7 +488,7 @@ public abstract class AStickmanStageController {
     public Label recCounter19;
     @FXML
     public Label recCounter20;
-    
+
 
     @FXML
     public ImageView bg1;
@@ -500,10 +502,10 @@ public abstract class AStickmanStageController {
     public ImageView bg5;
     @FXML
     public ImageView bg6;
-    
+
     @FXML
     public Button headRotationTest;
-    @FXML 
+    @FXML
     public Button headRotationCreate;
 
     public final ArrayList<String> mStickmanComboList = new ArrayList<>();
@@ -512,7 +514,7 @@ public abstract class AStickmanStageController {
     public boolean isCameraStarted = false;
     public String mStickmancombobox = null;
     public ToggleGroup perlinNoiseGroup;
-    public StickmansOnStage mStickmanOnstage;
+    public AgentsOnStage mStickmanOnstage;
 
     double xRotateFactor;
     double yRotateFactor;
@@ -522,7 +524,7 @@ public abstract class AStickmanStageController {
     public static RadioButton currentRadioButton;
     public StickmanStage3D stage3D;
     public String backgroundRecord = null;
-    
+
     public AnchorPane classNamePane;
-    public AnchorPane testView;  
+    public AnchorPane testView;
 }

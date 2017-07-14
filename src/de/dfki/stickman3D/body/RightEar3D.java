@@ -29,7 +29,7 @@ public class RightEar3D extends BodyPartFX
 
     private MeshView mRightEarMesh;
     private PhongMaterial material;
-//    Image image;
+    //    Image image;
     private double initOpacity = 1.0;
 
     public RightEar3D.SHAPE mShape = RightEar3D.SHAPE.DEFAULT;

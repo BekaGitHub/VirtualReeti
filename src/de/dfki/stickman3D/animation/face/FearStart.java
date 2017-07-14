@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class FearStart extends Animation3D {
+public class FearStart extends Animation3D
+{
 
-    public FearStart(Stickman3D sm, int duration, boolean block) {
+    public FearStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // fear
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "FEAR"));

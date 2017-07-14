@@ -14,20 +14,23 @@ import de.dfki.util.xml.XMLParseError;
 import de.dfki.util.xml.XMLParseable;
 import de.dfki.util.xml.XMLWriteError;
 import de.dfki.util.xml.XMLWriteable;
+
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
+
 import org.w3c.dom.Element;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable, Animation {
+public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable, Animation
+{
 
-    public enum ANIMTYPE {
+    public enum ANIMTYPE
+    {
         EmotionExpression, Gesture
     }
+
     public String mName = "";
     public ArrayList<AnimationContentSwing> mAnimationPart = new ArrayList<>();
     public Semaphore mAnimationPartStart = new Semaphore(0);
@@ -43,15 +46,18 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
 
     public ANIMTYPE mAnimType = null;
 
-    public AnimationSwing() {
+    public AnimationSwing()
+    {
 
     }
 
-    public String getmID() {
+    public String getmID()
+    {
         return mID;
     }
 
-    public AnimationSwing(StickmanSwing sm, int duration, boolean block) {
+    public AnimationSwing(StickmanSwing sm, int duration, boolean block)
+    {
         mName = getClass().getSimpleName();
         mStickman = sm;
         mStickmanName = mStickman.mName;
@@ -61,42 +67,51 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
         mDuration = duration;
     }
 
-    public void setParameter(Object p) {
+    public void setParameter(Object p)
+    {
         mParameter = p;
     }
 
-    public void setID(String id) {
+    public void setID(String id)
+    {
         mID = id;
     }
 
-    public void setStickmanName(String stickmanName) {
+    public void setStickmanName(String stickmanName)
+    {
         mStickmanName = stickmanName;
-        //mStickman = StickmanStageSwing.getStickman(mReetiName);
+        //mStickman = StickmanStageSwing.getAgent(mReetiName);
         setName(mStickmanName + "'s AnimationSwing " + mName);
     }
 
-    public void setAnimationName(String animationName) {
+    public void setAnimationName(String animationName)
+    {
         mName = animationName;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(int duration)
+    {
         mDuration = duration;
     }
 
-    public void setBlocking(boolean blocking) {
+    public void setBlocking(boolean blocking)
+    {
         mBlocking = blocking;
     }
 
-    public void waitForClearance() {
+    public void waitForClearance()
+    {
         //mStickman.mLogger.info("Introducing " + this.toString() + " to Animationcheduler");
         mStickman.mAnimationScheduler.introduce(this);
         //mStickman.mLogger.info("\tdone.");
 
         // block this animation for animation - AnimationSheduler will unblock 
-        try {
+        try
+        {
             //mStickman.mLogger.info("Block - give AnimationSwing Scheduler control when to start the animation" + this.toString());
             mAnimationStart.acquire(1);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickman.mLogger.severe(ex.getMessage());
         }
 
@@ -105,74 +120,94 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
         mStickman.mAnimationLaunchControl.release();
     }
 
-    public void play() {
+    public void play()
+    {
         // wait until AnimationScheduler says go!
-        try {
+        try
+        {
             mAnimationStart.acquire(1);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickman.mLogger.severe(ex.getMessage());
         }
 
         playAnimation();
     }
 
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // place animation code here
     }
 
-    public void playAnimationPart(int duration) {
+    public void playAnimationPart(int duration)
+    {
         mAnimator = new AnimatorSwing(mStickman, this, mAnimationPart, duration);
 
-        try {
+        try
+        {
             mAnimationPartStart.acquire();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickman.mLogger.severe(ex.getMessage());
         }
 
     }
 
-    public void pauseAnimation(int duration) {
+    public void pauseAnimation(int duration)
+    {
         mAnimationPause = new AnimationPause(mStickman, this, duration);
 
-        try {
+        try
+        {
             mAnimationPartStart.acquire();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickman.mLogger.severe(ex.getMessage());
         }
     }
 
-    public void finalizeAnimation() {
+    public void finalizeAnimation()
+    {
         //mStickman.mLogger.info(mStickman.mName + "'s AnimationSwing " + getClass().getSimpleName() + " with id " + mID + " has ended - notify Listeners!");
         // unblock AnimationScheduler if animation is a blocking animation
-        if (mBlocking) {
+        if (mBlocking)
+        {
             //mStickman.mLogger.info("unblocking AnimationScheduler");
             mStickman.mAnimationScheduler.proceed(this);
-        } else {
+        } else
+        {
             mStickman.mAnimationScheduler.removeAnimation(this);
         }
         // send event that AnimationSwing is ended
 
         // send event that AnimationSwing is ended - if there is a recipient
-        if (mStickman.getStageController() != null) {
+        if (mStickman.getStageController() != null)
+        {
             // API or TCP-Interface
-            if (!mStickman.getStageController().ismNetwork()) {
+            if (!mStickman.getStageController().ismNetwork())
+            {
                 mStickman.notifyListeners(mID);
-            } else {
+            } else
+            {
                 mStickman.getStageController().sendAnimationUpdate("end", getmID());
             }
         }
     }
 
     @Override
-    public void writeXML(IOSIndentWriter out) throws XMLWriteError {
+    public void writeXML(IOSIndentWriter out) throws XMLWriteError
+    {
         out.println("<StickmanAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + mID + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
-        if (mParameter != null) {
+        if (mParameter != null)
+        {
 
-            if (mParameter instanceof WordTimeMarkSequence) {
+            if (mParameter instanceof WordTimeMarkSequence)
+            {
                 ((WordTimeMarkSequence) mParameter).writeXML(out);
             }
 
-            if (mParameter instanceof String) {
+            if (mParameter instanceof String)
+            {
                 out.println((String) mParameter);
             }
         }
@@ -180,7 +215,8 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
     }
 
     @Override
-    public void parseXML(final Element element) throws XMLParseError {
+    public void parseXML(final Element element) throws XMLParseError
+    {
 
         mStickmanName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
@@ -189,18 +225,22 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
         mBlocking = Boolean.parseBoolean(element.getAttribute("blocking"));
 
         // Process The Child Nodes
-        XMLParseAction.processChildNodes(element, new XMLParseAction() {
+        XMLParseAction.processChildNodes(element, new XMLParseAction()
+        {
             @Override
-            public void run(final Element element) throws XMLParseError {
+            public void run(final Element element) throws XMLParseError
+            {
 
                 // Get The Child Tag Name
                 final String name = element.getTagName();
 
-                if (name.equalsIgnoreCase("WordTimeMarkSequence")) {
+                if (name.equalsIgnoreCase("WordTimeMarkSequence"))
+                {
                     mParameter = new WordTimeMarkSequence();
 
                     ((WordTimeMarkSequence) mParameter).parseXML(element);
-                } else {
+                } else
+                {
                     mParameter = (String) element.getTextContent();
                 }
             }
@@ -208,7 +248,8 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         //mStickman.mLogger.info(mStickman.mName + "'s AnimationSwing " + getClass().getSimpleName() + " wait for clearance.");
         waitForClearance();
 
@@ -220,7 +261,8 @@ public class AnimationSwing extends Thread implements XMLParseable, XMLWriteable
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return mName + ", " + getName();
     }
 }

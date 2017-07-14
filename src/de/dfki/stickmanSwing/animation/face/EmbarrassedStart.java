@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class EmbarrassedStart extends AnimationSwing {
+public class EmbarrassedStart extends AnimationSwing
+{
 
-    public EmbarrassedStart(StickmanSwing sm, int duration, boolean block) {
+    public EmbarrassedStart(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // embarrassed start
         mAnimationPart = new ArrayList<>();

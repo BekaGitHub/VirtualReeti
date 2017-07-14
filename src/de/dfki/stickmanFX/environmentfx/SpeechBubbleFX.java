@@ -9,16 +9,18 @@ import javafx.scene.paint.Color;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Beka
- *
  */
-public class SpeechBubbleFX extends BodyPartFX {
+public class SpeechBubbleFX extends BodyPartFX
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, SPEAK, THINK
-    };
+    }
+
+    ;
 
     HeadFX mHeadFX;
     public SpeechBubbleFX.SHAPE mShape = SpeechBubbleFX.SHAPE.DEFAULT;
@@ -29,24 +31,28 @@ public class SpeechBubbleFX extends BodyPartFX {
 
     GeneralPath mBubble;
 
-    public SpeechBubbleFX(HeadFX head) {
+    public SpeechBubbleFX(HeadFX head)
+    {
         mHeadFX = head;
         mColor = Color.rgb(255, 255, 255, (192 * 100 / 255) / 100f);
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         SpeechBubbleFX.SHAPE shape = SpeechBubbleFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : SpeechBubbleFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = SpeechBubbleFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHeadFX.getSpeechBubbleStartPosition();
 
         clearChildren(this);
@@ -54,7 +60,8 @@ public class SpeechBubbleFX extends BodyPartFX {
         bubblePane = new GridPane();
         message = new Label();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 break;
 
@@ -72,9 +79,11 @@ public class SpeechBubbleFX extends BodyPartFX {
                 this.getChildren().add(bubblePane);
 
                 //if message is Empty
-                if (this.getHeight() == 0) {
+                if (this.getHeight() == 0)
+                {
                     this.setVisible(false);
-                } else {
+                } else
+                {
                     this.setVisible(true);
                     this.toFront();
                 }

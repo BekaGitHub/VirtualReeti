@@ -7,18 +7,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class HappyStart extends AnimationSwing {
+public class HappyStart extends AnimationSwing
+{
 
-    public HappyStart(StickmanSwing sm, int duration, boolean block) {
+    public HappyStart(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // happy start
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "HAPPY"));

@@ -14,18 +14,20 @@ import javafx.application.Platform;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class ComeUp extends Animation3D {
+public class ComeUp extends Animation3D
+{
 
-    public ComeUp() {
+    public ComeUp()
+    {
         mAnimType = ANIMTYPE.ON;
     }
+
     double recordOriginLeaveSpeed;
 
-    public ComeUp(Stickman3D sm, int duration, boolean block) {
+    public ComeUp(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
         recordOriginLeaveSpeed = mStickmanFX.leaveSpeed;
@@ -33,7 +35,8 @@ public class ComeUp extends Animation3D {
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 4;
 
@@ -41,20 +44,23 @@ public class ComeUp extends Animation3D {
 
         // bring upper arm and fore arm in position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -rotationUnit * 30));
         playAnimationPart(100);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             // wave right
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 10; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -rotationUnit));
                 playComeSpeed(speed);
                 playAnimationPart(20);
             }
             // wave left
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 10; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit));
                 playComeSpeed(speed);
@@ -64,20 +70,24 @@ public class ComeUp extends Animation3D {
 
         // go back in the default position
         mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit ));
+        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", rotationUnit * 30));
         playAnimationPart(200);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
 
     }
 
-    private void playComeSpeed(int Speed) {
-        if (mStickmanFX.leaveSpeed > recordOriginLeaveSpeed) {
+    private void playComeSpeed(int Speed)
+    {
+        if (mStickmanFX.leaveSpeed > recordOriginLeaveSpeed)
+        {
             mStickmanFX.leaveSpeed = mStickmanFX.leaveSpeed - Speed;
-        } else {
+        } else
+        {
             mStickmanFX.leaveSpeed = recordOriginLeaveSpeed;
         }
         Platform.runLater(() -> mStickmanFX.update());

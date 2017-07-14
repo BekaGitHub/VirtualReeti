@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class WaveLeft extends AnimationSwing {
+public class WaveLeft extends AnimationSwing
+{
 
-    public WaveLeft(StickmanSwing sm, int duration, boolean block) {
+    public WaveLeft(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 //		mStickman.stopIdleBehavior();
 //		mStickman.startIdleBehavior("TouchHead");
         int rotationUnit = 10;

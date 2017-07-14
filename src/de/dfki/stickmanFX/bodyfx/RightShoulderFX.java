@@ -15,11 +15,10 @@ import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class RightShoulderFX extends BodyPartFX {
+public class RightShoulderFX extends BodyPartFX
+{
 
     BodyFX mBodyFX;
 
@@ -31,11 +30,14 @@ public class RightShoulderFX extends BodyPartFX {
 
     Path mShoulder;
 
-    public RightShoulderFX(BodyFX body) {
+    public RightShoulderFX(BodyFX body)
+    {
         mBodyFX = body;
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mShoulderLength = 25;
-        } else {
+        } else
+        {
             mShoulderLength = 15;
         }
         mColor = Color.rgb(80, 80, 80);
@@ -51,21 +53,27 @@ public class RightShoulderFX extends BodyPartFX {
         calculate(0);
     }
 
-    public Point getRightShoulderEndPosition() {
+    public Point getRightShoulderEndPosition()
+    {
         //return (mShoulder != null) ? new Point((int) (mShoulder.boundsInParentProperty().get().getMinX()+ 2), (int) mShoulder.boundsInParentProperty().get().getMaxY()-1) : new Point(0, 0);
-        if (mRotation >= 0 && mRotation <= 90) {
+        if (mRotation >= 0 && mRotation <= 90)
+        {
             return (mShoulder != null) ? new Point((int) (mShoulder.boundsInParentProperty().get().getMinX() + 2), (int) mShoulder.boundsInParentProperty().get().getMaxY() - 2) : new Point(0, 0);
-        } else if (mRotation > 90 && mRotation <= 180) {
+        } else if (mRotation > 90 && mRotation <= 180)
+        {
             return (mShoulder != null) ? new Point((int) (mShoulder.boundsInParentProperty().get().getMinX()), (int) mShoulder.boundsInParentProperty().get().getMinY()) : new Point(0, 0);
-        } else if (mRotation < 0 && mRotation >= -90) {
+        } else if (mRotation < 0 && mRotation >= -90)
+        {
             return (mShoulder != null) ? new Point((int) (mShoulder.boundsInParentProperty().get().getMaxX()), (int) mShoulder.boundsInParentProperty().get().getMaxY()) : new Point(0, 0);
-        } else {
+        } else
+        {
             return (mShoulder != null) ? new Point((int) (mShoulder.boundsInParentProperty().get().getMaxX()), (int) mShoulder.boundsInParentProperty().get().getMinY()) : new Point(0, 0);
         }
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         mStart = mBodyFX.getRightArmStartPostion();
         mEnd = new Point(mStart.x, mStart.y + mShoulderLength);
         clearChildren(this);
@@ -82,29 +90,37 @@ public class RightShoulderFX extends BodyPartFX {
         update();
 
         //calculate and posOnScreen bodyfx (right shoulder area)
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mRightShoulderFX != null) {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mRightShoulderFX != null)
+        {
             mBodyFX.calculate();
         }
     }
 
     @Override
-    public void update() {
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
+    public void update()
+    {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
-        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
+        if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true)
+        {
             if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
                 }
                 //g2.setColor(new Color(80, 80, 80,fadeFactor));

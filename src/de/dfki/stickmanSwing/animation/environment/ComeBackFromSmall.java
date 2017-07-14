@@ -12,24 +12,26 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class ComeBackFromSmall extends AnimationSwing {
+public class ComeBackFromSmall extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public ComeBackFromSmall(StickmanSwing sm, int duration, boolean block) {
+    public ComeBackFromSmall(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         float mScaleRecord = 0.0f;
 
-        for (int j = 0; j < 19; j++) {
+        for (int j = 0; j < 19; j++)
+        {
             mStickman.mScale = mStickman.mScale * 0.95f;
         }
 
@@ -70,28 +72,33 @@ public class ComeBackFromSmall extends AnimationSwing {
         playAnimationPart(20);
         pauseAnimation(20);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++)
+        {
             // wave right		
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", -rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit));
 
                 mStickman.mScale = mStickman.mScale * 1.05f;
-                if (mStickman.mScale >= 1.3) {
+                if (mStickman.mScale >= 1.3)
+                {
                     mStickman.mScale = 1.334445f;
                 }
                 playAnimationPart(20);
             }
 
             // wave left
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit));
 
                 mStickman.mScale = mStickman.mScale * 1.05f;
-                if (mStickman.mScale >= 1.3) {
+                if (mStickman.mScale >= 1.3)
+                {
                     mStickman.mScale = 1.334445f;
                 }
                 playAnimationPart(20);

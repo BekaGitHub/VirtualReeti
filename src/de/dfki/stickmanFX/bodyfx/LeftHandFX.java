@@ -16,17 +16,17 @@ import javafx.scene.shape.Path;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Beka
- *
  */
-public class LeftHandFX extends BodyPartFX {
+public class LeftHandFX extends BodyPartFX
+{
 
     LeftForeArmFX mLeftForeArmFX;
     Path mHand;
     Affine af;
 
-    public LeftHandFX(LeftForeArmFX lfa) {
+    public LeftHandFX(LeftForeArmFX lfa)
+    {
         mLeftForeArmFX = lfa;
         mLength = 10;
         mSize = new Dimension(mLength, mLength);
@@ -42,7 +42,8 @@ public class LeftHandFX extends BodyPartFX {
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mLeftForeArmFX.getHandStartPosition();
         mEnd = new Point(mStart.x, mStart.y + mLength);
 
@@ -52,20 +53,25 @@ public class LeftHandFX extends BodyPartFX {
 //        if (mLeftForeArm.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeck.mHead.mStickman.setCharacterInvisible == false) {
 //        	mColorRecorder = mColor;
 //        }
-        if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
+        if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true)
+        {
             if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 }
                 //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
@@ -87,25 +93,30 @@ public class LeftHandFX extends BodyPartFX {
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         createShape();
 
         Affine af = new Affine();
         // flip hand when rotation is more than 60 degrees
-        if (mRotation > 60) {
+        if (mRotation > 60)
+        {
             af.appendScale(-1.1, 1.0);
             af.appendTranslation(-mStart.x * 2, 0);
         }
 
         af.appendRotation(mRotation, mStart.x, mStart.y);
-        for (Path g : mGraphicPaths) {
+        for (Path g : mGraphicPaths)
+        {
             g.getTransforms().clear();
             g.getTransforms().add(af);
         }
     }
 
-    protected void recordColor() {
-        if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
+    protected void recordColor()
+    {
+        if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
     }

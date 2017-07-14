@@ -14,23 +14,25 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class FadeIn extends Animation3D {
+public class FadeIn extends Animation3D
+{
 
-    public FadeIn() {
+    public FadeIn()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public FadeIn(Stickman3D sm, int duration, boolean block) {
+    public FadeIn(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mStars, "shape", "STARSFADEIN"));
@@ -48,7 +50,7 @@ public class FadeIn extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mNose, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEar, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEar, "shape", "FADEIN"));
-        if(mStickmanFX.mType == Gender.TYPE.MALE)
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMaleHair, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mNeck, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "shape", "FADEIN"));
@@ -70,7 +72,7 @@ public class FadeIn extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "shape", "FADEIN"));
-        if(mStickmanFX.mType == Gender.TYPE.FEMALE)
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFemaleHair, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperLeg, "shape", "FADEIN"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeLeg, "shape", "FADEIN"));
@@ -80,7 +82,8 @@ public class FadeIn extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "shape", "FADEIN"));
         playAnimationPart(500);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

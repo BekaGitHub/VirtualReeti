@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class HeadTilt extends Animation3D {
+public class HeadTilt extends Animation3D
+{
 
-    public HeadTilt() {
+    public HeadTilt()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public HeadTilt(Stickman3D sm, int duration, boolean block) {
+    public HeadTilt(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", -10));
@@ -38,7 +40,8 @@ public class HeadTilt extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", 10));
         playAnimationPart(200);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
 

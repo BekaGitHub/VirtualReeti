@@ -3,6 +3,7 @@ package de.dfki.stickmanFX.bodyfx;
 import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Point;
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
@@ -10,22 +11,25 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;
 
 /**
- *
  * @author Robbie
  * @modified Beka
- *
  */
-public class StarsFX extends BodyPartFX {
+public class StarsFX extends BodyPartFX
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, SAYBYE, SAYHI, STARSDISAPPEAR, STARSFADEOUT, STARSFADEIN
-    };
+    }
+
+    ;
 
     BodyFX mBodyFX;
     public StarsFX.SHAPE mShape = StarsFX.SHAPE.DEFAULT;
 
-    public StarsFX(BodyFX body) {
+    public StarsFX(BodyFX body)
+    {
 
         mBodyFX = body;
         mLength = 150;
@@ -37,17 +41,20 @@ public class StarsFX extends BodyPartFX {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         StarsFX.SHAPE shape = StarsFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : StarsFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = StarsFX.SHAPE.DEFAULT;
     }
 
-    private void creatStar(int radius, Point center, Path path) {
+    private void creatStar(int radius, Point center, Path path)
+    {
         clearChildren(this);
         int r = radius;
         double ch = 72 * Math.PI / 180;
@@ -76,7 +83,8 @@ public class StarsFX extends BodyPartFX {
 
     // Start.x left leg side
     @Override
-    public void createShape() {
+    public void createShape()
+    {
 
         mStart = mBodyFX.getLeftLegStartPostion();
         mEnd = new Point(mStart.x, mStart.y + mLength);
@@ -85,7 +93,8 @@ public class StarsFX extends BodyPartFX {
         clearChildren(this);
         Path path = new Path();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 path.getElements().add(new MoveTo(mStart.x, mStart.y));
                 mColor = Color.rgb(0, 0, 0, 0);
@@ -145,9 +154,11 @@ public class StarsFX extends BodyPartFX {
             case STARSDISAPPEAR:
                 int movement = mShapeAnimationStep - 1;
                 int starColorChange = (int) (movement * 10);
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
                     mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
                     // STAR 1
@@ -171,9 +182,11 @@ public class StarsFX extends BodyPartFX {
             case STARSFADEOUT:
                 movement = mShapeAnimationStep - 1;
                 starColorChange = (int) (movement * 10);
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
                     mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
                     mStart = mBodyFX.getLeftLegStartPostion();
@@ -192,9 +205,11 @@ public class StarsFX extends BodyPartFX {
             case STARSFADEIN:
                 movement = 21 - mShapeAnimationStep;
                 starColorChange = (int) (movement * 10);
-                if (movement >= 20) {
+                if (movement >= 20)
+                {
                     mColor = new Color(240, 212, 0, (255 * 100 / 255) / 100f);
-                } else {
+                } else
+                {
                     mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
                     mStart = mBodyFX.getLeftLegStartPostion();

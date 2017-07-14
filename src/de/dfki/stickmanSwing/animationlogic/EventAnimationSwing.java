@@ -11,49 +11,59 @@ import de.dfki.util.ios.IOSIndentWriter;
 import de.dfki.util.xml.XMLParseAction;
 import de.dfki.util.xml.XMLParseError;
 import de.dfki.util.xml.XMLWriteError;
+
 import java.util.List;
+
 import org.w3c.dom.Element;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class EventAnimationSwing extends AnimationSwing {
+public class EventAnimationSwing extends AnimationSwing
+{
 
     public List<Long> mTimepoints;
     public WordTimeMarkSequence mWTS;
 
-    public EventAnimationSwing() {
+    public EventAnimationSwing()
+    {
         super();
     }
 
-    public EventAnimationSwing(StickmanSwing sm, int duration, boolean block) {
+    public EventAnimationSwing(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mName = getClass().getSimpleName();
         setName(sm.mName + "'s Event AnimationSwing " + mName);
     }
 
-    public void playEventAnimationPart() {
+    public void playEventAnimationPart()
+    {
         mAnimator = new AnimatorSwing(mStickman, this, mAnimationPart, mWTS);
 
-        try {
+        try
+        {
             mAnimationPartStart.acquire();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickman.mLogger.severe(ex.getMessage());
         }
     }
 
     @Override
-    public void writeXML(IOSIndentWriter out) throws XMLWriteError {
+    public void writeXML(IOSIndentWriter out) throws XMLWriteError
+    {
         out.println("<StickmanEventAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + mID + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
-        if (mParameter != null) {
+        if (mParameter != null)
+        {
 
-            if (mParameter instanceof WordTimeMarkSequence) {
+            if (mParameter instanceof WordTimeMarkSequence)
+            {
                 ((WordTimeMarkSequence) mParameter).writeXML(out);
             }
 
-            if (mParameter instanceof String) {
+            if (mParameter instanceof String)
+            {
                 out.println((String) mParameter);
             }
         }
@@ -61,7 +71,8 @@ public class EventAnimationSwing extends AnimationSwing {
     }
 
     @Override
-    public void parseXML(final Element element) throws XMLParseError {
+    public void parseXML(final Element element) throws XMLParseError
+    {
 
         mStickmanName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
@@ -70,18 +81,22 @@ public class EventAnimationSwing extends AnimationSwing {
         mBlocking = Boolean.parseBoolean(element.getAttribute("blocking"));
 
         // Process The Child Nodes
-        XMLParseAction.processChildNodes(element, new XMLParseAction() {
+        XMLParseAction.processChildNodes(element, new XMLParseAction()
+        {
             @Override
-            public void run(final Element element) throws XMLParseError {
+            public void run(final Element element) throws XMLParseError
+            {
 
                 // Get The Child Tag Name
                 final String name = element.getTagName();
 
-                if (name.equalsIgnoreCase("WordTimeMarkSequence")) {
+                if (name.equalsIgnoreCase("WordTimeMarkSequence"))
+                {
                     mParameter = new WordTimeMarkSequence();
 
                     ((WordTimeMarkSequence) mParameter).parseXML(element);
-                } else {
+                } else
+                {
                     mParameter = (String) element.getTextContent();
                 }
             }

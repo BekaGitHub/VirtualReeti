@@ -2,6 +2,7 @@ package de.dfki.stickmanFX.bodyfx;
 
 import java.awt.Dimension;
 import java.awt.Point;
+
 import static de.dfki.stickmanSwing.animationlogic.util.Interpolator.linear;
 
 import de.dfki.common.Gender;
@@ -14,25 +15,28 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class RightEyeFX extends BodyPartFX {
+public class RightEyeFX extends BodyPartFX
+{
 
     double xMovement;
     double yMovement1;
     double yMovement2;
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
         DEFAULT, BLINK, LOOKLEFT, LOOKRIGHT, ANGRY, ANGRYEND, SURPRISED, SURPRISEDEND, HAPPY, HAPPYEND, DISGUSTED, DISGUSTEDEND, LOVED, LOVEDEND, LOVED1, CONTEMPT, CONTEMPTEND, EXCITED, EXCITEDEND, EMBARRASSED, EMBARRASSEDEND
-    };
+    }
+
+    ;
 
     HeadFX mHead;
     Path mPath;
     public RightEyeFX.SHAPE mShape = RightEyeFX.SHAPE.DEFAULT;
 
-    public RightEyeFX(HeadFX head) {
+    public RightEyeFX(HeadFX head)
+    {
         mHead = head;
         mLength = 5;
         mSize = new Dimension(5, mLength);
@@ -47,18 +51,21 @@ public class RightEyeFX extends BodyPartFX {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         RightEyeFX.SHAPE shape = RightEyeFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : RightEyeFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = RightEyeFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHead.getRightEyePostion();
         mEnd = new Point(mStart.x + mLength, mStart.y);
 
@@ -69,26 +76,32 @@ public class RightEyeFX extends BodyPartFX {
 
         mPath = new Path();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
 //            	if (mHeadGroup.mStickman.setCharacterInvisible == false)
 //            		mColorRecorder = mColor;
-                if (mHead.mStickmanFX.setCharacterInvisible == true) {
+                if (mHead.mStickmanFX.setCharacterInvisible == true)
+                {
                     if (mHead.mStickmanFX.fadeControler == true) //Added by Robbie
                     {
                         int fadeFactor = mHead.mStickmanFX.mMouthFX.mShapeAnimationStep * 7;
-                        if (fadeFactor <= 14) {
+                        if (fadeFactor <= 14)
+                        {
                             fadeFactor = 0;
                         }
                         mColor = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                                 mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                                 mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0, (fadeFactor * 100 / 255) / 100f);
-                    } else {
+                    } else
+                    {
                         int fadeFactor = (20 - mHead.mStickmanFX.mMouthFX.mShapeAnimationStep) * 7;
 
-                        if (fadeFactor >= 119) {
+                        if (fadeFactor >= 119)
+                        {
                             mColor = mColorRecorder;
-                        } else {
+                        } else
+                        {
                             mColor = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                                     mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                                     mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0, (fadeFactor * 100 / 255) / 100f);
@@ -127,10 +140,12 @@ public class RightEyeFX extends BodyPartFX {
             case ANGRYEND:
                 movement = mShapeAnimationStep - 1;
 
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x + movement / 10, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + movement / 10 + mEnd.x + movement / 8) / 2, mStart.y - movement / 6, mEnd.x + movement / 8, mEnd.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + movement / 10 + mEnd.x + movement / 8) / 2, mStart.y + movement / 6, mStart.x + movement / 10, mStart.y));
@@ -147,10 +162,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case SURPRISEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x - movement / 10, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x - movement / 10 + mEnd.x + movement / 10) / 2, mStart.y - movement / 2, mEnd.x + movement / 10, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x - movement / 10 + mEnd.x + movement / 10) / 2, mStart.y + movement / 2, mStart.x - movement / 10, mStart.y));
@@ -165,10 +182,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case HAPPYEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x - movement / 10, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x - movement / 10 + mEnd.x + movement / 10) / 2, mStart.y - 3, mEnd.x + movement / 10, mEnd.y));
                 }
@@ -183,10 +202,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case DISGUSTEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x - movement / 4, mStart.y - movement / 4));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3 + movement / 8, mEnd.x + movement / 8, mEnd.y + movement / 8));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3 + movement / 4, mStart.x - movement / 4, mStart.y + movement / 8));
@@ -208,10 +229,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case LOVEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     xMovement = movement / 10 * 6;
                     yMovement1 = movement / 10 * 6;
                     yMovement2 = movement / 10 * 3;
@@ -247,10 +270,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case CONTEMPTEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - movement / 10, mEnd.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y + movement / 10, mStart.x, mStart.y));
@@ -265,10 +290,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case EXCITEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x - movement / 10, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x + movement / 10, mEnd.y));
                 }
@@ -282,10 +309,12 @@ public class RightEyeFX extends BodyPartFX {
 
             case EMBARRASSEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mPath.getElements().add(new MoveTo(mStart.x, mStart.y));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3, mEnd.x, mEnd.y));
-                } else {
+                } else
+                {
                     mPath.getElements().add(new MoveTo(mStart.x + movement / 2, mStart.y + movement / 5 * 2));
                     mPath.getElements().add(new QuadCurveTo((mStart.x + movement / 2 + mEnd.x + movement / 2) / 2, mStart.y - 4 + movement / 2, mEnd.x + movement / 2, mEnd.y + movement / 5 * 2));
                 }
@@ -297,8 +326,10 @@ public class RightEyeFX extends BodyPartFX {
         this.update();
     }
 
-    protected void recordColor() {
-        if (mHead.mStickmanFX.setCharacterInvisible == false) {
+    protected void recordColor()
+    {
+        if (mHead.mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
     }

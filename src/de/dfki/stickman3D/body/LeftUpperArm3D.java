@@ -48,7 +48,7 @@ public class LeftUpperArm3D extends BodyPartFX
 
         if (mUpperBody.getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             mDefaultRotation = -10;
-         else
+        else
             mDefaultRotation = -15;
 
         mZRotation = mDefaultRotation;

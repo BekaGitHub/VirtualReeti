@@ -14,24 +14,26 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class FadeOut extends Animation3D {
+public class FadeOut extends Animation3D
+{
 
-    public FadeOut() {
+    public FadeOut()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public FadeOut(Stickman3D sm, int duration, boolean block) {
+    public FadeOut(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mStars, "shape", "STARSFADEIN"));
@@ -49,7 +51,7 @@ public class FadeOut extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "shape", "FADEOUT"));
-        if(mStickmanFX.mType == Gender.TYPE.MALE)
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMaleHair, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mNeck, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "shape", "FADEOUT"));
@@ -71,7 +73,7 @@ public class FadeOut extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "shape", "FADEOUT"));
-        if(mStickmanFX.mType == Gender.TYPE.FEMALE)
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFemaleHair, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperLeg, "shape", "FADEOUT"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeLeg, "shape", "FADEOUT"));
@@ -81,7 +83,8 @@ public class FadeOut extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "shape", "FADEOUT"));
         playAnimationPart(500);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

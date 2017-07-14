@@ -30,7 +30,7 @@ public class RightEyebrow3D extends BodyPartFX
 
         if (mHead.getStickman().mType == Gender.TYPE.MALE)
             mColor = Color.rgb(88, 44, 13, 1);
-         else
+        else
             mColor = Color.rgb(204, 163, 0, 1);
 
         currentPolygon = new Polygon();

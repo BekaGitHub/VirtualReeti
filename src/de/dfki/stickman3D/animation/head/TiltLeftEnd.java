@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class TiltLeftEnd extends Animation3D {
+public class TiltLeftEnd extends Animation3D
+{
 
-    public TiltLeftEnd(Stickman3D sm, int duration, boolean block) {
+    public TiltLeftEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", -10));

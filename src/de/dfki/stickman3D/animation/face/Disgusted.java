@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Disgusted extends Animation3D {
+public class Disgusted extends Animation3D
+{
 
-    public Disgusted() {
+    public Disgusted()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Disgusted(Stickman3D sm, int duration, boolean block) {
+    public Disgusted(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // disgusted
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "DISGUSTED"));
@@ -49,7 +51,8 @@ public class Disgusted extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "DISGUSTEDEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

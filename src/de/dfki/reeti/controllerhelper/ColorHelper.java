@@ -28,7 +28,7 @@ public class ColorHelper
             controller.currentReeti.setLedColor(color, Reeti.LED.RIGHTLED);
         }
     }
-    
+
     public static void bothLedColorChanger(ReetiStageController controller)
     {
         if (controller.currentReeti != null)

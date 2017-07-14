@@ -9,22 +9,25 @@ import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.environment.SpeechBubble;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Speaking extends AnimationSwing {
+public class Speaking extends AnimationSwing
+{
 
-    public Speaking(StickmanSwing sm, int duration, boolean block) {
+    public Speaking(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (mParameter instanceof String) {
+    public void playAnimation()
+    {
+        if (mParameter instanceof String)
+        {
             mStickman.mSpeechBubble.mText = (String) mParameter;
         }
 

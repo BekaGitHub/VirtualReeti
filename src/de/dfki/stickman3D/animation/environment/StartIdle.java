@@ -4,9 +4,7 @@ import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.animationlogic.Animation3D;
 
 /**
- *
  * @author Robbie
- *
  */
 
 /*
@@ -14,23 +12,28 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
  * To change this template file, choose Tools | Templates and open the template
  * in the editor.
  */
-public class StartIdle extends Animation3D {
+public class StartIdle extends Animation3D
+{
 
     int frequent;
 
-    public StartIdle(Stickman3D sm, int duration, boolean block) {
+    public StartIdle(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
 
         frequent = duration / 1000;
-        if (frequent <= 0) {
+        if (frequent <= 0)
+        {
             frequent = 1;
         }
     }
 
     @Override
-    public void playAnimation() {
-        if (mStickmanFX.mIdleBehavior == null) {
+    public void playAnimation()
+    {
+        if (mStickmanFX.mIdleBehavior == null)
+        {
             mStickmanFX.mIdleRun = true;
             mStickmanFX.mIdleBehavior = new IdleBehavior(mStickmanFX);
         }

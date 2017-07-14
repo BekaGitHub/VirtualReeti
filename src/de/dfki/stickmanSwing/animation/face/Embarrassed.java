@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Embarrassed extends AnimationSwing {
+public class Embarrassed extends AnimationSwing
+{
 
-    public Embarrassed() {
+    public Embarrassed()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Embarrassed(StickmanSwing sm, int duration, boolean block) {
+    public Embarrassed(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // embarrassed
         mAnimationPart = new ArrayList<>();

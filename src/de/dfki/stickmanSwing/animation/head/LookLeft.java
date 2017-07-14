@@ -7,18 +7,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class LookLeft extends AnimationSwing {
+public class LookLeft extends AnimationSwing
+{
 
-    public LookLeft(StickmanSwing sm, int duration, boolean block) {
+    public LookLeft(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 3;
 
         // look left

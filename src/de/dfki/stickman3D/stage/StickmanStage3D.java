@@ -1,12 +1,10 @@
 package de.dfki.stickman3D.stage;
 
 import de.dfki.common.commonFX3D.ApplicationLauncherImpl;
-import de.dfki.common.StickmansOnStage;
-import de.dfki.common.interfaces.StickmanStage;
+import de.dfki.common.AgentsOnStage;
+import de.dfki.common.interfaces.AgentStage;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
-
-import static de.dfki.stickman3D.stage.StageRoom3D.OldIdentifier;
 
 import de.dfki.stickmanFX.stage.StageRoomFX;
 import javafx.application.Application;
@@ -29,7 +27,7 @@ import java.util.logging.Logger;
 /**
  * @author Robbie and Beka
  */
-public class StickmanStage3D extends Application implements StickmanStage
+public class StickmanStage3D extends Application implements AgentStage
 {
 
     private static final float STICKMAN_SIZE_FACTOR = 0.8f;
@@ -41,7 +39,7 @@ public class StickmanStage3D extends Application implements StickmanStage
     private final int mWidth = 0;
 
     static private StickmanStage3D sInstance;
-    private final HashMap<String, StickmansOnStage> stickamnsOnStage = new HashMap<>();
+    private final HashMap<String, AgentsOnStage> stickamnsOnStage = new HashMap<>();
     private final float sScale;
     private final Map<String, Stage> stickmanStages = new HashMap<>();
     private final StagePaneHandler3D generalConfigStageRoot;
@@ -93,11 +91,11 @@ public class StickmanStage3D extends Application implements StickmanStage
                 Platform.runLater(() ->
                 {
                     mStickmanHBox.getChildren().clear();
-                    if (stickmanStages.containsKey(StageRoom3D.OldIdentifier))
+                    if (stickmanStages.containsKey(StageRoom3D.sOldIdentifier))
                     {
-                        stickmanStages.get(StageRoom3D.OldIdentifier).getScene().getMnemonics().clear();
-                        stickmanStages.get(StageRoom3D.OldIdentifier).close();
-                        stickmanStages.remove(StageRoom3D.OldIdentifier);
+                        stickmanStages.get(StageRoom3D.sOldIdentifier).getScene().getMnemonics().clear();
+                        stickmanStages.get(StageRoom3D.sOldIdentifier).close();
+                        stickmanStages.remove(StageRoom3D.sOldIdentifier);
                         for (String key : stickamnsOnStage.keySet())
                         {
                             stickamnsOnStage.get(key).clearStage();
@@ -167,7 +165,7 @@ public class StickmanStage3D extends Application implements StickmanStage
     }
 
     @Override
-    public void lauchStickman()
+    public void launcher()
     {
         launch();
     }
@@ -208,14 +206,14 @@ public class StickmanStage3D extends Application implements StickmanStage
      * @throws Exception
      */
     @Override
-    public void addStickmanToStage(String stageIdentifier) throws Exception
+    public void addAgentToStage(String stageIdentifier) throws Exception
     {
         Platform.runLater(() ->
         {
             final HBox box;
             try
             {
-                box = getStickmanBox(stageIdentifier);
+                box = getAgentBox(stageIdentifier);
                 for (String key : stickamnsOnStage.get(stageIdentifier).getStickmanNames())
                 {
                     Stickman3D sman3D = (Stickman3D) stickamnsOnStage.get(stageIdentifier).getStickmanByKey(key);
@@ -248,15 +246,6 @@ public class StickmanStage3D extends Application implements StickmanStage
         setFullScreen(stageIdentifier, true);
     }
 
-    /**
-     * @param stageIdentifier
-     */
-    @Override
-    public void setStageNonFullScreen(String stageIdentifier)
-    {
-        setFullScreen(stageIdentifier, false);
-    }
-
     private void setFullScreen(String stageIdentifier, boolean value)
     {
         if (stickmanStages.containsKey(stageIdentifier))
@@ -271,7 +260,7 @@ public class StickmanStage3D extends Application implements StickmanStage
      * @param identifier
      */
     @Override
-    public void setStickamnsOnStage(StickmansOnStage stickamnsOnStage, String identifier)
+    public void setAgentsOnStage(AgentsOnStage stickamnsOnStage, String identifier)
     {
         this.stickamnsOnStage.put(identifier, stickamnsOnStage);
         generalConfigStageRoot.setStickmansOnStage(stickamnsOnStage);
@@ -283,7 +272,7 @@ public class StickmanStage3D extends Application implements StickmanStage
      * @throws Exception
      */
     @Override
-    public HBox getStickmanBox(String stageIdentifier) throws Exception
+    public HBox getAgentBox(String stageIdentifier) throws Exception
     {
         HBox box;
         Stage stage = stickmanStages.get(stageIdentifier);
@@ -369,10 +358,10 @@ public class StickmanStage3D extends Application implements StickmanStage
      * @throws Exception
      */
     @Override
-    public void addStickmanToStage(String stageIdentifier, de.dfki.stickmanFX.StickmanFX sman) throws Exception
+    public void addAgentToStage(String stageIdentifier, de.dfki.stickmanFX.StickmanFX sman) throws Exception
     {
         HBox stickmanBox;
-        stickmanBox = getStickmanBox(stageIdentifier);
+        stickmanBox = getAgentBox(stageIdentifier);
         stickmanBox.getChildren().clear();
         stickmanBox.getChildren().add(sman);
     }

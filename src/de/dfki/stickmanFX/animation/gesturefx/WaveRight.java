@@ -12,22 +12,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class WaveRight extends AnimationFX {
+public class WaveRight extends AnimationFX
+{
 
-    public WaveRight() {
+    public WaveRight()
+    {
         mAnimType = ANIMTYPE.Gesture;
     }
 
-    public WaveRight(StickmanFX sm, int duration, boolean block) {
+    public WaveRight(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // 50 is the sum of all animation parts

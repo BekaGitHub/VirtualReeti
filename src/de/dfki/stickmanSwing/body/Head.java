@@ -13,11 +13,10 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Head extends BodyPart {
+public class Head extends BodyPart
+{
 
     public Dimension mSize = new Dimension(120, 100);
     public StickmanSwing mStickman;
@@ -32,7 +31,8 @@ public class Head extends BodyPart {
 
     GeneralPath mHead, mLeftEar, mRightEar, mFemaleHair, mMaleHair;
 
-    public Head(StickmanSwing sm) {
+    public Head(StickmanSwing sm)
+    {
         mStickman = sm;
         mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
         mStroke = new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
@@ -42,35 +42,43 @@ public class Head extends BodyPart {
         calculate(0);
     }
 
-    public Point getLeftEyebrowPostion() {
+    public Point getLeftEyebrowPostion()
+    {
         return new Point(mHalfWidth + 23, mHalfHeight - 16);
     }
 
-    public Point getRightEyebrowPostion() {
+    public Point getRightEyebrowPostion()
+    {
         return new Point(mHalfWidth - 11, mHalfHeight - 16);
     }
 
-    public Point getLeftEyePostion() {
+    public Point getLeftEyePostion()
+    {
         return new Point(mHalfWidth + 32, mHalfHeight - 8);
     }
 
-    public Point getRightEyePostion() {
+    public Point getRightEyePostion()
+    {
         return new Point(mHalfWidth - 20, mHalfHeight - 8);
     }
 
-    public Point getMouthPostion() {
+    public Point getMouthPostion()
+    {
         return new Point(mHalfWidth + mEarWidth / 2, mHalfHeight + mDrawOffset * 3);
     }
 
-    public Point getSpeechBubbleStartPosition() {
+    public Point getSpeechBubbleStartPosition()
+    {
         return new Point(mHalfWidth + 20, mHalfHeight + 30);
     }
 
-    public Point getNeckStartPosition() {
+    public Point getNeckStartPosition()
+    {
         return new Point(mSize.width / 2 + mXCenterOffset, mSize.height + mYCenterOffset);
     }
 
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
 
         // head
         mHead = new GeneralPath();
@@ -143,29 +151,35 @@ public class Head extends BodyPart {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
 
         // fill
-        if (mStickman.setCharacterInvisible == true) {
+        if (mStickman.setCharacterInvisible == true)
+        {
             if (mStickman.fadeControler == true) //Added by Robbie
             {
 
                 int fadeFactor = mStickman.mMouth.mShapeAnimationStep * 10;
-                if (fadeFactor <= 20) {
+                if (fadeFactor <= 20)
+                {
                     fadeFactor = 0;
                 }
                 g2.setColor(new Color(242, 227, 217, fadeFactor));
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mStickman.mMouth.mShapeAnimationStep) * 9;
-                if (fadeFactor >= 160) {
+                if (fadeFactor >= 160)
+                {
                     fadeFactor = 200;
                 }
                 g2.setColor(new Color(242, 227, 217, fadeFactor));
             }
-        } else {
+        } else
+        {
             g2.setColor(new Color(242, 227, 217, 200));
         }
         // head
@@ -185,24 +199,30 @@ public class Head extends BodyPart {
         g2.draw(mRightEar);
 
         // hair
-        if (mStickman.mType == Gender.TYPE.FEMALE) {
-            if (mStickman.setCharacterInvisible == true) {
+        if (mStickman.mType == Gender.TYPE.FEMALE)
+        {
+            if (mStickman.setCharacterInvisible == true)
+            {
                 if (mStickman.fadeControler == true) //Added by Robbie
                 {
 
                     int fadeFactor = mStickman.mMouth.mShapeAnimationStep * 10;
-                    if (fadeFactor <= 20) {
+                    if (fadeFactor <= 20)
+                    {
                         fadeFactor = 0;
                     }
                     g2.setColor(new Color(240, 212, 0, fadeFactor));
-                } else {
+                } else
+                {
                     int fadeFactor = (20 - mStickman.mMouth.mShapeAnimationStep) * 9;
-                    if (fadeFactor >= 160) {
+                    if (fadeFactor >= 160)
+                    {
                         fadeFactor = 255;
                     }
                     g2.setColor(new Color(240, 212, 0, fadeFactor));
                 }
-            } else {
+            } else
+            {
                 g2.setColor(new Color(240, 212, 0, 255));
             }
 
@@ -211,25 +231,31 @@ public class Head extends BodyPart {
             g2.setColor(g2.getColor().darker());
             g2.setStroke(new BasicStroke(2));
             g2.draw(mFemaleHair);
-        } else {
+        } else
+        {
 
-            if (mStickman.setCharacterInvisible == true) {
+            if (mStickman.setCharacterInvisible == true)
+            {
                 if (mStickman.fadeControler == true) //Added by Robbie
                 {
 
                     int fadeFactor = mStickman.mMouth.mShapeAnimationStep * 10;
-                    if (fadeFactor <= 20) {
+                    if (fadeFactor <= 20)
+                    {
                         fadeFactor = 0;
                     }
                     g2.setColor(new Color(97, 58, 0, fadeFactor));
-                } else {
+                } else
+                {
                     int fadeFactor = (20 - mStickman.mMouth.mShapeAnimationStep) * 9;
-                    if (fadeFactor >= 160) {
+                    if (fadeFactor >= 160)
+                    {
                         fadeFactor = 255;
                     }
                     g2.setColor(new Color(97, 58, 0, fadeFactor));
                 }
-            } else {
+            } else
+            {
                 g2.setColor(new Color(97, 58, 0, 255));
             }
             g2.fill(mMaleHair);

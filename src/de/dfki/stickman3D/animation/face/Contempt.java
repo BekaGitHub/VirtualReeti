@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Contempt extends Animation3D {
+public class Contempt extends Animation3D
+{
 
-    public Contempt() {
+    public Contempt()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Contempt(Stickman3D sm, int duration, boolean block) {
+    public Contempt(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // Contempt
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "CONTEMPT"));
@@ -45,7 +47,8 @@ public class Contempt extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "CONTEMPTEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

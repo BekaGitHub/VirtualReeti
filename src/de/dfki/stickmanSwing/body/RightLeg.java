@@ -11,15 +11,15 @@ import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class RightLeg extends BodyPart {
+public class RightLeg extends BodyPart
+{
 
     Body mBody;
 
-    public RightLeg(Body body) {
+    public RightLeg(Body body)
+    {
         mBody = body;
         mLength = 150;
         mSize = new Dimension(10, mLength);
@@ -29,23 +29,28 @@ public class RightLeg extends BodyPart {
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mBody.getRightLegStartPostion();
         mEnd = new Point(mStart.x, mStart.y + mLength);
 
         clearDrawObjects();
 
-        if (mBody.mNeck.mHead.mStickman.setCharacterInvisible == true) {
+        if (mBody.mNeck.mHead.mStickman.setCharacterInvisible == true)
+        {
             if (mBody.mNeck.mHead.mStickman.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mBody.mNeck.mHead.mStickman.mMouth.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(80, 80, 80, fadeFactor);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mBody.mNeck.mHead.mStickman.mMouth.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     fadeFactor = 255;
                 }
                 mColor = new Color(80, 80, 80, fadeFactor);

@@ -10,41 +10,48 @@ import java.util.HashMap;
 /**
  * Created by alvaro on 1/20/17.
  */
-public class HeadConversation extends Animation3D {
+public class HeadConversation extends Animation3D
+{
 
     private int degrees;
     private String axis;
     private static int current_movment = 0;
 
-    public HeadConversation() {
+    public HeadConversation()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public HeadConversation(Stickman3D sm, int duration, boolean block) {
+    public HeadConversation(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         degrees = 10;
         axis = "z";
     }
 
-    public HeadConversation(Stickman3D sm, int duration, boolean block, HashMap<String, String> extraParams) {
+    public HeadConversation(Stickman3D sm, int duration, boolean block, HashMap<String, String> extraParams)
+    {
         super(sm, duration, block);
         this.degrees = 10;
         this.axis = "z";
         this.extraParams = extraParams;
-        if(extraParams.containsKey("degrees")){
-            String value =  extraParams.get("degrees");
+        if (extraParams.containsKey("degrees"))
+        {
+            String value = extraParams.get("degrees");
             this.degrees = Integer.parseInt(value);
         }
-        if(extraParams.containsKey("axis")){
-            this.axis  = (String) extraParams.get("axis");
+        if (extraParams.containsKey("axis"))
+        {
+            this.axis = (String) extraParams.get("axis");
         }
         block = true;
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int movement = degrees;
-        current_movment+= movement;
+        current_movment += movement;
         mAnimationPartFX = new ArrayList<>();
         String rotationAxis = getRotationAxisName();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, rotationAxis, current_movment));
@@ -55,16 +62,18 @@ public class HeadConversation extends Animation3D {
     }
 
 
-    private String getRotationAxisName() {
+    private String getRotationAxisName()
+    {
         String rotationAxisName = "rotate";
-        if(axis.contains("z")){
-            rotationAxisName = "z"+rotationAxisName;
-        }else if(axis.contains("y")){
-            rotationAxisName = "y"+rotationAxisName;
+        if (axis.contains("z"))
+        {
+            rotationAxisName = "z" + rotationAxisName;
+        } else if (axis.contains("y"))
+        {
+            rotationAxisName = "y" + rotationAxisName;
         }
         return rotationAxisName;
     }
-
 
 
 }

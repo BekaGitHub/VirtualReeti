@@ -12,11 +12,10 @@ import java.io.PrintWriter;
 import java.net.*;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class ClientConnectionHandlerFX extends Thread implements CommonClientConnectionHandler {
+public class ClientConnectionHandlerFX extends Thread implements CommonClientConnectionHandler
+{
 
     private Socket mSocket;
     private String mHost = "127.0.0.1";
@@ -30,49 +29,59 @@ public class ClientConnectionHandlerFX extends Thread implements CommonClientCon
     private StickmanStageFX mStickmanStage;
     private XMLCommandParser stickmanParser;
 
-    public ClientConnectionHandlerFX() {
+    public ClientConnectionHandlerFX()
+    {
         super.setName("StickmanStageSwing Socket Connection Handler");
     }
 
-    public ClientConnectionHandlerFX(XMLCommandParser parser) {
+    public ClientConnectionHandlerFX(XMLCommandParser parser)
+    {
         super.setName("StickmanStageSwing Socket Connection Handler");
         stickmanParser = parser;
     }
 
     @Override
-    public void end() {
-        try {
+    public void end()
+    {
+        try
+        {
             mSocket.shutdownInput();
             mSocket.shutdownOutput();
             mSocket.close();
             mRunning = false;
             mConnected = false;
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             StickmanStageSwing.mLogger.severe("Error closing socket to " + mHost + ", " + mPort);
         }
     }
 
     @Override
-    public void sendToServer(String message) {
+    public void sendToServer(String message)
+    {
         //StickmanStageSwing.mLogger.info("Sending " + message);
 
-        if (mSocket.isConnected()) {
+        if (mSocket.isConnected())
+        {
             mOut.println(message);
             mOut.flush();
         }
     }
 
     @Override
-    public void connect(String host, int port) {
+    public void connect(String host, int port)
+    {
         mHost = host;
         mPort = port;
         connect();
     }
 
     @Override
-    public void connect() {
+    public void connect()
+    {
         StickmanStageSwing.mLogger.info("StickmanStageSwing tries to connect with control application ...");
-        try {
+        try
+        {
             InetAddress inteAddress = InetAddress.getByName(mHost);
             SocketAddress socketAddress = new InetSocketAddress(inteAddress, mPort);
 
@@ -81,9 +90,11 @@ public class ClientConnectionHandlerFX extends Thread implements CommonClientCon
 
             mOut = new PrintWriter(mSocket.getOutputStream(), true);
             mIn = new BufferedReader(new InputStreamReader(mSocket.getInputStream(), "UTF-8"));
-        } catch (UnknownHostException e) {
+        } catch (UnknownHostException e)
+        {
             StickmanStageSwing.mLogger.severe(mHost + " is unknown - aborting!");
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             StickmanStageSwing.mLogger.severe(mHost + " i/o exception - aborting!");
         }
         mConnected = true;
@@ -94,39 +105,49 @@ public class ClientConnectionHandlerFX extends Thread implements CommonClientCon
     }
 
     @Override
-    public void tryToConnect(String host, int port) {
+    public void tryToConnect(String host, int port)
+    {
         mHost = host;
         mPort = port;
         connect(mHost, mPort);
-        while (!ismConnected()) {
-            try {
+        while (!ismConnected())
+        {
+            try
+            {
                 System.out.println("Waiting for connection to control application ...");
                 Thread.sleep(250);
-            } catch (InterruptedException ex) {
+            } catch (InterruptedException ex)
+            {
                 System.out.println(ex.getMessage());
             }
         }
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         String inputLine = "";
 
-        while (mRunning) {
-            try {
+        while (mRunning)
+        {
+            try
+            {
                 inputLine = mIn.readLine();
 
-                if (inputLine != null) {
+                if (inputLine != null)
+                {
                     stickmanParser.parseStickmanXMLCmd(inputLine);
                 }
-            } catch (IOException ex) {
+            } catch (IOException ex)
+            {
                 StickmanStageSwing.mLogger.severe(mHost + " i/o exception - aborting!");
             }
         }
     }
 
     @Override
-    public boolean ismConnected() {
+    public boolean ismConnected()
+    {
         return mConnected;
     }
 }

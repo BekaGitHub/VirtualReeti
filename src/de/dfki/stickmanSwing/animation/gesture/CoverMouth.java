@@ -7,18 +7,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class CoverMouth extends AnimationSwing {
+public class CoverMouth extends AnimationSwing
+{
 
-    public CoverMouth(StickmanSwing sm, int duration, boolean block) {
+    public CoverMouth(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 16;
 
         // bring upper arm and fore arm in position

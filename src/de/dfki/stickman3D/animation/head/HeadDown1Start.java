@@ -13,18 +13,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import de.dfki.stickman3D.animationlogic.Animation3D;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class HeadDown1Start extends Animation3D {
+public class HeadDown1Start extends Animation3D
+{
 
-    public HeadDown1Start(Stickman3D sm, int duration, boolean block) {
+    public HeadDown1Start(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         Animation3D.isHeadTiltInAction = true;
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", 15));
@@ -34,7 +35,8 @@ public class HeadDown1Start extends Animation3D {
 
         pauseAnimation(10);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

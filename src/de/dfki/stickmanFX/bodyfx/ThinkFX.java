@@ -11,15 +11,18 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 /**
- *
  * @author Beka movement = Animator3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
  */
-public class ThinkFX extends BodyPartFX {
+public class ThinkFX extends BodyPartFX
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, THINKOFLOVE, THINKOFLOVEEND;
-    };
+    }
+
+    ;
 
     HeadFX mHeadFX;
     URL url;
@@ -28,7 +31,8 @@ public class ThinkFX extends BodyPartFX {
     double mColorOpacity = 0;
     public ThinkFX.SHAPE mShape = ThinkFX.SHAPE.DEFAULT;
 
-    public ThinkFX(HeadFX head) {
+    public ThinkFX(HeadFX head)
+    {
         mHeadFX = head;
         mLength = 16;
         mSize = new Dimension(mLength, 5);
@@ -38,18 +42,21 @@ public class ThinkFX extends BodyPartFX {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         ThinkFX.SHAPE shape = ThinkFX.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : ThinkFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = ThinkFX.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
         mStart = mHeadFX.getThinkhBubbleStartPosition();
 
         double movement;
@@ -63,22 +70,26 @@ public class ThinkFX extends BodyPartFX {
         Circle small_5 = new Circle(mStart.x - 30, mStart.y - 90, 15);
         Circle imageCircle = new Circle(mStart.x + 30, mStart.y - 120, 50);
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
                 clearChildren(this);
                 break;
 
             case THINKOFLOVE:
-                if (mHeadFX.mStickmanFX.mType == Gender.TYPE.MALE) {
+                if (mHeadFX.mStickmanFX.mType == Gender.TYPE.MALE)
+                {
                     url = getClass().getClassLoader().getResource("girl2.gif");
-                } else {
+                } else
+                {
                     url = getClass().getClassLoader().getResource("boy2.jpg");
                 }
                 image = new Image(url.toString());
                 imagePattern = new ImagePattern(image);
 
                 mColorOpacity += 0.0555;
-                if (mColorOpacity > 1) {
+                if (mColorOpacity > 1)
+                {
                     mColorOpacity = 1;
                 }
                 small_1.setFill(Color.rgb(255, 124, 212, mColorOpacity));
@@ -106,7 +117,8 @@ public class ThinkFX extends BodyPartFX {
                 break;
             case THINKOFLOVEEND:
                 mColorOpacity -= 0.0555;
-                if (mColorOpacity < 0) {
+                if (mColorOpacity < 0)
+                {
                     mColorOpacity = 0;
                 }
                 small_1.setFill(Color.rgb(255, 124, 212, mColorOpacity));

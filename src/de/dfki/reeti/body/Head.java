@@ -12,9 +12,7 @@ import java.awt.*;
 import java.net.URL;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
 public class Head extends Parts
 {
@@ -24,7 +22,8 @@ public class Head extends Parts
     private int mHalfWidth;
     private static final int EARWITDH = 10;
 
-    public Head(Reeti reeti) {
+    public Head(Reeti reeti)
+    {
         mSize = new Dimension(120, 100);
         mHalfHeight = mSize.height / 2;
         mHalfWidth = mSize.width / 2;
@@ -53,7 +52,8 @@ public class Head extends Parts
 
 
     @Override
-    public void init() {
+    public void init()
+    {
         super.init();
         int mZTranslate = -105;
         mHeadGroup.setTranslateX(mHalfWidth + 6);
@@ -61,28 +61,33 @@ public class Head extends Parts
         mHeadGroup.setTranslateZ(mZTranslate + 28);
     }
 
-    public Point getLeftEyebrowPostion() {
+    public Point getLeftEyebrowPostion()
+    {
         return new Point(mHalfWidth - 60, mHalfHeight - 152);
     }
 
-    public Point getRightEyebrowPostion() {
+    public Point getRightEyebrowPostion()
+    {
         return new Point(mHalfWidth - 60, mHalfHeight - 105);
     }
 
-    public Point getMouthPostion() {
+    public Point getMouthPostion()
+    {
         return new Point(mHalfWidth - 60, mHalfHeight - 110);
     }
 
-    public Point getNeckStartPosition() {
+    public Point getNeckStartPosition()
+    {
         int mYCenterOffset = EARWITDH / 2;
         int mXCenterOffset = EARWITDH / 2;
         return new Point(mSize.width / 2 + mXCenterOffset, mSize.height + mYCenterOffset + 4);
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
 
-        Rotate rx = new Rotate(mXRotation, 0, 25, -25,  Rotate.X_AXIS);
+        Rotate rx = new Rotate(mXRotation, 0, 25, -25, Rotate.X_AXIS);
         Rotate ry = new Rotate(mYRotation, 0, 25, -25, Rotate.Y_AXIS);
         Rotate rz = new Rotate(mZRotation, 0, 25, -25, Rotate.Z_AXIS);
 

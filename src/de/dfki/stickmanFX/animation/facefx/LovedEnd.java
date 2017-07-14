@@ -12,22 +12,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class LovedEnd extends AnimationFX {
+public class LovedEnd extends AnimationFX
+{
 
-    public LovedEnd() {
+    public LovedEnd()
+    {
         super();
     }
 
-    public LovedEnd(StickmanFX sm, int duration, boolean block) {
+    public LovedEnd(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // no loved
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SMILEEND"));

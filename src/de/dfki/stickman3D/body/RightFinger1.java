@@ -57,6 +57,7 @@ public class RightFinger1 extends BodyPartFX
 
         init();
     }
+
     @Override
     public void setShape(String s)
     {

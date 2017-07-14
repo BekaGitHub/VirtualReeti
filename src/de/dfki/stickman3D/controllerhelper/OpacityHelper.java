@@ -7,16 +7,22 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 
-public class OpacityHelper {
+public class OpacityHelper
+{
 
-    public static void headOpacityChanger(StickmanStageController controller, Slider headOpacitySlider) {
-        headOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void headOpacityChanger(StickmanStageController controller, Slider headOpacitySlider)
+    {
+        headOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mHead.getHeadMeshView().setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mHead.getHeadMeshView().setVisible(true);
                 }
                 Color col = controller.currentStickman.mHead.mColor;
@@ -27,32 +33,43 @@ public class OpacityHelper {
         });
     }
 
-    public static void hairOpacityChanger(StickmanStageController controller, Slider hairOpacitySlider) {
-        hairOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void hairOpacityChanger(StickmanStageController controller, Slider hairOpacitySlider)
+    {
+        hairOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
-                    if (controller.currentStickman.mType == Gender.TYPE.FEMALE) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
+                    if (controller.currentStickman.mType == Gender.TYPE.FEMALE)
+                    {
                         controller.currentStickman.mFemaleHair.getFemaleHairMeshView().setVisible(false);
-                    } else {
+                    } else
+                    {
                         controller.currentStickman.mMaleHair.getMaleHairMeshView().setVisible(false);
                     }
-                } else {
-                    if (controller.currentStickman.mType == Gender.TYPE.FEMALE) {
+                } else
+                {
+                    if (controller.currentStickman.mType == Gender.TYPE.FEMALE)
+                    {
                         controller.currentStickman.mFemaleHair.getFemaleHairMeshView().setVisible(true);
-                    } else {
+                    } else
+                    {
                         controller.currentStickman.mMaleHair.getMaleHairMeshView().setVisible(true);
                     }
                 }
 
                 Color col = null;
-                if (controller.currentStickman.mType == Gender.TYPE.FEMALE) {
+                if (controller.currentStickman.mType == Gender.TYPE.FEMALE)
+                {
                     col = controller.currentStickman.mFemaleHair.mColor;
                     col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
                     controller.currentStickman.mFemaleHair.mColor = col;
                     controller.currentStickman.mFemaleHair.update();
-                } else {
+                } else
+                {
                     col = controller.currentStickman.mMaleHair.mColor;
                     col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
                     controller.currentStickman.mMaleHair.mColor = col;
@@ -63,15 +80,20 @@ public class OpacityHelper {
         });
     }
 
-    public static void bodyOpacityChanger(StickmanStageController controller, Slider bodyOpacitySlider) {
-        bodyOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void bodyOpacityChanger(StickmanStageController controller, Slider bodyOpacitySlider)
+    {
+        bodyOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mDownBody.getBodyMeshView().setVisible(false);
                     controller.currentStickman.mUpperBody.getBodyMeshView().setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mDownBody.getBodyMeshView().setVisible(true);
                     controller.currentStickman.mUpperBody.getBodyMeshView().setVisible(true);
                 }
@@ -88,12 +110,16 @@ public class OpacityHelper {
         });
     }
 
-    public static void limbsOpacityChanger(StickmanStageController controller, Slider limbsOpacitySlider) {
-        limbsOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void limbsOpacityChanger(StickmanStageController controller, Slider limbsOpacitySlider)
+    {
+        limbsOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mNeck.getNeckMeshView().setVisible(false);
 
                     controller.currentStickman.mLeftUpperLeg.getLeftUpperLegMesh().setVisible(false);
@@ -119,7 +145,8 @@ public class OpacityHelper {
                     controller.currentStickman.mRightFinger2.getRightFinger2().setVisible(false);
                     controller.currentStickman.mRightFinger3.getRightFinger3().setVisible(false);
                     controller.currentStickman.mRightFinger4.getRightFinger4().setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mNeck.getNeckMeshView().setVisible(true);
 
                     controller.currentStickman.mLeftUpperLeg.getLeftUpperLegMesh().setVisible(true);
@@ -205,15 +232,20 @@ public class OpacityHelper {
         });
     }
 
-    public static void shoesOpacityChanger(StickmanStageController controller, Slider shoesOpacitySlider) {
-        shoesOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void shoesOpacityChanger(StickmanStageController controller, Slider shoesOpacitySlider)
+    {
+        shoesOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mLeftFoot.getLeftFootMeshView().setVisible(false);
                     controller.currentStickman.mRightFoot.getRightFootMeshView().setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mLeftFoot.getLeftFootMeshView().setVisible(true);
                     controller.currentStickman.mRightFoot.getRightFootMeshView().setVisible(true);
                 }
@@ -230,15 +262,20 @@ public class OpacityHelper {
         });
     }
 
-    public static void lipsOpacityChanger(StickmanStageController controller, Slider lipsOpacitySlider) {
-        lipsOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void lipsOpacityChanger(StickmanStageController controller, Slider lipsOpacitySlider)
+    {
+        lipsOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mMouth.currentDownLipPolygon.setVisible(false);
                     controller.currentStickman.mMouth.currentUpperLipPolygon.setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mMouth.currentDownLipPolygon.setVisible(true);
                     controller.currentStickman.mMouth.currentUpperLipPolygon.setVisible(true);
                 }
@@ -253,12 +290,16 @@ public class OpacityHelper {
         });
     }
 
-    public static void eyeOpacityChanger(StickmanStageController controller, Slider eyeOpacitySlider) {
-        eyeOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void eyeOpacityChanger(StickmanStageController controller, Slider eyeOpacitySlider)
+    {
+        eyeOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mLeftEye.bigPupile.setVisible(false);
                     controller.currentStickman.mLeftEye.smallPupile.setVisible(false);
                     controller.currentStickman.mLeftEye.border.setVisible(false);
@@ -266,7 +307,8 @@ public class OpacityHelper {
                     controller.currentStickman.mRightEye.bigPupile.setVisible(false);
                     controller.currentStickman.mRightEye.smallPupile.setVisible(false);
                     controller.currentStickman.mRightEye.border.setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mLeftEye.bigPupile.setVisible(true);
                     controller.currentStickman.mLeftEye.smallPupile.setVisible(true);
                     controller.currentStickman.mLeftEye.border.setVisible(true);
@@ -287,11 +329,14 @@ public class OpacityHelper {
         });
     }
 
-    public static void browOpacityChanger(StickmanStageController controller, Slider browOpacitySlider) {
-        browOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void browOpacityChanger(StickmanStageController controller, Slider browOpacitySlider)
+    {
+        browOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
 
                 Color col = controller.currentStickman.mLeftEyebrow.mColor;
 //                Color col1 = controller.currentStickman.mNose.mColor;
@@ -312,14 +357,19 @@ public class OpacityHelper {
 
     }
 
-    public static void noseOpacityChanger(StickmanStageController controller, Slider noseOpacitySlider) {
-        noseOpacitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+    public static void noseOpacityChanger(StickmanStageController controller, Slider noseOpacitySlider)
+    {
+        noseOpacitySlider.valueProperty().addListener(new ChangeListener<Number>()
+        {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.doubleValue() <= 0.1) {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                if (newValue.doubleValue() <= 0.1)
+                {
                     controller.currentStickman.mNose.getNose().setVisible(false);
-                } else {
+                } else
+                {
                     controller.currentStickman.mNose.getNose().setVisible(true);
                 }
                 Color col = controller.currentStickman.mNose.mColor;

@@ -97,7 +97,7 @@ public class RightForeLeg3D extends BodyPartFX
         rightForeLegGroup.setTranslateX(mStart.x);
         if (mUpperLeg.getDownBody().getUpperBody().getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             rightForeLegGroup.setTranslateY(mStart.y + 59);
-         else
+        else
             rightForeLegGroup.setTranslateY(mStart.y + 49);
         rightForeLegGroup.setTranslateZ(0);
 

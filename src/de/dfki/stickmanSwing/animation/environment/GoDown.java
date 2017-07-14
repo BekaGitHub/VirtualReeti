@@ -12,22 +12,23 @@ import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class GoDown extends AnimationSwing {
+public class GoDown extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public GoDown(StickmanSwing sm, int duration, boolean block) {
+    public GoDown(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 4;
 
@@ -38,9 +39,11 @@ public class GoDown extends AnimationSwing {
         mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit * 32));
         playAnimationPart(200);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             // wave right		
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", -rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit));
@@ -50,7 +53,8 @@ public class GoDown extends AnimationSwing {
             }
 
             // wave left
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPart = new ArrayList<>();
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", rotationUnit));
                 mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit));

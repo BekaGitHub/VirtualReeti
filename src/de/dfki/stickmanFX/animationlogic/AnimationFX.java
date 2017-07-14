@@ -14,17 +14,18 @@ import de.dfki.util.xml.XMLParseError;
 import de.dfki.util.xml.XMLParseable;
 import de.dfki.util.xml.XMLWriteError;
 import de.dfki.util.xml.XMLWriteable;
+
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
+
 import org.w3c.dom.Element;
 
 /**
- *
  * @author Patrick Gebhard
  * @modified Beka Aptsiauri
- *
  */
-public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, Animation {
+public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, Animation
+{
 
     public String mName = "";
     public ArrayList<AnimationContentFX> mAnimationPartFX = new ArrayList<>();
@@ -39,20 +40,25 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
     public String mID;
     public Object mParameter = "";
 
-    public String getmID() {
+    public String getmID()
+    {
         return mID;
     }
 
-    public enum ANIMTYPE {
+    public enum ANIMTYPE
+    {
         EmotionExpression, Gesture
     }
+
     public ANIMTYPE mAnimType = null;
 
-    public AnimationFX() {
+    public AnimationFX()
+    {
         mAnimType = null;
     }
 
-    public AnimationFX(StickmanFX sm, int duration, boolean block) {
+    public AnimationFX(StickmanFX sm, int duration, boolean block)
+    {
         mName = getClass().getSimpleName();
         mStickmanFX = sm;
         mStickmanName = mStickmanFX.mName;
@@ -62,38 +68,47 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
         mDuration = duration;
     }
 
-    public void setParameter(Object p) {
+    public void setParameter(Object p)
+    {
         mParameter = p;
     }
 
-    public void setID(String id) {
+    public void setID(String id)
+    {
         mID = id;
     }
 
-    public void setStickmanName(String stickmanName) {
+    public void setStickmanName(String stickmanName)
+    {
         mStickmanName = stickmanName;
-        //mStickman = StickmanStage3D.getStickman(mReetiName);
+        //mStickman = StickmanStage3D.getAgent(mReetiName);
         setName(mStickmanName + "'s AnimationSwing " + mName);
     }
 
-    public void setAnimationName(String animationName) {
+    public void setAnimationName(String animationName)
+    {
         mName = animationName;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(int duration)
+    {
         mDuration = duration;
     }
 
-    public void setBlocking(boolean blocking) {
+    public void setBlocking(boolean blocking)
+    {
         mBlocking = blocking;
     }
 
-    public void waitForClearance() {
+    public void waitForClearance()
+    {
         mStickmanFX.mAnimationSchedulerFX.introduce(this);
         // block this animation for animation - AnimationSheduler will unblock 
-        try {
+        try
+        {
             mAnimationStart.acquire(1);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickmanFX.mLogger.severe(ex.getMessage());
         }
 
@@ -101,68 +116,87 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
         mStickmanFX.mAnimationLaunchControl.release();
     }
 
-    public void play() {
+    public void play()
+    {
         // wait until AnimationScheduler says go!
-        try {
+        try
+        {
             mAnimationStart.acquire(1);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickmanFX.mLogger.severe(ex.getMessage());
         }
 
         playAnimation();
     }
 
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // place animation code here
     }
 
-    public void playAnimationPart(int duration) {
+    public void playAnimationPart(int duration)
+    {
         mAnimatorFX = new AnimatorFX(mStickmanFX, this, mAnimationPartFX, duration);
 
-        try {
+        try
+        {
             mAnimationPartStart.acquire();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickmanFX.mLogger.severe(ex.getMessage());
         }
 
     }
 
-    public void pauseAnimation(int duration) {
+    public void pauseAnimation(int duration)
+    {
         mAnimationPauseFX = new AnimationPauseFX(mStickmanFX, this, duration);
 
-        try {
+        try
+        {
             mAnimationPartStart.acquire();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mStickmanFX.mLogger.severe(ex.getMessage());
         }
     }
 
-    public void finalizeAnimation() {
+    public void finalizeAnimation()
+    {
         // unblock AnimationScheduler if animation is a blocking animation
-        if (mBlocking) {
+        if (mBlocking)
+        {
             mStickmanFX.mAnimationSchedulerFX.proceed(this);
-        } else {
+        } else
+        {
             mStickmanFX.mAnimationSchedulerFX.removeAnimation(this);
         }
         // send event that Animation3D is ended
 
         // API or TCP-Interface
-        if (!mStickmanFX.getStageController().ismNetwork()) {
+        if (!mStickmanFX.getStageController().ismNetwork())
+        {
             mStickmanFX.notifyListeners(getmID());
-        } else {
+        } else
+        {
             mStickmanFX.getStageController().sendAnimationUpdate("end", getmID());
         }
     }
 
     @Override
-    public void writeXML(IOSIndentWriter out) throws XMLWriteError {
+    public void writeXML(IOSIndentWriter out) throws XMLWriteError
+    {
         out.println("<StickmanAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + getmID() + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
-        if (mParameter != null) {
-            if (mParameter instanceof WordTimeMarkSequence) {
+        if (mParameter != null)
+        {
+            if (mParameter instanceof WordTimeMarkSequence)
+            {
                 ((WordTimeMarkSequence) mParameter).writeXML(out);
             }
 
-            if (mParameter instanceof String) {
+            if (mParameter instanceof String)
+            {
                 out.println((String) mParameter);
             }
         }
@@ -170,7 +204,8 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
     }
 
     @Override
-    public void parseXML(final Element element) throws XMLParseError {
+    public void parseXML(final Element element) throws XMLParseError
+    {
         mStickmanName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
         mID = element.getAttribute("id");
@@ -179,17 +214,21 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
         mParameter = (String) element.getTextContent();
 
         // Process The Child Nodes
-        XMLParseAction.processChildNodes(element, new XMLParseAction() {
+        XMLParseAction.processChildNodes(element, new XMLParseAction()
+        {
             @Override
-            public void run(final Element element) throws XMLParseError {
+            public void run(final Element element) throws XMLParseError
+            {
                 // Get The Child Tag Name
                 final String name = element.getTagName();
 
-                if (name.equalsIgnoreCase("WordTimeMarkSequence")) {
+                if (name.equalsIgnoreCase("WordTimeMarkSequence"))
+                {
                     mParameter = new WordTimeMarkSequence();
 
                     ((WordTimeMarkSequence) mParameter).parseXML(element);
-                } else {
+                } else
+                {
                     mParameter = (String) element.getTextContent();
                 }
             }
@@ -197,14 +236,16 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         waitForClearance();
         play();
         finalizeAnimation();
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return mName + ", " + getName();
     }
 }

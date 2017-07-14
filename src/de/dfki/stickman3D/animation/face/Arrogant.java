@@ -19,21 +19,23 @@ import java.util.ArrayList;
  *
  * @author Beka Aptsiauri
  */
-public class Arrogant extends Animation3D {
+public class Arrogant extends Animation3D
+{
 
     /**
-     *
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public Arrogant() {
+    public Arrogant()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Arrogant(Stickman3D sm, int duration, boolean block) {
+    public Arrogant(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -41,7 +43,8 @@ public class Arrogant extends Animation3D {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", -10));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "ANGRY"));
@@ -54,12 +57,14 @@ public class Arrogant extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "yrotate", -25));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", 110));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", 90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger3, "rotate", 90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger4, "rotate", 90));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", -20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", 70));
@@ -71,7 +76,8 @@ public class Arrogant extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -40));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 10));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", 13));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", -70));
@@ -80,7 +86,8 @@ public class Arrogant extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "rotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "rotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "rotate", 120));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", 10));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", -60));
@@ -107,12 +114,14 @@ public class Arrogant extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "yrotate", 25));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -110));
 
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", -90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger3, "rotate", -90));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger4, "rotate", -90));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "zrotate", 20));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "rotate", -70));
@@ -122,8 +131,9 @@ public class Arrogant extends Animation3D {
 
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 40));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -10));
-        
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE) {
+
+        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", -13));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", 70));
@@ -132,7 +142,8 @@ public class Arrogant extends Animation3D {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "rotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "rotate", -120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "rotate", -120));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", -10));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 120));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", 60));
@@ -144,7 +155,8 @@ public class Arrogant extends Animation3D {
         }
         playAnimationPart(500);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

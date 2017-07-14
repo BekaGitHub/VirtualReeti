@@ -3,25 +3,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Excited extends AnimationFX {
+public class Excited extends AnimationFX
+{
 
-    public Excited() {
+    public Excited()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Excited(StickmanFX sm, int duration, boolean block) {
+    public Excited(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // excited
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "EXCITED"));

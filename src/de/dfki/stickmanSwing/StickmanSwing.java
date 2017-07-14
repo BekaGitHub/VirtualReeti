@@ -4,7 +4,7 @@ import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.interfaces.Animation;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.Stickman;
+import de.dfki.common.interfaces.Agent;
 import de.dfki.stickmanSwing.animationlogic.*;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
@@ -56,30 +56,36 @@ import de.dfki.stickmanSwing.animation.environment.SimplexNoise;
 import de.dfki.stickmanSwing.stage.StickmanStageSwing;
 
 /**
- *
  * @author Patrick Gebhard
- *
- * This work is inspired by the stickmans drawn by Sarah Johnson
- * (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
- * by Ross Ching in 2012
- *
+ *         <p>
+ *         This work is inspired by the stickmans drawn by Sarah Johnson
+ *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
+ *         by Ross Ching in 2012
  */
-public class StickmanSwing extends JComponent implements Stickman {
+public class StickmanSwing extends JComponent implements Agent
+{
 
     @Override
-    public Animation doAnimation(String name, int frequent, int actionDuration, boolean block) {
+    public Animation doAnimation(String name, int frequent, int actionDuration, boolean block)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // general stuff
-    public static enum ORIENTATION {
+    public static enum ORIENTATION
+    {
 
         FRONT, LEFT, RIGHT
-    };
+    }
 
-    public static enum TYPE {
+    ;
+
+    public static enum TYPE
+    {
         FEMALE, MALE
-    };
+    }
+
+    ;
 
     static public final Color sFOREGROUND = new Color(188, 188, 188, 128);
     public Gender.TYPE mType = Gender.TYPE.FEMALE;
@@ -99,7 +105,7 @@ public class StickmanSwing extends JComponent implements Stickman {
 
     public double leaveSpeed = 0;                  //Added by Robbie, to control the speed of leaving
     public boolean starShowControler = false;     //Added by Robbie,  to control the star appear or not
-    public boolean starShowC = false; 				//Added by Robbie,  star with character appear at the same time or not
+    public boolean starShowC = false;                //Added by Robbie,  star with character appear at the same time or not
     public boolean fadeControler = false;         //Added by Robbie,  to control the character to fade out or fade in. true: Fade out
     public boolean setCharacterInvisible = false; //Added by Robbie, to control the character to fade out. 
     //True: visible False:invisible
@@ -146,7 +152,8 @@ public class StickmanSwing extends JComponent implements Stickman {
     // id
     private long mID = 0;
 
-    public StickmanSwing(String name, Gender.TYPE gender, float scale, Dimension size) {
+    public StickmanSwing(String name, Gender.TYPE gender, float scale, Dimension size)
+    {
         mSize = size;
         mScale = scale;
 
@@ -182,7 +189,8 @@ public class StickmanSwing extends JComponent implements Stickman {
         mIdleBehavior = new IdleBehavior(this, simplexNoise);
     }
 
-    public StickmanSwing(String name, Gender.TYPE gender, float scale) {
+    public StickmanSwing(String name, Gender.TYPE gender, float scale)
+    {
         mScale = scale;
 
         mName = name;
@@ -215,7 +223,8 @@ public class StickmanSwing extends JComponent implements Stickman {
         simplexNoise = new SimplexNoise(8, 0.1, (int) (Math.random() * 100));
     }
 
-    public StickmanSwing(String name, Gender.TYPE gender) {
+    public StickmanSwing(String name, Gender.TYPE gender)
+    {
         mName = name;
         mType = gender;
 
@@ -246,7 +255,8 @@ public class StickmanSwing extends JComponent implements Stickman {
         simplexNoise = new SimplexNoise(8, 0.1, (int) (Math.random() * 100));
     }
 
-    private void init() {
+    private void init()
+    {
         setLayout(null);
         setPreferredSize(mSize);
         setMinimumSize(mSize);
@@ -275,140 +285,174 @@ public class StickmanSwing extends JComponent implements Stickman {
     }
 
     @Override
-    public StageRoom getStageController() {
+    public StageRoom getStageController()
+    {
         return stageController;
     }
 
     @Override
-    public void setStageController(StageRoom s) {
+    public void setStageController(StageRoom s)
+    {
         stageController = s;
     }
 
     @Override
-    public void setShowName(boolean show) {
+    public void setShowName(boolean show)
+    {
 
     }
 
     @Override
-    public boolean isShowName() {
+    public boolean isShowName()
+    {
         return false;
     }
 
     @Override
-    public void endAnimationScheduler() {
+    public void endAnimationScheduler()
+    {
 
     }
 
     @Override
-    public Gender.TYPE getType() {
+    public Gender.TYPE getType()
+    {
         return mType;
     }
 
-    public StickmanStageSwing getStage() {
+    public StickmanStageSwing getStage()
+    {
         return stage;
     }
 
-    public void setStage(StickmanStageSwing s) {
+    public void setStage(StickmanStageSwing s)
+    {
         stage = s;
     }
 
-    public void addListener(AnimationListener al) {
+    public void addListener(AnimationListener al)
+    {
         mAnimationListeners.add(al);
     }
 
-    public void removeListener(AnimationListener al) {
-        synchronized (mAnimationListeners) {
-            if (mAnimationListeners.contains(al)) {
+    public void removeListener(AnimationListener al)
+    {
+        synchronized (mAnimationListeners)
+        {
+            if (mAnimationListeners.contains(al))
+            {
                 mAnimationListeners.remove(al);
             }
         }
     }
 
-    public void notifyListeners(String animationId) {
-        synchronized (mAnimationListeners) {
-            mAnimationListeners.stream().forEach((al) -> {
+    public void notifyListeners(String animationId)
+    {
+        synchronized (mAnimationListeners)
+        {
+            mAnimationListeners.stream().forEach((al) ->
+            {
                 al.update(animationId);
             });
         }
     }
 
-    public String getID() {
+    public String getID()
+    {
         return (new StringBuffer()).append(mName).append(" AnimationSwing ").append(mID++).toString();
     }
 
     @Override
-    public String getName() {
+    public String getName()
+    {
         return mName;
     }
 
     // Sets the orientation of the character, allowed values are: LEFT, RIGHT, FRONT
-    public void setOrientation(String orientation) {
-        if (orientation.equalsIgnoreCase(ORIENTATION.LEFT.toString())) {
+    public void setOrientation(String orientation)
+    {
+        if (orientation.equalsIgnoreCase(ORIENTATION.LEFT.toString()))
+        {
             mOrientation = ORIENTATION.LEFT;
-        } else if (orientation.equalsIgnoreCase(ORIENTATION.RIGHT.toString())) {
+        } else if (orientation.equalsIgnoreCase(ORIENTATION.RIGHT.toString()))
+        {
             mOrientation = ORIENTATION.RIGHT;
-        } else {
+        } else
+        {
             mOrientation = ORIENTATION.FRONT;
         }
     }
 
-    public AnimationSwing doEventFeedbackAnimation(String name, int duration, WordTimeMarkSequence wts, boolean block) {
+    public AnimationSwing doEventFeedbackAnimation(String name, int duration, WordTimeMarkSequence wts, boolean block)
+    {
 
         EventAnimationSwing a = AnimationLoaderSwing.getInstance().loadEventAnimation(this, name, duration, block);
 
         a.setParameter(wts);
 
-        try {
+        try
+        {
             mAnimationLaunchControl.acquire();
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
 
         return a;
     }
 
-    public AnimationSwing doAnimation(String name, int duration, boolean block) {
+    public AnimationSwing doAnimation(String name, int duration, boolean block)
+    {
         return doAnimation(name, duration, "", block);
     }
 
-    public AnimationSwing doAnimation(String name, Object param, boolean block) {
+    public AnimationSwing doAnimation(String name, Object param, boolean block)
+    {
         return doAnimation(name, -1, param, block);
     }
 
-    public AnimationSwing doAnimation(String name, boolean block) {
+    public AnimationSwing doAnimation(String name, boolean block)
+    {
         return doAnimation(name, -1, "", block);
     }
 
-    public AnimationSwing doAnimation(String name, int duration, Object param, boolean block) {
+    public AnimationSwing doAnimation(String name, int duration, Object param, boolean block)
+    {
         AnimationSwing a = AnimationLoaderSwing.getInstance().loadAnimation(this, name, duration, block);
 
         a.setParameter(param); // this is for now only used by the Speech Bubble
 
-        try {
+        try
+        {
             mAnimationLaunchControl.acquire();
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
 
         return a;
     }
 
-    public void playAnimation(AnimationSwing a) {
-        try {
+    public void playAnimation(AnimationSwing a)
+    {
+        try
+        {
             //mLogger.info("Waiting for allowance to play animation " + a.toString());
             mAnimationLaunchControl.acquire();
             //mLogger.info("\tgranted!");
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
     }
 
     // Control IdleBehavior start(mStart == true) or not(mStart == false).
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         //super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -417,8 +461,10 @@ public class StickmanSwing extends JComponent implements Stickman {
         int width = new Float(mSize.width).intValue();
         int height = new Float(mSize.height).intValue();
 
-        if (!mName.equalsIgnoreCase("")) {
-            if (mShowBackground) {
+        if (!mName.equalsIgnoreCase(""))
+        {
+            if (mShowBackground)
+            {
                 g2.setColor(sFOREGROUND);
                 g2.fillRect(0, 0, width, height);
             }
@@ -426,14 +472,16 @@ public class StickmanSwing extends JComponent implements Stickman {
             final int hOffset = mFontMetrics.getAscent() + mFontMetrics.getDescent();
             final int wOffset = mFontMetrics.stringWidth(mName);
 
-            if (mShowStage) {
+            if (mShowStage)
+            {
                 g2.setColor(sFOREGROUND.darker());
                 mLogger.info("" + (height - hOffset * 4) + ", " + height);
 
                 g2.fillRect(0, height - new Float(hOffset * 4 * mScale).intValue(), width, height);
             }
 
-            if (mShowName) {
+            if (mShowName)
+            {
                 g2.setColor(mBody.mColor.darker());
                 g2.drawString(mName, 10, height - hOffset);
             }
@@ -453,10 +501,13 @@ public class StickmanSwing extends JComponent implements Stickman {
         g2.setTransform(at);
 
         // draw body parts
-        if (starShowControler == true) {
+        if (starShowControler == true)
+        {
             mStars.update(g);     // Added by Robbie, to show stars or words here.
-        } else {
-            if (starShowC == true) {
+        } else
+        {
+            if (starShowC == true)
+            {
                 mStars.update(g);
             }
             mHead.update(g);
@@ -479,7 +530,8 @@ public class StickmanSwing extends JComponent implements Stickman {
             mLeftLeg.update(g);
             mRightLeg.update(g);
 
-            if (starShowC == true) {
+            if (starShowC == true)
+            {
                 mStars.update(g);     // Added by Robbie, to show stars or words here.
             }
         }
@@ -488,10 +540,12 @@ public class StickmanSwing extends JComponent implements Stickman {
         mSpeechBubble.update(g);
     }
 
-    private static class StickmanLogFormatter extends Formatter {
+    private static class StickmanLogFormatter extends Formatter
+    {
 
         @Override
-        public String format(LogRecord record) {
+        public String format(LogRecord record)
+        {
             return ((new StringBuffer()).append(record.getLevel()).append(": ").append(record.getMessage()).append("\n")).toString();
         }
     }

@@ -1,6 +1,6 @@
 package de.dfki.reeti;
 
-import de.dfki.common.StickmansOnStage;
+import de.dfki.common.AgentsOnStage;
 import de.dfki.common.commonFX3D.ViewController;
 import de.dfki.reeti.controllerhelper.ColorHelper;
 import de.dfki.reeti.controllerhelper.SliderHelper;
@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.*;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -20,16 +19,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Modality;
 
 /**
  * @author Beka
@@ -45,8 +36,8 @@ public class ReetiStageController extends AReetiStageController implements ViewC
                 ->
         {
             mReetiComboBox = reetiComboBox.getSelectionModel().getSelectedItem();
-            currentReeti = (Reeti) mStickmanOnstage.getStickman(mReetiComboBox);
-            setComboboxValue((Reeti) mStickmanOnstage.getStickman(mReetiComboBox));
+            currentReeti = (Reeti) mStickmanOnstage.getAgent(mReetiComboBox);
+            setComboboxValue((Reeti) mStickmanOnstage.getAgent(mReetiComboBox));
         });
 
         fillEmotionScrollPane();
@@ -97,14 +88,14 @@ public class ReetiStageController extends AReetiStageController implements ViewC
 
     public Reeti getStickmanAs3D(String mStickmancombobox)
     {
-        return (Reeti) mStickmanOnstage.getStickman(mStickmancombobox);
+        return (Reeti) mStickmanOnstage.getAgent(mStickmancombobox);
     }
 
     /**
      * @param commonStickmansOnStage
      */
     @Override
-    public void setStickamnOnStage(StickmansOnStage commonStickmansOnStage)
+    public void setStickamnOnStage(AgentsOnStage commonStickmansOnStage)
     {
         this.mStickmanOnstage = commonStickmansOnStage;
         fillComboForStickman();
@@ -381,8 +372,8 @@ public class ReetiStageController extends AReetiStageController implements ViewC
         if (!stickmanNames.isEmpty())
         {
             reetiComboBox.setValue(stickmanNames.get(0));
-            currentReeti = (Reeti) mStickmanOnstage.getStickman(stickmanNames.get(0));
-            setComboboxValue((Reeti) mStickmanOnstage.getStickman(stickmanNames.get(0)));
+            currentReeti = (Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0));
+            setComboboxValue((Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0)));
         }
         mReetiComboList.clear();
         mReetiComboList.addAll(stickmanNames);

@@ -13,22 +13,23 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import javafx.application.Platform;
 
 /**
- *
  * @author Beka
- *
  */
-public class GoDown extends AnimationFX {
+public class GoDown extends AnimationFX
+{
 
     private StickmanFX mStickmanFX;
 
-    public GoDown(StickmanFX sm, int duration, boolean block) {
+    public GoDown(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 5;
         int speed = 7;
 
@@ -39,9 +40,11 @@ public class GoDown extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit * 32));
         playAnimationPart(200);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             // wave right		
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", -rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", -rotationUnit));
@@ -52,7 +55,8 @@ public class GoDown extends AnimationFX {
             }
 
             // wave left
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 8; j++)
+            {
                 mAnimationPartFX = new ArrayList<>();
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", rotationUnit));
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftHandFX, "rotate", rotationUnit));

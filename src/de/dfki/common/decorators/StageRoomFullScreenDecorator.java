@@ -5,27 +5,32 @@ import de.dfki.common.interfaces.StageRoom;
 /**
  * Created by alvaro on 9/17/16.
  */
-public class StageRoomFullScreenDecorator extends StageRoomDecorator {
+public class StageRoomFullScreenDecorator extends StageRoomDecorator
+{
 
-    public StageRoomFullScreenDecorator(StageRoom wrappedController) {
+    public StageRoomFullScreenDecorator(StageRoom wrappedController)
+    {
         super(wrappedController);
     }
 
     @Override
-    public void addStickman(String name) {
+    public void addAgent(String name)
+    {
         setFullScreen(true);
-        super.addStickman(name);
+        super.addAgent(name);
     }
 
     @Override
-    public void launchStickmanStage(boolean show) {
-        controllerFX.getStickmanStage().setStageFullScreen(controllerFX.getStageIdentifier());
-        super.launchStickmanStage(show);
+    public void launchAgentStage(boolean show)
+    {
+        controllerFX.getAgentStage().setStageFullScreen(controllerFX.getStageIdentifier());
+        super.launchAgentStage(show);
     }
 
     @Override
-    public void launchStage(boolean show, String filepath) {
-        controllerFX.getStickmanStage().setStageFullScreen(controllerFX.getStageIdentifier());
+    public void launchStage(boolean show, String filepath)
+    {
+        controllerFX.getAgentStage().setStageFullScreen(controllerFX.getStageIdentifier());
         super.launchStage(show, filepath);
     }
 

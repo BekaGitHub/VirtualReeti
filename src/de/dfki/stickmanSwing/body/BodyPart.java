@@ -21,16 +21,18 @@ import java.util.List;
 import javax.swing.JComponent;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public abstract class BodyPart extends JComponent {
+public abstract class BodyPart extends JComponent
+{
 
-    public enum SHAPE {
+    public enum SHAPE
+    {
 
         DEFAULT
-    };
+    }
+
+    ;
 
     // variables for size and drawing
     public Dimension mSize = new Dimension(10, 10);
@@ -57,108 +59,127 @@ public abstract class BodyPart extends JComponent {
 
     public BasicStroke mStroke = new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
-    public void init() {
+    public void init()
+    {
         setLayout(null);
         setSize(mSize);
 
         calculate(0);
     }
 
-    public void setTranslation(int length) {
+    public void setTranslation(int length)
+    {
         mToTranslation = mTranslation + length;
 //		mTranslationStep = Math.abs(Math.abs(mTranslation) - Math.abs(mToTranslation)) / AnimatorSwing.sMAX_ANIM_STEPS * (length / Math.abs(length));
         mTranslationStep = (double) length / AnimatorSwing.sMAX_ANIM_STEPS;
 
     }
 
-    public synchronized void calculateTranslation(int step) {
+    public synchronized void calculateTranslation(int step)
+    {
         mTranslation += mTranslationStep;
         mTranslation = (double) Math.round(mTranslation * 1000d) / 1000d; // the poor man's round method
 
         calculate(step);
     }
 
-    public void resetTranslation() {
+    public void resetTranslation()
+    {
         mTranslationStep = 0.0d;
     }
 
-    public void setDefaulRotation(int degree) {
+    public void setDefaulRotation(int degree)
+    {
         mDefaultRotation = degree;
         mRotation = mDefaultRotation;
         mToDegree = mDefaultRotation;
         mRotationStep = 0.0f;
     }
 
-    public void setRotation(int degree) {
+    public void setRotation(int degree)
+    {
         mToDegree = mRotation + degree;
 //		mRotationStep = Math.abs(Math.abs(mRotation) - Math.abs(mToDegree)) / AnimatorSwing.sMAX_ANIM_STEPS * (degree / Math.abs(degree));
         mRotationStep = (double) degree / AnimatorSwing.sMAX_ANIM_STEPS;
     }
 
-    public void setTilt(int degree) {
+    public void setTilt(int degree)
+    {
         mToDegree = mRotation + degree;
 //		mRotationStep = Math.abs(Math.abs(mRotation) - Math.abs(mToDegree)) / AnimatorSwing.sMAX_ANIM_STEPS * (degree / Math.abs(degree));
         mRotationStep = (double) degree / AnimatorSwing.sMAX_ANIM_STEPS;
     }
 
-    public synchronized void calculateRotation(int step) {
+    public synchronized void calculateRotation(int step)
+    {
         mRotation += mRotationStep;
         mRotation = (double) Math.round(mRotation * 1000d) / 1000d; // the poor man's round method
         calculate(step);
     }
 
-    public void resetRotation() {
+    public void resetRotation()
+    {
         mTranslationStep = 0.0d;
     }
 
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         // place code for setting shape
     }
 
-    public void createShape() {
+    public void createShape()
+    {
         // create the shape
     }
 
-    public synchronized void calculateShape(int step) {
+    public synchronized void calculateShape(int step)
+    {
         mShapeAnimationStep = step;
 
         calculate(step);
     }
 
-    public void resetShape() {
+    public void resetShape()
+    {
         mShapeAnimationStep = 0;
     }
 
-    public void clearDrawObjects() {
+    public void clearDrawObjects()
+    {
         mGraphicPaths = new ArrayList<>();
     }
 
-    public void addToDrawObjects(GeneralPath gp) {
+    public void addToDrawObjects(GeneralPath gp)
+    {
         mGraphicPaths.add(gp);
     }
 
-    public synchronized void calculate(int step) {
+    public synchronized void calculate(int step)
+    {
         createShape();
 
         AffineTransform t = new AffineTransform();
         t.translate(0, mTranslation);
         t.rotate(Math.toRadians(mRotation), mDefaultRotationPoint.x, mDefaultRotationPoint.y);
 
-        for (GeneralPath gp : mGraphicPaths) {
+        for (GeneralPath gp : mGraphicPaths)
+        {
             gp.transform(t);
         }
 
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(mColor);
         g2.setStroke(mStroke);
 
-        for (GeneralPath gp : mGraphicPaths) {
+        for (GeneralPath gp : mGraphicPaths)
+        {
             g2.draw(gp);
         }
     }

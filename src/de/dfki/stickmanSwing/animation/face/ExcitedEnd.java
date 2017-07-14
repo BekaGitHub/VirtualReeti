@@ -7,18 +7,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class ExcitedEnd extends AnimationSwing {
+public class ExcitedEnd extends AnimationSwing
+{
 
-    public ExcitedEnd(StickmanSwing sm, int duration, boolean block) {
+    public ExcitedEnd(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // excited end
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "EXCITEDEND"));

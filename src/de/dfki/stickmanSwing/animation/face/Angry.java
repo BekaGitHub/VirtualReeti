@@ -17,22 +17,23 @@ import java.util.ArrayList;
  *
  * @author Patrick Gebhard
  */
-public class Angry extends AnimationSwing {
+public class Angry extends AnimationSwing
+{
 
     /**
-     *
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
-     *
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public Angry() {
+    public Angry()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Angry(StickmanSwing sm, int duration, boolean block) {
+    public Angry(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -40,7 +41,8 @@ public class Angry extends AnimationSwing {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "ANGRY"));

@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class AngrySmallMouth extends Animation3D {
+public class AngrySmallMouth extends Animation3D
+{
 
-    public AngrySmallMouth() {
+    public AngrySmallMouth()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public AngrySmallMouth(Stickman3D sm, int duration, boolean block) {
+    public AngrySmallMouth(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRYSMALLMOUTH"));
@@ -51,7 +53,8 @@ public class AngrySmallMouth extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "ANGRYEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

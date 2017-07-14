@@ -14,22 +14,23 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class FadeIn extends AnimationFX {
+public class FadeIn extends AnimationFX
+{
 
     private StickmanFX mStickmanFX;
 
-    public FadeIn(StickmanFX sm, int duration, boolean block) {
+    public FadeIn(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 //		star fade in
         mStickmanFX.starShowControler = true;
         mStickmanFX.starShowC = true;
@@ -45,9 +46,11 @@ public class FadeIn extends AnimationFX {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "shape", "DEFAULT"));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "shape", "DEFAULT"));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "shape", "DEFAULT"));
         }
 

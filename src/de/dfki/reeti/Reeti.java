@@ -1,5 +1,6 @@
 package de.dfki.reeti;
 
+import de.dfki.common.interfaces.Agent;
 import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
 import de.dfki.reeti.animationlogic.AnimationSchedulerReeti;
 import de.dfki.reeti.body.LeftEye;
@@ -13,7 +14,6 @@ import de.dfki.reeti.body.RightEye;
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.Stickman;
 import de.dfki.reeti.animation.environment.Blinking;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
 import de.dfki.reeti.animationlogic.AnimationReeti;
@@ -27,6 +27,7 @@ import de.dfki.reeti.body.MouthUpperLip;
 import de.dfki.reeti.body.RightCheek;
 import de.dfki.reeti.body.RightEar;
 import de.dfki.reeti.environment.SpeechBubbleFX;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -41,6 +42,7 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
+
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -49,15 +51,13 @@ import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
 
 /**
- *
  * @author Beka Aptsiauri
- *
- * This work is inspired by the stickmans drawn by Sarah Johnson
- * (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
- * by Ross Ching in 2012
- *
+ *         <p>
+ *         This work is inspired by the stickmans drawn by Sarah Johnson
+ *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
+ *         by Ross Ching in 2012
  */
-public class Reeti extends Pane implements Stickman
+public class Reeti extends Pane implements Agent
 {
 
     public enum LED
@@ -245,8 +245,7 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
@@ -305,8 +304,7 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
@@ -336,8 +334,7 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
@@ -351,14 +348,13 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
-    public void posOnScreen(float...pos)
+    public void posOnScreen(float... pos)
     {
         float mGeneralXTranslation;
         float mGeneralYTranslation;
@@ -368,12 +364,11 @@ public class Reeti extends Pane implements Stickman
         if (isFullScreen)
         {
             mGeneralYTranslation = (int) ((dim.getHeight() - REETI_HEIGHT) + shiftFactor + 100);
-            if(pos.length != 0)
+            if (pos.length != 0)
                 mGeneralXTranslation = pos[0];
             else
                 mGeneralXTranslation = 0;
-        }
-        else
+        } else
         {
             mGeneralYTranslation = 350;
             //mGeneralYTranslation = (int) ((this.stageHeight - REETI_HEIGHT) + shiftFactor - 350);
@@ -407,9 +402,7 @@ public class Reeti extends Pane implements Stickman
     }
 
     /**
-     *
      * @param color red, green, lightGreen, blue, darkBlue, turquoise, yellow, violer, white, swop
-     *
      */
     public void setLedColor(String color)
     {
@@ -417,17 +410,15 @@ public class Reeti extends Pane implements Stickman
         if (ledColor.equals(Color.BLACK))
         {
             ledOFF("B");
-        }
-        else
+        } else
         {
             ledON(ledColor, ledColor, ledColor, 0.3f, 0.9f, 0.1f, "B");
         }
     }
 
     /**
-     *
      * @param color red, green, lightGreen, blue, darkBlue, turquoise, yellow, violer, white, swop
-     * @param led left, right, both
+     * @param led   left, right, both
      */
     public void setLedColor(String color, LED led)
     {
@@ -446,8 +437,7 @@ public class Reeti extends Pane implements Stickman
                     ledOFF("B");
                     break;
             }
-        }
-        else
+        } else
         {
             switch (led)
             {
@@ -505,14 +495,12 @@ public class Reeti extends Pane implements Stickman
             mLeftCheek.getLed().setEffect(ledOnShadow);
             mLeftCheek.getLed().setFill(highlightGradient);
             mLeftCheek.getLedGroup().setVisible(true);
-        }
-        else if (cheek.equalsIgnoreCase("R"))
+        } else if (cheek.equalsIgnoreCase("R"))
         {
             mRightCheek.getLed().setEffect(ledOnShadow);
             mRightCheek.getLed().setFill(highlightGradient);
             mRightCheek.getLedGroup().setVisible(true);
-        }
-        else if (cheek.equalsIgnoreCase("B"))
+        } else if (cheek.equalsIgnoreCase("B"))
         {
             mLeftCheek.getLed().setEffect(ledOnShadow);
             mLeftCheek.getLed().setFill(highlightGradient);
@@ -528,12 +516,10 @@ public class Reeti extends Pane implements Stickman
         if (cheek.equalsIgnoreCase("R"))
         {
             mRightCheek.getLedGroup().setVisible(false);
-        }
-        else if (cheek.equalsIgnoreCase("L"))
+        } else if (cheek.equalsIgnoreCase("L"))
         {
             mLeftCheek.getLedGroup().setVisible(false);
-        }
-        else if (cheek.equalsIgnoreCase("B"))
+        } else if (cheek.equalsIgnoreCase("B"))
         {
             mRightCheek.getLedGroup().setVisible(false);
             mLeftCheek.getLedGroup().setVisible(false);
@@ -541,14 +527,12 @@ public class Reeti extends Pane implements Stickman
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
-     *
      */
 
-    public void rightLC(int pos, double...duration)
+    public void rightLC(int pos, double... duration)
     {
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -562,22 +546,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void leftLC(int pos, double...duration)
+    public void leftLC(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -586,27 +568,25 @@ public class Reeti extends Pane implements Stickman
         double distance = mLeftCornerOldPos - pos;
         this.mMouthLeftCorner.setLeftCornerRegulator(distance);
         mLeftCornerOldPos = pos;
-        AnimationReeti a = AnimationLoaderReeti.getInstance().loadAnimation(this, "LeftLC", (int)dur, pos, false);
+        AnimationReeti a = AnimationLoaderReeti.getInstance().loadAnimation(this, "LeftLC", (int) dur, pos, false);
         try
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 0)
      */
-    public void topLip(int pos, double...duration)
+    public void topLip(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -623,22 +603,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 100)
      */
-    public void bottomLip(int pos, double...duration)
+    public void bottomLip(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -655,26 +633,24 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 30)
      */
-    public void leftEyeTilt(int pos, double...duration)
+    public void leftEyeTilt(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
 
         if (pos > 100)
             pos = 100;
-        else if(pos < 20)
+        else if (pos < 20)
             pos = 20;
 
         double rot = mLeftEye_Y_OldPos - pos;
@@ -685,22 +661,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 40)
      */
-    public void leftEyePan(int pos, double...duration)
+    public void leftEyePan(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -713,26 +687,24 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 30)
      */
-    public void rightEyeTilt(int pos, double...duration)
+    public void rightEyeTilt(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
 
         if (pos > 100)
             pos = 100;
-        else if(pos < 23)
+        else if (pos < 23)
             pos = 23;
 
         double rot = mRightEye_Y_OldPos - pos;
@@ -743,22 +715,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 60)
      */
-    public void rightEyePan(int pos, double...duration)
+    public void rightEyePan(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -771,22 +741,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 100)
      */
-    public void leftEyeLid(int pos, double...duration)
+    public void leftEyeLid(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -794,27 +762,25 @@ public class Reeti extends Pane implements Stickman
         double rot = mLeftEyelidOldPos - pos;
         mLeftEyelidOldPos = pos;
 
-        AnimationReeti a = AnimationLoaderReeti.getInstance().loadAnimation(this, "BlinkLeftEyelid", (int)dur, (int) rot, false);
+        AnimationReeti a = AnimationLoaderReeti.getInstance().loadAnimation(this, "BlinkLeftEyelid", (int) dur, (int) rot, false);
         try
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 100)
      */
-    public void rightEyeLid(int pos, double...duration)
+    public void rightEyeLid(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -827,22 +793,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void leftEar(int pos, double...duration)
+    public void leftEar(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -855,22 +819,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void rightEar(int pos, double...duration)
+    public void rightEar(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -883,22 +845,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void neckRotat(int pos, double...duration)
+    public void neckRotat(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -911,23 +871,21 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void neckTilt(int pos, double...duration)
+    public void neckTilt(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
 
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -942,22 +900,20 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
     }
 
     /**
-     *
      * @param pos a int between 0 and 100 (default value is 50)
      */
-    public void neckPan(int pos, double...duration)
+    public void neckPan(int pos, double... duration)
     {
-        if(pos == -1)
+        if (pos == -1)
             return;
-        double dur = (duration.length==0)? 500 : duration[0];
+        double dur = (duration.length == 0) ? 500 : duration[0];
         if (pos > 100)
         {
             pos = 100;
@@ -971,8 +927,7 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }
@@ -985,8 +940,7 @@ public class Reeti extends Pane implements Stickman
         {
             mAnimationLaunchControl.acquire();
             a.start();
-        }
-        catch (InterruptedException ex)
+        } catch (InterruptedException ex)
         {
             mLogger.severe(ex.getMessage());
         }

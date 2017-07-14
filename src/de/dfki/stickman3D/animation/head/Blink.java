@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Blink extends Animation3D {
+public class Blink extends Animation3D
+{
 
-    public Blink() {
+    public Blink()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Blink(Stickman3D sm, int duration, boolean block) {
+    public Blink(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "BLINK"));
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "BLINK"));
@@ -42,7 +44,8 @@ public class Blink extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "BLINKEND"));
         playAnimationPart(50);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

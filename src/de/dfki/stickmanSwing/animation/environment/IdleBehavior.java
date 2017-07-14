@@ -3,11 +3,10 @@ package de.dfki.stickmanSwing.animation.environment;
 import de.dfki.stickmanSwing.StickmanSwing;
 
 /**
- *
  * @author Robbie
- *
  */
-public class IdleBehavior extends Thread {
+public class IdleBehavior extends Thread
+{
 
     private int mSleepTime = 100;  // control the duration after one segment. control the speed of the wobble
     private StickmanSwing mStickman;
@@ -16,7 +15,8 @@ public class IdleBehavior extends Thread {
     private int count2 = 1;    // index of perlin noise Array
     private UnconsciouslyAction mUnconsciouslyAction;
 
-    public IdleBehavior(StickmanSwing s, SimplexNoise noise) {
+    public IdleBehavior(StickmanSwing s, SimplexNoise noise)
+    {
         mSleepTime = 100;
         mStickman = s;
         mSimplexNoise = noise;
@@ -25,15 +25,19 @@ public class IdleBehavior extends Thread {
     }
 
     @Override
-    public void run() {
-        while (mStickman.mIdleRun) {
+    public void run()
+    {
+        while (mStickman.mIdleRun)
+        {
             // to generate index of perlin noise Array
             count1++;
-            if (count1 == 200) {
+            if (count1 == 200)
+            {
                 count1 = 0;
                 count2++;
             }
-            if (count2 == 200) {
+            if (count2 == 200)
+            {
                 count2 = 1;
             }
 
@@ -43,30 +47,37 @@ public class IdleBehavior extends Thread {
             double mAdjust = mStickman.mWobble;
 
             // 40 segments to achieve the wobble: come and back
-            for (int i = 0; i < 19; i++) {
+            for (int i = 0; i < 19; i++)
+            {
                 mStickman.mWobble = mStickman.mWobble + mAdjust;
                 mStickman.repaint();
-                try {
+                try
+                {
                     sleep(mSleepTime, 0);
-                } catch (InterruptedException ex) {
+                } catch (InterruptedException ex)
+                {
                     mStickman.mLogger.severe(ex.getMessage());
                 }
             }
 
-            for (int i = 0; i < 19; i++) {
+            for (int i = 0; i < 19; i++)
+            {
                 mStickman.mWobble = mStickman.mWobble - mAdjust;
-                if (i == 18) {
+                if (i == 18)
+                {
                     mStickman.mWobble = 0;
                 }
                 mStickman.repaint();
 
-                try {
+                try
+                {
                     sleep(mSleepTime, 0);
-                } catch (InterruptedException ex) {
+                } catch (InterruptedException ex)
+                {
                     mStickman.mLogger.severe(ex.getMessage());
                 }
             }
         }
-        while (mUnconsciouslyAction.isAlive());
+        while (mUnconsciouslyAction.isAlive()) ;
     }
 }

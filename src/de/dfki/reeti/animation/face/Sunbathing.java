@@ -10,22 +10,24 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
-public class Sunbathing extends AnimationReeti {
+public class Sunbathing extends AnimationReeti
+{
 
-    public Sunbathing() {
+    public Sunbathing()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Sunbathing(Reeti sm, int duration, boolean block) {
+    public Sunbathing(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.leftEyeLid(0);
         mReeti.rightEyeLid(0);
         mReeti.setLedColor("red");
@@ -38,7 +40,8 @@ public class Sunbathing extends AnimationReeti {
         mReeti.bottomLip(50);
 
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

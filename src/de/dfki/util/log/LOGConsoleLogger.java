@@ -2,6 +2,7 @@ package de.dfki.util.log;
 
 //~--- non-JDK imports --------------------------------------------------------
 //~--- JDK imports ------------------------------------------------------------
+
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,7 +10,8 @@ import java.util.logging.Logger;
 /**
  * @author Gregor Mehlmann
  */
-public class LOGConsoleLogger {
+public class LOGConsoleLogger
+{
 
     // The Singelton Console Logger Instance
     private static LOGConsoleLogger sInstance = null;
@@ -21,7 +23,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Construct The Default Logger
-    private LOGConsoleLogger() {
+    private LOGConsoleLogger()
+    {
 
         // Log The Messages From All Levels
         sLogger.setLevel(Level.ALL);
@@ -29,14 +32,16 @@ public class LOGConsoleLogger {
         // Do Not Propagate The Messages
         sLogger.setUseParentHandlers(false);
 
-        try {
+        try
+        {
 
             // Install The Console Handler
             install(new LOGConsoleHandler());
 
             // Install The Logfile Handler
             //install(new LOGLogFileHandler(Preferences.sLOGFILE_FILE_NAME, 10485760, 1, true));    // 10 MB Size
-        } catch (Exception exc) {
+        } catch (Exception exc)
+        {
             exc.printStackTrace();
             sLogger.severe(exc.toString());
         }
@@ -46,8 +51,10 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Get The Singelton Logger Instance
-    public static synchronized LOGConsoleLogger getInstance() {
-        if (sInstance == null) {
+    public static synchronized LOGConsoleLogger getInstance()
+    {
+        if (sInstance == null)
+        {
             sInstance = new LOGConsoleLogger();
         }
 
@@ -58,7 +65,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Install A Handler
-    public final synchronized void install(final Handler handler) {
+    public final synchronized void install(final Handler handler)
+    {
         sLogger.addHandler(handler);
     }
 
@@ -66,7 +74,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Remove A Handler
-    public final synchronized void remove(final Handler handler) {
+    public final synchronized void remove(final Handler handler)
+    {
         sLogger.removeHandler(handler);
     }
 
@@ -74,7 +83,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Log A Severe Message
-    public final synchronized void failure(final String msg) {
+    public final synchronized void failure(final String msg)
+    {
         sLogger.log(Level.SEVERE, msg, Thread.currentThread().getStackTrace());
     }
 
@@ -82,7 +92,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Log A Warning Message
-    public final synchronized void warning(final String msg) {
+    public final synchronized void warning(final String msg)
+    {
         sLogger.log(Level.WARNING, msg, Thread.currentThread().getStackTrace());
     }
 
@@ -90,7 +101,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Log An Inform Message
-    public final synchronized void message(final String msg) {
+    public final synchronized void message(final String msg)
+    {
         sLogger.log(Level.INFO, msg, Thread.currentThread().getStackTrace());
     }
 
@@ -98,7 +110,8 @@ public class LOGConsoleLogger {
     ////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Log A Success Message
-    public final synchronized void success(final String msg) {
+    public final synchronized void success(final String msg)
+    {
         sLogger.log(Level.ALL, msg, Thread.currentThread().getStackTrace());
     }
 }

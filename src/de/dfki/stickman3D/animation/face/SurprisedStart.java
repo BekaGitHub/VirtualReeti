@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class SurprisedStart extends Animation3D {
+public class SurprisedStart extends Animation3D
+{
 
-    public SurprisedStart(Stickman3D sm, int duration, boolean block) {
+    public SurprisedStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // surprised
         Animation3D.isSurprisedInAction = true;

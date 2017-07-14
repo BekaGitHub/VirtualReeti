@@ -8,22 +8,25 @@ package de.dfki.stickmanFX.animation.headfx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
+
 import javafx.application.Platform;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Blink extends AnimationFX {
+public class Blink extends AnimationFX
+{
 
-    public Blink(StickmanFX sm, int duration, boolean block) {
+    public Blink(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyeFX, "shape", "BLINK"));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightEyeFX, "shape", "BLINK"));

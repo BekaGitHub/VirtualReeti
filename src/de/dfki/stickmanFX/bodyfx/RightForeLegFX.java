@@ -17,11 +17,10 @@ import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Beka
- *
  */
-public class RightForeLegFX extends BodyPartFX {
+public class RightForeLegFX extends BodyPartFX
+{
 
     RightUpperLegFX mUpperLegFX;
     int mLegLength = 90;
@@ -32,7 +31,8 @@ public class RightForeLegFX extends BodyPartFX {
 
     Path mLeg;
 
-    public RightForeLegFX(RightUpperLegFX rightUpperLegFX) {
+    public RightForeLegFX(RightUpperLegFX rightUpperLegFX)
+    {
         mUpperLegFX = rightUpperLegFX;
 
         mDefaultRotation = -2;
@@ -47,20 +47,26 @@ public class RightForeLegFX extends BodyPartFX {
         calculate(0);
     }
 
-    public Point getLegStartPosition() {
-        if (mRotation >= 0 && mRotation <= 90) {
+    public Point getLegStartPosition()
+    {
+        if (mRotation >= 0 && mRotation <= 90)
+        {
             return (mLeg != null) ? new Point((int) (mLeg.boundsInParentProperty().get().getMinX() + 2), (int) mLeg.boundsInParentProperty().get().getMaxY() - 1) : new Point(0, 0);
-        } else if (mRotation > 90 && mRotation <= 180) {
+        } else if (mRotation > 90 && mRotation <= 180)
+        {
             return (mLeg != null) ? new Point((int) (mLeg.boundsInParentProperty().get().getMinX()), (int) mLeg.boundsInParentProperty().get().getMinY() + 3) : new Point(0, 0);
-        } else if (mRotation < 0 && mRotation >= -90) {
+        } else if (mRotation < 0 && mRotation >= -90)
+        {
             return (mLeg != null) ? new Point((int) (mLeg.boundsInParentProperty().get().getMaxX()), (int) mLeg.boundsInParentProperty().get().getMaxY() - 2) : new Point(0, 0);
-        } else {
+        } else
+        {
             return (mLeg != null) ? new Point((int) (mLeg.boundsInParentProperty().get().getMaxX()), (int) mLeg.boundsInParentProperty().get().getMinY()) : new Point(0, 0);
         }
     }
 
     @Override
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         clearChildren(this);
 
         mLeg = new Path();
@@ -82,24 +88,31 @@ public class RightForeLegFX extends BodyPartFX {
     }
 
     @Override
-    public void update() {
-        if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
+    public void update()
+    {
+        if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
-        if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
+        if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true)
+        {
             if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep * 12;
-                if (fadeFactor <= 24) {
+                if (fadeFactor <= 24)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
-                if (fadeFactor >= 216) {
+                if (fadeFactor >= 216)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 }
                 //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);

@@ -4,9 +4,7 @@ import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Robbie
- *
  */
 
 /*
@@ -14,15 +12,19 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-public class StartIdle extends AnimationFX {
+public class StartIdle extends AnimationFX
+{
 
-    public StartIdle(StickmanFX sm, int duration, boolean block) {
+    public StartIdle(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (!mStickmanFX.mIdleBehavior.isAlive()) {
+    public void playAnimation()
+    {
+        if (!mStickmanFX.mIdleBehavior.isAlive())
+        {
             mStickmanFX.mIdleRun = true;
             mStickmanFX.mIdleBehavior = new IdleBehavior(mStickmanFX, mStickmanFX.simplexNoise);
             mStickmanFX.mIdleBehavior.start();

@@ -10,23 +10,25 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
-public class Grimace extends AnimationReeti {
+public class Grimace extends AnimationReeti
+{
 
-    public Grimace() {
+    public Grimace()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Grimace(Reeti sm, int duration, boolean block) {
+    public Grimace(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.neckPan(25);
         mReeti.neckTilt(20);
         mReeti.leftEyePan(60);
@@ -40,7 +42,8 @@ public class Grimace extends AnimationReeti {
         mReeti.topLip(3);
 
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

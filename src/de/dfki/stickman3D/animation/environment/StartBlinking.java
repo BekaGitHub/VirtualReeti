@@ -5,9 +5,7 @@ import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.Animation3D;
 
 /**
- *
  * @author Beka
- *
  */
 
 /*
@@ -15,23 +13,27 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
  * To change this template file, choose Tools | Templates and open the template
  * in the editor.
  */
-public class StartBlinking extends Animation3D {
+public class StartBlinking extends Animation3D
+{
 
-    public StartBlinking() {
+    public StartBlinking()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
     int frequent;
     int actionDuration;
 
-    public StartBlinking(Stickman3D sm, int frequent, int actionDuration, boolean block) {
+    public StartBlinking(Stickman3D sm, int frequent, int actionDuration, boolean block)
+    {
         super(sm, frequent, actionDuration, block);
         mStickmanFX = sm;
         this.frequent = frequent;
         this.actionDuration = actionDuration;
     }
 
-    public StartBlinking(Stickman3D sm, int frequent, boolean block) {
+    public StartBlinking(Stickman3D sm, int frequent, boolean block)
+    {
         super(sm, frequent, block);
         mStickmanFX = sm;
         this.frequent = 5000;
@@ -39,10 +41,12 @@ public class StartBlinking extends Animation3D {
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mStickmanFX.mBlinking = new Blinking(mStickmanFX, frequent, actionDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

@@ -5,6 +5,7 @@ package de.dfki.stickmanFX.animation.facefx;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
@@ -12,22 +13,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class ThinkOfLove extends AnimationFX {
+public class ThinkOfLove extends AnimationFX
+{
 
-    public ThinkOfLove() {
+    public ThinkOfLove()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public ThinkOfLove(StickmanFX sm, int duration, boolean block) {
+    public ThinkOfLove(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mThinkFX, "shape", "THINKOFLOVE"));

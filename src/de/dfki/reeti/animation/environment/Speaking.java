@@ -14,23 +14,26 @@ import de.dfki.reeti.environment.SpeechBubbleFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Speaking extends AnimationReeti {
+public class Speaking extends AnimationReeti
+{
 
-    public Speaking() {
+    public Speaking()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Speaking(Reeti sm, int duration, boolean block) {
+    public Speaking(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (mParameter instanceof String) {
+    public void playAnimation()
+    {
+        if (mParameter instanceof String)
+        {
             mReeti.mSpeechBubble.mText = (String) mParameter;
 //            mReeti.mSpeechBubble.mText = "dadasdsad ";
         }
@@ -42,7 +45,8 @@ public class Speaking extends AnimationReeti {
         mAnimationPart.add(new AnimationContentReeti(mReeti.mSpeechBubble, "shape", SpeechBubbleFX.SHAPE.DEFAULT.name()));
         playAnimationPart(20);
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
 

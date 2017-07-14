@@ -4,8 +4,6 @@ import de.dfki.common.*;
 import de.dfki.common.commonFX3D.ApplicationLauncherImpl;
 import de.dfki.common.commonFX3D.ViewController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
@@ -14,62 +12,71 @@ import java.io.IOException;
 /**
  * Created by alvaro on 11/10/16.
  */
-public class StagePaneHandlerReeti {
+final public class StagePaneHandlerReeti
+{
+    private HBox root = null;
+    private ViewController mReetiStageController = null;
 
-    private HBox root;
-    private ScrollPane stickmanScrollPane;
-    private SplitPane mSplitPane;
-    private HBox sStickmanPane;
-    private ViewController mStickmanStageController;
-
-    public StagePaneHandlerReeti() {
-        if (ApplicationLauncherImpl.isRunning()) {
-            try {
-                if (mStickmanStageController == null) {
+    public StagePaneHandlerReeti()
+    {
+        if (ApplicationLauncherImpl.isRunning())
+        {
+            try
+            {
+                if (mReetiStageController == null)
+                {
                     invoke();
                 }
-            } catch (IOException e) {
+            } catch (IOException e)
+            {
                 e.printStackTrace();
             }
         }
     }
 
-    public HBox getConfigRoot() throws IOException {
-        if (mStickmanStageController == null) {
+    public HBox getConfigRoot() throws IOException
+    {
+        if (mReetiStageController == null)
+        {
             invoke();
         }
 
         return root;
     }
 
-    public HBox getStageRoot() throws IOException {
-        if (mStickmanStageController == null) {
+    public HBox getStageRoot() throws IOException
+    {
+        if (mReetiStageController == null)
+        {
             invoke();
         }
         AnchorPane controlPanel = (AnchorPane) root.lookup("#controlPanel");
-        if (controlPanel != null) {
+        if (controlPanel != null)
+        {
             root.getChildren().remove(controlPanel);
         }
         return root;
     }
 
-    private StagePaneHandlerReeti invoke() throws IOException {
+    private StagePaneHandlerReeti invoke() throws IOException
+    {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/de/dfki/reeti/View1.fxml"));
         root = loader.load();
-        mStickmanStageController = loader.getController();
-        //mStickmanStageController.setlePerlinNoiseOn();
+        mReetiStageController = loader.getController();
         return this;
 
     }
 
-    public ViewController getmStickmanStageController() {
-        return mStickmanStageController;
+    public ViewController getReetiStageController()
+    {
+        return mReetiStageController;
     }
 
-    public void setStickmansOnStage(StickmansOnStage stickmans) {
-        mStickmanStageController.setStickamnOnStage(stickmans);
+    public void setReetisOnStage(AgentsOnStage reeti)
+    {
+        mReetiStageController.setStickamnOnStage(reeti);
     }
 
 }

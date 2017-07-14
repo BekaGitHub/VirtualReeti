@@ -10,22 +10,24 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
-public class Sad2 extends AnimationReeti {
+public class Sad2 extends AnimationReeti
+{
 
-    public Sad2() {
+    public Sad2()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Sad2(Reeti sm, int duration, boolean block) {
+    public Sad2(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.leftEyeLid(45);
         mReeti.rightEyeLid(45);
         mReeti.leftEyeTilt(55);
@@ -37,7 +39,8 @@ public class Sad2 extends AnimationReeti {
         mReeti.rightLC(0);
         mReeti.leftLC(0);
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

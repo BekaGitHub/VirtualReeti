@@ -13,26 +13,29 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Test extends AnimationReeti {
+public class Test extends AnimationReeti
+{
 
-    public Test() {
+    public Test()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Test(Reeti sm, int duration, boolean block) {
+    public Test(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mReeti.neckPan(80);
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

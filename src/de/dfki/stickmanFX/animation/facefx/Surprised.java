@@ -8,25 +8,28 @@ package de.dfki.stickmanFX.animation.facefx;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Surprised extends AnimationFX {
+public class Surprised extends AnimationFX
+{
 
-    public Surprised() {
+    public Surprised()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Surprised(StickmanFX sm, int duration, boolean block) {
+    public Surprised(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // surprised
         mAnimationPartFX = new ArrayList<>();

@@ -18,9 +18,11 @@ import java.util.ArrayList;
  *
  * @author Beka Aptsiauri
  */
-public class TurnRightEnd extends Animation3D {
+public class TurnRightEnd extends Animation3D
+{
 
-    public TurnRightEnd(Stickman3D sm, int duration, boolean block) {
+    public TurnRightEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -28,15 +30,18 @@ public class TurnRightEnd extends Animation3D {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -40));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -40));
             playAnimationPart(500);
-        } else {
+        } else
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -70));
             mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));

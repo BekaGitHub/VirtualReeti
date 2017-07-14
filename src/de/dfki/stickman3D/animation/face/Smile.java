@@ -8,22 +8,24 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Smile extends Animation3D {
+public class Smile extends Animation3D
+{
 
-    public Smile() {
+    public Smile()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Smile(Stickman3D sm, int duration, boolean block) {
+    public Smile(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // smile
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "SMILE"));
@@ -35,7 +37,8 @@ public class Smile extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "SMILEEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

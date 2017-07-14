@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Contempt extends AnimationSwing {
+public class Contempt extends AnimationSwing
+{
 
-    public Contempt() {
+    public Contempt()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public Contempt(StickmanSwing sm, int duration, boolean block) {
+    public Contempt(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // Contempt
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "CONTEMPT"));

@@ -12,18 +12,19 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class HeadShake extends AnimationSwing {
+public class HeadShake extends AnimationSwing
+{
 
-    public HeadShake(StickmanSwing sm, int duration, boolean block) {
+    public HeadShake(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // Its action is strange for the first time!
@@ -38,7 +39,8 @@ public class HeadShake extends AnimationSwing {
         pauseAnimation(100);
 
         // shaking head 5 times from Robbie
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             mAnimationPart = new ArrayList<>();
             mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "rotate", rotationUnit * 2));
             mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEyebrow, "rotate", rotationUnit * 2));

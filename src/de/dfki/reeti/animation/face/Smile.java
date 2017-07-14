@@ -10,18 +10,22 @@ import java.util.ArrayList;
 /**
  * @author Beka
  */
-public class Smile extends AnimationReeti {
+public class Smile extends AnimationReeti
+{
 
-    public Smile() {
+    public Smile()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Smile(Reeti sm, int duration, boolean block) {
+    public Smile(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mReeti.bottomLip(50);
         mReeti.leftLC(70);
@@ -32,7 +36,8 @@ public class Smile extends AnimationReeti {
         mReeti.rightEar(100);
 
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

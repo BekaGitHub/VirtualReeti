@@ -10,22 +10,24 @@ import de.dfki.reeti.ReetiStageController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
- *
  * @author Beka
- *
  */
-public class Sorry extends AnimationReeti {
+public class Sorry extends AnimationReeti
+{
 
-    public Sorry() {
+    public Sorry()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Sorry(Reeti sm, int duration, boolean block) {
+    public Sorry(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         mReeti.neckPan(20);
         mReeti.neckTilt(30);
         mReeti.leftEyeLid(30);
@@ -39,8 +41,8 @@ public class Sorry extends AnimationReeti {
         mReeti.leftLC(10);
 
 
-
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

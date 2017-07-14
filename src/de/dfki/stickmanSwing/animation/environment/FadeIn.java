@@ -12,22 +12,23 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class FadeIn extends AnimationSwing {
+public class FadeIn extends AnimationSwing
+{
 
     private StickmanSwing mStickman;
 
-    public FadeIn(StickmanSwing sm, int duration, boolean block) {
+    public FadeIn(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickman = sm;
     }
 
     // WaveLeft
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 //		star fade in
         mStickman.starShowControler = true;
         mStickman.starShowC = true;

@@ -4,10 +4,10 @@ import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.interfaces.Animation;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.Stickman;
+import de.dfki.common.interfaces.Agent;
 import de.dfki.stickmanFX.bodyfx.*;
-import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -66,25 +66,28 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Beka Aptsiauri
- *
- * This work is inspired by the stickmans drawn by Sarah Johnson
- * (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
- * by Ross Ching in 2012
- *
+ *         <p>
+ *         This work is inspired by the stickmans drawn by Sarah Johnson
+ *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
+ *         by Ross Ching in 2012
  */
-public class StickmanFX extends Pane implements Stickman {
+public class StickmanFX extends Pane implements Agent
+{
 
     @Override
-    public Animation doAnimation(String name, int frequent, int actionDuration, boolean block) {
+    public Animation doAnimation(String name, int frequent, int actionDuration, boolean block)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // general stuff
-    public static enum ORIENTATION {
+    public static enum ORIENTATION
+    {
         FRONT, LEFT, RIGHT
-    };
+    }
+
+    ;
 
     public final static Color sFOREGROUND = Color.rgb(188, 188, 188, (128 * 100 / 255) / 100f);
     //Used to change the backgroundRecord(pic) of the stickmanSwing
@@ -180,7 +183,8 @@ public class StickmanFX extends Pane implements Stickman {
     // id
     private long mID = 0;
 
-    public StickmanFX(String name, Gender.TYPE gender, float scale, Dimension size) {
+    public StickmanFX(String name, Gender.TYPE gender, float scale, Dimension size)
+    {
         mSize = size;
         mScale = scale;
         mScaleOriginal = scale;
@@ -196,7 +200,8 @@ public class StickmanFX extends Pane implements Stickman {
         update();
     }
 
-    public StickmanFX(String name, Gender.TYPE gender, float scale) {
+    public StickmanFX(String name, Gender.TYPE gender, float scale)
+    {
         mScale = scale;
         mScaleOriginal = scale;
 
@@ -211,7 +216,8 @@ public class StickmanFX extends Pane implements Stickman {
         update();
     }
 
-    public StickmanFX(String name, Gender.TYPE gender, float scale, boolean faceOnly) {
+    public StickmanFX(String name, Gender.TYPE gender, float scale, boolean faceOnly)
+    {
         mScale = scale;
         mScaleOriginal = scale;
 
@@ -223,15 +229,18 @@ public class StickmanFX extends Pane implements Stickman {
 
         mSpeechBubbleFX = new SpeechBubbleFX(mHeadFX);
         init();
-        if (faceOnly) {
+        if (faceOnly)
+        {
             this.addOnlyHeadParts();
-        } else {
+        } else
+        {
             this.addAllParts();
         }
         update();
     }
 
-    public StickmanFX(String name, Gender.TYPE gender) {
+    public StickmanFX(String name, Gender.TYPE gender)
+    {
         mName = name;
         mType = gender;
 
@@ -243,7 +252,8 @@ public class StickmanFX extends Pane implements Stickman {
         update();
     }
 
-    public void initBodyParts() {
+    public void initBodyParts()
+    {
         mHeadFX = new HeadFX(this);
         mMaleHairFX = new MaleHairFX(this);
         mFemaleHairFX = new FemaleHairFX(this);
@@ -278,7 +288,8 @@ public class StickmanFX extends Pane implements Stickman {
         mNose = new NoseFX(mHeadFX);
     }
 
-    public StickmanFX(String name, Gender.TYPE gender, float scale, Dimension size, boolean faceOnly) {
+    public StickmanFX(String name, Gender.TYPE gender, float scale, Dimension size, boolean faceOnly)
+    {
         mSize = size;
         mScale = scale;
         mScaleOriginal = scale;
@@ -287,15 +298,18 @@ public class StickmanFX extends Pane implements Stickman {
         initBodyParts();
         mSpeechBubbleFX = new SpeechBubbleFX(mHeadFX);
         init();
-        if (faceOnly) {
+        if (faceOnly)
+        {
             this.addOnlyHeadParts();
-        } else {
+        } else
+        {
             this.addAllParts();
         }
         update();
     }
 
-    private void init() {
+    private void init()
+    {
         nameLabel = new Label();
         this.setPrefHeight(mSize.height);
         this.setPrefWidth(mSize.width);
@@ -326,122 +340,153 @@ public class StickmanFX extends Pane implements Stickman {
     }
 
     @Override
-    public StageRoom getStageController() {
+    public StageRoom getStageController()
+    {
         return stageController;
     }
 
     @Override
-    public void setStageController(StageRoom s) {
+    public void setStageController(StageRoom s)
+    {
         stageController = s;
     }
 
     @Override
-    public void setShowName(boolean show) {
+    public void setShowName(boolean show)
+    {
         mShowName = show;
     }
 
     @Override
-    public boolean isShowName() {
+    public boolean isShowName()
+    {
         return mShowName;
     }
 
     @Override
-    public void endAnimationScheduler() {
+    public void endAnimationScheduler()
+    {
         mAnimationSchedulerFX.end();
     }
 
     @Override
-    public Gender.TYPE getType() {
+    public Gender.TYPE getType()
+    {
         return mType;
     }
 
-    public void addListener(AnimationListener al) {
+    public void addListener(AnimationListener al)
+    {
         mAnimationListeners.add(al);
     }
 
-    public void removeListener(AnimationListener al) {
-        synchronized (mAnimationListeners) {
-            if (mAnimationListeners.contains(al)) {
+    public void removeListener(AnimationListener al)
+    {
+        synchronized (mAnimationListeners)
+        {
+            if (mAnimationListeners.contains(al))
+            {
                 mAnimationListeners.remove(al);
             }
         }
     }
 
-    public void notifyListeners(String animationId) {
-        synchronized (mAnimationListeners) {
-            mAnimationListeners.stream().forEach((al) -> {
+    public void notifyListeners(String animationId)
+    {
+        synchronized (mAnimationListeners)
+        {
+            mAnimationListeners.stream().forEach((al) ->
+            {
                 al.update(animationId);
             });
         }
     }
 
-    public String getID() {
+    public String getID()
+    {
         return (new StringBuffer()).append(mName).append(" AnimationSwing ").append(mID++).toString();
     }
 
     // Sets the orientation of the character, allowed values are: LEFT, RIGHT,
     // FRONT
-    public void setOrientation(String orientation) {
-        if (orientation.equalsIgnoreCase(ORIENTATION.LEFT.toString())) {
+    public void setOrientation(String orientation)
+    {
+        if (orientation.equalsIgnoreCase(ORIENTATION.LEFT.toString()))
+        {
             mOrientation = ORIENTATION.LEFT;
-        } else if (orientation.equalsIgnoreCase(ORIENTATION.RIGHT.toString())) {
+        } else if (orientation.equalsIgnoreCase(ORIENTATION.RIGHT.toString()))
+        {
             mOrientation = ORIENTATION.RIGHT;
-        } else {
+        } else
+        {
             mOrientation = ORIENTATION.FRONT;
         }
     }
 
-    public AnimationFX doEventFeedbackAnimation(String name, int duration, WordTimeMarkSequence wts, boolean block) {
+    public AnimationFX doEventFeedbackAnimation(String name, int duration, WordTimeMarkSequence wts, boolean block)
+    {
         EventAnimationFX a = AnimationLoaderFX.getInstance().loadEventAnimation(this, name, duration, block);
 
         a.setParameter(wts);
 
-        try {
+        try
+        {
             mAnimationLaunchControl.acquire();
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
         return a;
     }
 
-    public AnimationFX doAnimationAsImage(String name, int duration, boolean block, AnimationObserver obs) {
+    public AnimationFX doAnimationAsImage(String name, int duration, boolean block, AnimationObserver obs)
+    {
         return doAnimation(name, duration, obs, block);
     }
 
-    public AnimationFX doAnimation(String name, int duration, boolean block) {
+    public AnimationFX doAnimation(String name, int duration, boolean block)
+    {
         return doAnimation(name, duration, "", block);
     }
 
-    public AnimationFX doAnimation(String name, Object param, boolean block) {
+    public AnimationFX doAnimation(String name, Object param, boolean block)
+    {
         return doAnimation(name, -1, param, block);
     }
 
-    public AnimationFX doAnimation(String name, boolean block) {
+    public AnimationFX doAnimation(String name, boolean block)
+    {
         return doAnimation(name, -1, "", block);
     }
 
-    public AnimationFX doAnimation(String name, int duration, Object param, boolean block) {
+    public AnimationFX doAnimation(String name, int duration, Object param, boolean block)
+    {
         AnimationFX a = AnimationLoaderFX.getInstance().loadAnimation(this, name, duration, block);
 
         // this is for now only used by the Speech Bubble
         a.setParameter(param);
 
-        try {
+        try
+        {
             mAnimationLaunchControl.acquire();
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
 
         return a;
     }
 
-    public void playAnimation(AnimationFX a) {
-        try {
+    public void playAnimation(AnimationFX a)
+    {
+        try
+        {
             mAnimationLaunchControl.acquire();
             a.start();
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             mLogger.severe(ex.getMessage());
         }
     }
@@ -449,7 +494,8 @@ public class StickmanFX extends Pane implements Stickman {
     // Control IdleBehavior start(mStart == true) or not(mStart == false).
     private static boolean isAnimationTimerStartet = false;
 
-    public void update() {
+    public void update()
+    {
         Color currColor = sFOREGROUND;
         int width = new Float(mSize.width).intValue();
         int height = new Float(mSize.height).intValue();
@@ -459,7 +505,8 @@ public class StickmanFX extends Pane implements Stickman {
         mGeneralXTranslation = mSize.width / 2 - mHeadFX.mSize.width * mScale;
         mGeneralYTranslation = (float) (mSize.height / 5);
         // mGeneralYTranslation = (float) (sSize.height - 550 * mScale);
-        if (this.faceOnly) {
+        if (this.faceOnly)
+        {
             mGeneralYTranslation = -250;
         }
         af.appendTranslation(mGeneralXTranslation, mGeneralYTranslation);
@@ -473,10 +520,12 @@ public class StickmanFX extends Pane implements Stickman {
         implimentPerlinNoise(mWobble, (mBodyFX.getRightLegStartPostion().x + mBodyFX.getLeftLegStartPostion().x) / 2,
                 mBodyFX.getRightLegStartPostion().y + mLeftUpperLegFX.mLength + mLeftForeLegFX.mLength);
 
-        if (mShowName) {
+        if (mShowName)
+        {
             nameLabel.setTranslateY(mRightForeLegFX.getLegStartPosition().getY() * 21 / 20);
             nameLabel.setText(mName);
-        } else {
+        } else
+        {
             nameLabel.setTranslateY(mRightForeLegFX.getLegStartPosition().getY() * 21 / 20);
             nameLabel.setText("");
         }
@@ -484,52 +533,66 @@ public class StickmanFX extends Pane implements Stickman {
         updateAll();
     }
 
-    private static class StickmanLogFormatter extends Formatter {
+    private static class StickmanLogFormatter extends Formatter
+    {
 
         @Override
-        public String format(LogRecord record) {
+        public String format(LogRecord record)
+        {
             return ((new StringBuffer()).append(record.getLevel()).append(": ").append(record.getMessage())
                     .append("\n")).toString();
         }
     }
 
-    private void addOnlyHeadParts() {
+    private void addOnlyHeadParts()
+    {
         this.getChildren().addAll(mHeadFX, mLeftEyebrowFX, mLeftEyeFX, mRightEyebrowFX, mRightEyeFX, mMouthFX,
                 mFaceWrinkleFX, mSpeechBubbleFX, mNose);
-        if (this.mType == Gender.TYPE.MALE) {
+        if (this.mType == Gender.TYPE.MALE)
+        {
             this.getChildren().add(mMaleHairFX);
-        } else {
+        } else
+        {
             this.getChildren().add(mFemaleHairFX);
         }
     }
 
-    private void addAllParts() {
+    private void addAllParts()
+    {
         this.getChildren().addAll(mHeadFX, mLeftEyebrowFX, mLeftEyeFX, mRightEyebrowFX, mRightEyeFX, mMouthFX, mNeckFX,
                 mBodyFX, mLeftShoulderFX, mLeftUpperArmFX, mLeftForeArmFX, mLeftHandFX, mRightShoulderFX,
                 mRightUpperArmFX, mRightForeArmFX, mRightHandFX, /* mLeftLegFX, */ mLeftUpperLegFX, mLeftForeLegFX,
                 mLeftFootFX, /* mRightLegFX, */ mRightUpperLegFX, mRightForeLegFX, mRightFootFX, mFaceWrinkleFX,
                 mStarsFX, mSpeechBubbleFX, mThinkFX, mBombeFX, nameLabel);
-        if (this.mType == Gender.TYPE.MALE) {
+        if (this.mType == Gender.TYPE.MALE)
+        {
             this.getChildren().add(mMaleHairFX);
-        } else {
+        } else
+        {
             this.getChildren().add(mFemaleHairFX);
         }
     }
 
-    private void updateAll() {
+    private void updateAll()
+    {
         // draw body parts
-        if (starShowControler == true) {
+        if (starShowControler == true)
+        {
             // Added by Robbie, to show stars or words here.
             mStarsFX.update();
-        } else {
-            if (starShowC == true) {
+        } else
+        {
+            if (starShowC == true)
+            {
                 mStarsFX.update();
             }
             mHeadFX.update();
 
-            if (this.mType == Gender.TYPE.MALE) {
+            if (this.mType == Gender.TYPE.MALE)
+            {
                 mMaleHairFX.update();
-            } else {
+            } else
+            {
                 mFemaleHairFX.update();
             }
             mLeftEyebrowFX.update();
@@ -570,19 +633,25 @@ public class StickmanFX extends Pane implements Stickman {
         // mSpeechBubble.posOnScreen(g);
     }
 
-    private void implimentPerlinNoise(double mWobble, int x, int y) {
-        if (starShowControler == true) {
+    private void implimentPerlinNoise(double mWobble, int x, int y)
+    {
+        if (starShowControler == true)
+        {
             // Added by Robbie, to show stars or words here
             mStarsFX.rotatePerlinNoise(mWobble, x, y);
-        } else {
-            if (starShowC == true) {
+        } else
+        {
+            if (starShowC == true)
+            {
                 mStarsFX.rotatePerlinNoise(mWobble, x, y);
             }
             mHeadFX.rotatePerlinNoise(mWobble, x, y);
 
-            if (this.mType == Gender.TYPE.MALE) {
+            if (this.mType == Gender.TYPE.MALE)
+            {
                 mMaleHairFX.rotatePerlinNoise(mWobble, x, y);
-            } else {
+            } else
+            {
                 mFemaleHairFX.rotatePerlinNoise(mWobble, x, y);
             }
             mLeftEyebrowFX.rotatePerlinNoise(mWobble, x, y);
@@ -618,16 +687,21 @@ public class StickmanFX extends Pane implements Stickman {
         }
     }
 
-    public void hideAllPartsWithout(Pane p) {
-        this.getChildren().forEach(child -> {
-            if (!child.equals(p)) {
+    public void hideAllPartsWithout(Pane p)
+    {
+        this.getChildren().forEach(child ->
+        {
+            if (!child.equals(p))
+            {
                 child.setVisible(false);
             }
         });
     }
 
-    public void showAllParts() {
-        this.getChildren().forEach(child -> {
+    public void showAllParts()
+    {
+        this.getChildren().forEach(child ->
+        {
             child.setVisible(true);
         });
     }

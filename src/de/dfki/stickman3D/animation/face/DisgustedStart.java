@@ -12,18 +12,19 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author beka Aptsiauri
- *
  */
-public class DisgustedStart extends Animation3D {
+public class DisgustedStart extends Animation3D
+{
 
-    public DisgustedStart(Stickman3D sm, int duration, boolean block) {
+    public DisgustedStart(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // disgusted
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "DISGUSTED"));

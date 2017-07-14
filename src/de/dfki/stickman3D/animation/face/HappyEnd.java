@@ -7,18 +7,19 @@ import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author beka
- *
  */
-public class HappyEnd extends Animation3D {
+public class HappyEnd extends Animation3D
+{
 
-    public HappyEnd(Stickman3D sm, int duration, boolean block) {
+    public HappyEnd(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // no happy
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "HAPPYEND"));

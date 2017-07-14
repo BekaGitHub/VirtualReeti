@@ -9,22 +9,25 @@ import java.awt.geom.GeneralPath;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class FaceWrinkle extends BodyPart {
+public class FaceWrinkle extends BodyPart
+{
 
-    public static enum SHAPE {
+    public static enum SHAPE
+    {
 
         DEFAULT, ANGRY, ANGRYEND, DISGUSTED, DISGUSTEDEND, SURPRISED, SURPRISEDEND, EXCITED, EXCITEDEND,
         EMBARRASSED, EMBARRASSEDEND
-    };
+    }
+
+    ;
 
     Head mHead;
     public FaceWrinkle.SHAPE mShape = FaceWrinkle.SHAPE.DEFAULT;
 
-    public FaceWrinkle(Head head) {
+    public FaceWrinkle(Head head)
+    {
         mHead = head;
         mLength = 16;
         mSize = new Dimension(mLength, 5);
@@ -35,18 +38,21 @@ public class FaceWrinkle extends BodyPart {
     }
 
     @Override
-    public void setShape(String s) {
+    public void setShape(String s)
+    {
         FaceWrinkle.SHAPE shape = FaceWrinkle.SHAPE.valueOf(s);
         mShape = (shape != null) ? shape : FaceWrinkle.SHAPE.DEFAULT;
     }
 
     @Override
-    public void resetShape() {
+    public void resetShape()
+    {
         mShape = FaceWrinkle.SHAPE.DEFAULT;
     }
 
     @Override
-    public void createShape() {
+    public void createShape()
+    {
 //		mStart: right side
 //		mEnd: left side
         mStart = mHead.getRightEyebrowPostion();
@@ -57,7 +63,8 @@ public class FaceWrinkle extends BodyPart {
         clearDrawObjects();
         GeneralPath gp = new GeneralPath();
 
-        switch (mShape) {
+        switch (mShape)
+        {
             case DEFAULT:
 
                 break;
@@ -77,9 +84,11 @@ public class FaceWrinkle extends BodyPart {
 //				End wrinkle for angry face:
             case ANGRYEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
                     angryColorChange = (int) (movement / 4 * 16);
                     mColor = new Color(0, 0, 0, angryColorChange);
                     gp.moveTo(mStart.x + 14, mStart.y + 7);
@@ -116,9 +125,11 @@ public class FaceWrinkle extends BodyPart {
 
             case EMBARRASSEDEND:
                 movement = mShapeAnimationStep - 1;
-                if (movement <= 1) {
+                if (movement <= 1)
+                {
                     mColor = new Color(0, 0, 0, 0);
-                } else {
+                } else
+                {
 //				Add wrinkles for embarrassed face:
                     embarrassedColorChange = (int) (movement / 4 * 16);
                     mColor = new Color(0, 0, 0, embarrassedColorChange);

@@ -12,22 +12,24 @@ import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class AngrySmallMouth extends AnimationSwing {
+public class AngrySmallMouth extends AnimationSwing
+{
 
-    public AngrySmallMouth() {
+    public AngrySmallMouth()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
-    public AngrySmallMouth(StickmanSwing sm, int duration, boolean block) {
+    public AngrySmallMouth(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry
         mAnimationPart = new ArrayList<>();
         mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "ANGRYSMALLMOUTH"));

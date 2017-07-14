@@ -13,22 +13,24 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Embarrassed extends Animation3D {
+public class Embarrassed extends Animation3D
+{
 
-    public Embarrassed() {
+    public Embarrassed()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Embarrassed(Stickman3D sm, int duration, boolean block) {
+    public Embarrassed(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         // embarrassed
         mAnimationPartFX = new ArrayList<>();
@@ -52,7 +54,8 @@ public class Embarrassed extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "EMBARRASSEDEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

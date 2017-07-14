@@ -14,28 +14,33 @@ import de.dfki.util.xml.XMLWriteable;
 import org.w3c.dom.Element;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Entry {
+public class Entry
+{
 
-    public static enum TYPE {
+    public static enum TYPE
+    {
 
         GENERIC, WORD, TIMEMARK
-    };
+    }
+
+    ;
 
     public String mContent;
     public TYPE mType;
 
-    public Entry() {
+    public Entry()
+    {
         mType = TYPE.GENERIC;
     }
 
-    public void writeXML(IOSIndentWriter out) throws XMLWriteError {
+    public void writeXML(IOSIndentWriter out) throws XMLWriteError
+    {
     }
 
-    public String toString() {
+    public String toString()
+    {
         return "entry";
     }
 }

@@ -14,11 +14,10 @@ import javafx.scene.shape.QuadCurveTo;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class FemaleHairFX extends BodyPartFX {
+public class FemaleHairFX extends BodyPartFX
+{
 
     public Dimension mSize = new Dimension(120, 100);
     public StickmanFX mStickmanFX;
@@ -33,7 +32,8 @@ public class FemaleHairFX extends BodyPartFX {
 
     Path mFemaleHair;
 
-    public FemaleHairFX(StickmanFX sm) {
+    public FemaleHairFX(StickmanFX sm)
+    {
         mStickmanFX = sm;
         mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
         mColor = Color.rgb(240, 212, 0, 1);
@@ -45,7 +45,8 @@ public class FemaleHairFX extends BodyPartFX {
         calculate(0);
     }
 
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         Affine af = new Affine();
         clearChildren(this);
         //drawFemaleHair1();
@@ -84,25 +85,32 @@ public class FemaleHairFX extends BodyPartFX {
 
     }
 
-    public void update() {
-        if (mStickmanFX.setCharacterInvisible == false) {
+    public void update()
+    {
+        if (mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
 
-        if (mStickmanFX.setCharacterInvisible == true) {
+        if (mStickmanFX.setCharacterInvisible == true)
+        {
             if (mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mStickmanFX.mMouthFX.mShapeAnimationStep * 10;
-                if (fadeFactor <= 20) {
+                if (fadeFactor <= 20)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 //mColor = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mStickmanFX.mMouthFX.mShapeAnimationStep) * 9;
-                if (fadeFactor >= 160) {
+                if (fadeFactor >= 160)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 }
                 //mColor = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
@@ -116,7 +124,8 @@ public class FemaleHairFX extends BodyPartFX {
 
     }
 
-    private void drawFemaleHair1() {
+    private void drawFemaleHair1()
+    {
         mStart = new Point(mStickmanFX.mHeadFX.getLeftEyebrowPostion().x - 10, mStickmanFX.mHeadFX.getLeftEyebrowPostion().y - 14);
         mFemaleHair = new Path();
 
@@ -137,12 +146,15 @@ public class FemaleHairFX extends BodyPartFX {
         mStart.x = mStart.x - 2;
         mStart.y = mStart.y + 2;
 
-        for (int i = 0; i < 20; i++) {
-            if (i % 2 == 0) {
+        for (int i = 0; i < 20; i++)
+        {
+            if (i % 2 == 0)
+            {
                 mFemaleHair.getElements().add(new LineTo(mStart.x - 1, mStart.y - 2));
                 mStart.x = mStart.x - 1;
                 mStart.y = mStart.y - 2;
-            } else {
+            } else
+            {
                 mFemaleHair.getElements().add(new LineTo(mStart.x - 1, mStart.y + 2));
                 mStart.x = mStart.x - 1;
                 mStart.y = mStart.y + 2;
@@ -185,12 +197,15 @@ public class FemaleHairFX extends BodyPartFX {
         mStart.x = mStart.x + 15;
         mStart.y = mStart.y + 40;
 
-        for (int i = 0; i < 20; i++) {
-            if (i % 2 == 0) {
+        for (int i = 0; i < 20; i++)
+        {
+            if (i % 2 == 0)
+            {
                 mFemaleHair.getElements().add(new LineTo(mStart.x - 2, mStart.y - 2));
                 mStart.x = mStart.x - 1;
                 mStart.y = mStart.y - 2;
-            } else {
+            } else
+            {
                 mFemaleHair.getElements().add(new LineTo(mStart.x - 1, mStart.y + 2));
                 mStart.x = mStart.x - 1;
                 mStart.y = mStart.y + 2;

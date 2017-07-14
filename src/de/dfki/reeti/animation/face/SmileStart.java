@@ -7,14 +7,17 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
 /**
  * @author Beka
  */
-public class SmileStart extends AnimationReeti {
+public class SmileStart extends AnimationReeti
+{
 
-    public SmileStart(Reeti sm, int duration, boolean block) {
+    public SmileStart(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
 
         mReeti.bottomLip(50);
         mReeti.leftLC(70);

@@ -13,19 +13,21 @@ import de.dfki.stickmanFX.animationlogic.AnimationFX;
 import de.dfki.stickmanFX.environmentfx.SpeechBubbleFX;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class Speaking extends AnimationFX {
+public class Speaking extends AnimationFX
+{
 
-    public Speaking(StickmanFX sm, int duration, boolean block) {
+    public Speaking(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (mParameter instanceof String) {
+    public void playAnimation()
+    {
+        if (mParameter instanceof String)
+        {
             mStickmanFX.mSpeechBubbleFX.mText = (String) mParameter;
         }
 

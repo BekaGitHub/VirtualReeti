@@ -10,6 +10,7 @@ import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
+
 import java.util.ArrayList;
 
 /**
@@ -18,24 +19,26 @@ import java.util.ArrayList;
  *
  * @author Beka Aptsiauri
  */
-public class Angry2 extends AnimationFX {
+public class Angry2 extends AnimationFX
+{
 
     StickmanFX mStickmanFX;
     int rotationUnit;
 
-    public Angry2() {
+    public Angry2()
+    {
         mAnimType = ANIMTYPE.EmotionExpression;
     }
 
     /**
-     *
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public Angry2(StickmanFX sm, int duration, boolean block) {
+    public Angry2(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         mStickmanFX = sm;
     }
@@ -44,10 +47,13 @@ public class Angry2 extends AnimationFX {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+    public void playAnimation()
+    {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             rotationUnit = 20;
-        } else {
+        } else
+        {
             rotationUnit = 30;
         }
         // angry
@@ -62,9 +68,11 @@ public class Angry2 extends AnimationFX {
 
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftUpperArmFX, "rotate", -(rotationUnit + 3)));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", rotationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", rotationUnit - 20));
         }
 
@@ -73,7 +81,8 @@ public class Angry2 extends AnimationFX {
         playAnimationPart(mDuration);
 
         //foot
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightFootFX, "rotate", 40));
             playAnimationPart(200);
@@ -97,9 +106,11 @@ public class Angry2 extends AnimationFX {
 
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftUpperArmFX, "rotate", rotationUnit + 3));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", -rotationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftForeArmFX, "rotate", -(rotationUnit - 20)));
         }
 

@@ -14,21 +14,22 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class HeadShake extends AnimationFX {
+public class HeadShake extends AnimationFX
+{
 
     StickmanFX mStickmanFX;
 
-    public HeadShake(StickmanFX sm, int duration, boolean block) {
+    public HeadShake(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
         this.mStickmanFX = sm;
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // Its action is strange for the first time!
@@ -39,9 +40,11 @@ public class HeadShake extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "rotate", -rotationUnit));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "rotate", -rotationUnit));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "rotate", -rotationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "rotate", -rotationUnit));
         }
 
@@ -50,7 +53,8 @@ public class HeadShake extends AnimationFX {
         pauseAnimation(100);
 
         // shaking head 5 times from Robbie
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             mAnimationPartFX = new ArrayList<>();
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightEyeFX, "rotate", rotationUnit * 2));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mRightEyebrowFX, "rotate", rotationUnit * 2));
@@ -58,9 +62,11 @@ public class HeadShake extends AnimationFX {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "rotate", rotationUnit * 2));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "rotate", rotationUnit * 2));
 
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "rotate", rotationUnit * 2));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "rotate", rotationUnit * 2));
             }
 
@@ -75,9 +81,11 @@ public class HeadShake extends AnimationFX {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "rotate", -rotationUnit * 2));
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "rotate", -rotationUnit * 2));
 
-            if (mStickmanFX.mType == Gender.TYPE.MALE) {
+            if (mStickmanFX.mType == Gender.TYPE.MALE)
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "rotate", -rotationUnit * 2));
-            } else {
+            } else
+            {
                 mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "rotate", -rotationUnit * 2));
             }
 
@@ -93,9 +101,11 @@ public class HeadShake extends AnimationFX {
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftEyebrowFX, "rotate", rotationUnit));
         mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mHeadFX, "rotate", rotationUnit));
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE) {
+        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMaleHairFX, "rotate", rotationUnit));
-        } else {
+        } else
+        {
             mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mFemaleHairFX, "rotate", rotationUnit));
         }
 

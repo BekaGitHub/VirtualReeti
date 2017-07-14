@@ -18,21 +18,23 @@ import java.util.ArrayList;
  *
  * @author Beka Aptsiauri
  */
-public class Angry extends Animation3D {
+public class Angry extends Animation3D
+{
 
     /**
-     *
-     * @param sm StickmanSwing
+     * @param sm       StickmanSwing
      * @param duration Control the speed of the movement from one emotion state
-     * to another emotion state.
-     * @param block block or not the others movements, when one movement is not
-     * finished.
+     *                 to another emotion state.
+     * @param block    block or not the others movements, when one movement is not
+     *                 finished.
      */
-    public Angry() {
+    public Angry()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Angry(Stickman3D sm, int duration, boolean block) {
+    public Angry(Stickman3D sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
@@ -40,7 +42,8 @@ public class Angry extends Animation3D {
      * This method creates the angry facial movement.
      */
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         // angry
         mAnimationPartFX = new ArrayList<>();
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRY"));
@@ -62,7 +65,8 @@ public class Angry extends Animation3D {
         mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRYEND"));
         playAnimationPart(mDuration);
 
-        if (StickmanStageController.currentRadioButton != null) {
+        if (StickmanStageController.currentRadioButton != null)
+        {
             StickmanStageController.currentRadioButton.setSelected(false);
         }
     }

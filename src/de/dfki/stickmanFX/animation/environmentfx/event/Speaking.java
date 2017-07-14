@@ -14,23 +14,26 @@ import de.dfki.stickmanFX.environmentfx.SpeechBubbleFX;
 import java.util.ArrayList;
 
 /**
- *
  * @author Beka
- *
  */
-public class Speaking extends EventAnimationFX {
+public class Speaking extends EventAnimationFX
+{
 
-    public Speaking() {
+    public Speaking()
+    {
         super();
     }
 
-    public Speaking(StickmanFX sm, int duration, boolean block) {
+    public Speaking(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
-        if (mParameter instanceof WordTimeMarkSequence) {
+    public void playAnimation()
+    {
+        if (mParameter instanceof WordTimeMarkSequence)
+        {
             mWTS = (WordTimeMarkSequence) mParameter;
         }
 

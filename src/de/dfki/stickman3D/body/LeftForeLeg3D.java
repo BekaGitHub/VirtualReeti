@@ -70,6 +70,7 @@ public class LeftForeLeg3D extends BodyPartFX
 
         init();
     }
+
     @Override
     public void setShape(String s)
     {
@@ -92,7 +93,7 @@ public class LeftForeLeg3D extends BodyPartFX
         leftForeLegGroup.setTranslateX(mStart.x);
         if (mUpperLeg.getDownBody().getUpperBody().getNeck().getHead().getStickman().mType == Gender.TYPE.MALE)
             leftForeLegGroup.setTranslateY(mStart.y + 59);
-         else
+        else
             leftForeLegGroup.setTranslateY(mStart.y + 49);
         leftForeLegGroup.setTranslateZ(0);
 

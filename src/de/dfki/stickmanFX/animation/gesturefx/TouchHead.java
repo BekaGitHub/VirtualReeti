@@ -12,22 +12,24 @@ import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
 import de.dfki.stickmanFX.animationlogic.AnimationFX;
 
 /**
- *
  * @author Beka
- *
  */
-public class TouchHead extends AnimationFX {
+public class TouchHead extends AnimationFX
+{
 
-    public TouchHead() {
+    public TouchHead()
+    {
         mAnimType = ANIMTYPE.Gesture;
     }
 
-    public TouchHead(StickmanFX sm, int duration, boolean block) {
+    public TouchHead(StickmanFX sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int rotationUnit = 10;
 
         // bring Shoulder, upper arm and fore arm in position

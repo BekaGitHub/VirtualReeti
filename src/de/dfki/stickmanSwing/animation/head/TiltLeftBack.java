@@ -8,21 +8,23 @@ package de.dfki.stickmanSwing.animation.head;
 import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimationContentSwing;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author Patrick Gebhard
- *
  */
-public class TiltLeftBack extends AnimationSwing {
+public class TiltLeftBack extends AnimationSwing
+{
 
-    public TiltLeftBack(StickmanSwing sm, int duration, boolean block) {
+    public TiltLeftBack(StickmanSwing sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         int translationUnit = 8;
 
         // head down

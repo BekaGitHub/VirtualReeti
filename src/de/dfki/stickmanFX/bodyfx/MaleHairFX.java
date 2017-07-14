@@ -13,11 +13,10 @@ import javafx.scene.shape.QuadCurveTo;
 import javafx.scene.transform.Affine;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class MaleHairFX extends BodyPartFX {
+public class MaleHairFX extends BodyPartFX
+{
 
     public Dimension mSize = new Dimension(120, 100);
     public StickmanFX mStickmanFX;
@@ -28,7 +27,8 @@ public class MaleHairFX extends BodyPartFX {
 
     Path mMaleHair;
 
-    public MaleHairFX(StickmanFX sm) {
+    public MaleHairFX(StickmanFX sm)
+    {
         mStickmanFX = sm;
         mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
         mColor = Color.rgb(97, 58, 0, 1);
@@ -41,7 +41,8 @@ public class MaleHairFX extends BodyPartFX {
         calculate(0);
     }
 
-    public void calculate(int step) {
+    public void calculate(int step)
+    {
         Affine af = new Affine();
         clearChildren(this);
 
@@ -71,24 +72,31 @@ public class MaleHairFX extends BodyPartFX {
 
     }
 
-    public void update() {
-        if (mStickmanFX.setCharacterInvisible == false) {
+    public void update()
+    {
+        if (mStickmanFX.setCharacterInvisible == false)
+        {
             mColorRecorder = mColor;
         }
-        if (mStickmanFX.setCharacterInvisible == true) {
+        if (mStickmanFX.setCharacterInvisible == true)
+        {
             if (mStickmanFX.fadeControler == true) //Added by Robbie
             {
                 int fadeFactor = mStickmanFX.mMouthFX.mShapeAnimationStep * 10;
-                if (fadeFactor <= 20) {
+                if (fadeFactor <= 20)
+                {
                     fadeFactor = 0;
                 }
                 mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 //mColor = Color.rgb(97, 58, 0, (fadeFactor * 100 / 255) / 100f);
-            } else {
+            } else
+            {
                 int fadeFactor = (20 - mStickmanFX.mMouthFX.mShapeAnimationStep) * 9;
-                if (fadeFactor >= 160) {
+                if (fadeFactor >= 160)
+                {
                     mColor = mColorRecorder;
-                } else {
+                } else
+                {
                     mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), (fadeFactor * 100 / 255) / 100f);
                 }
                 //mColor = Color.rgb(97, 58, 0, (fadeFactor * 100 / 255) / 100f);

@@ -9,11 +9,10 @@ import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.stickmanFX.bodyfx.BodyPartFX;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class AnimationContentFX {
+public class AnimationContentFX
+{
 
     public BodyPartFX mBodyPartFX;
     public String mAction;
@@ -21,21 +20,24 @@ public class AnimationContentFX {
     public String mParamString;
     public WordTimeMarkSequence mWTS;
 
-    public AnimationContentFX(BodyPartFX bp, String a, int p) {
+    public AnimationContentFX(BodyPartFX bp, String a, int p)
+    {
         mBodyPartFX = bp;
         mAction = a;
         mParam = p;
         mParamString = "";
     }
 
-    public AnimationContentFX(BodyPartFX bp, String a, String p) {
+    public AnimationContentFX(BodyPartFX bp, String a, String p)
+    {
         mBodyPartFX = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
     }
 
-    public AnimationContentFX(BodyPartFX bp, String a, String p, WordTimeMarkSequence wts) {
+    public AnimationContentFX(BodyPartFX bp, String a, String p, WordTimeMarkSequence wts)
+    {
         mBodyPartFX = bp;
         mAction = a;
         mParam = 0;

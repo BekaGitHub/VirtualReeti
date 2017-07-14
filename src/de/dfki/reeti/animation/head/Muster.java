@@ -11,34 +11,37 @@ import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 import java.util.ArrayList;
+
 import javafx.scene.paint.Color;
 
 /**
- *
  * @author Beka Aptsiauri
- *
  */
-public class Muster extends AnimationReeti {
+public class Muster extends AnimationReeti
+{
 
-    public Muster() {
+    public Muster()
+    {
         mAnimType = ANIMTYPE.ON;
     }
 
-    public Muster(Reeti sm, int duration, boolean block) {
+    public Muster(Reeti sm, int duration, boolean block)
+    {
         super(sm, duration, block);
     }
 
     @Override
-    public void playAnimation() {
+    public void playAnimation()
+    {
         Color c1 = Color.rgb(255, 255, 255);
         Color c2 = Color.rgb(255, 0, 255);
         Color c3 = Color.rgb(0, 0, 255);
         mReeti.ledON(c1, c2, c3, 0.7f, 0.9f, 0.4f, "B");
-        
+
         mReeti.mMouth.setUpRegulator(-20);
         mReeti.mMouth.setDownRegulator(-10);
 //        mReeti.mMouth.setLeftCornerRegulator(-20);
-        
+
         mAnimationPart = new ArrayList<>();
 //        mAnimationPart.add(new AnimationContentReeti(mReeti.mLeftEar, "rotate", 60));
 //        mAnimationPart.add(new AnimationContentReeti(mReeti.mRightEar, "yrotate", 60));
@@ -54,7 +57,8 @@ public class Muster extends AnimationReeti {
         mAnimationPart.add(new AnimationContentReeti(mReeti.mMouth, "shape", "MOUTHACTIONEND"));
         playAnimationPart(mDuration);
 
-        if (ReetiStageController.currentRadioButton != null) {
+        if (ReetiStageController.currentRadioButton != null)
+        {
             ReetiStageController.currentRadioButton.setSelected(false);
         }
     }

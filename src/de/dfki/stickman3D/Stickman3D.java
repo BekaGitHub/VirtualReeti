@@ -5,7 +5,7 @@ import de.dfki.stickman3D.body.Head3D;
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.Stickman;
+import de.dfki.common.interfaces.Agent;
 import de.dfki.stickman3D.animation.environment.Blinking;
 import de.dfki.stickman3D.animation.environment.Breathing;
 import de.dfki.stickman3D.animation.environment.IdleBehavior;
@@ -38,7 +38,7 @@ import java.util.logging.Logger;
  *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
  *         by Ross Ching in 2012
  */
-public class Stickman3D extends Pane implements Stickman
+public class Stickman3D extends Pane implements Agent
 {
     // general stuff
     public enum ORIENTATION
@@ -55,7 +55,7 @@ public class Stickman3D extends Pane implements Stickman
     public boolean isFullScreen = false;
     public static String sbackground = null;
     private static Dimension mDefaultSize = new Dimension(300, 800);
-    public  Dimension mSize = new Dimension(mDefaultSize);
+    public Dimension mSize = new Dimension(mDefaultSize);
 
     //steuert leaveSpeed von GoDown und ComeUp 
     public double leaveSpeed = 0;

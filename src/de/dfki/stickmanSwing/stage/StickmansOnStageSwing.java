@@ -1,9 +1,9 @@
 package de.dfki.stickmanSwing.stage;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Stickman;
-import de.dfki.common.StickmansOnStage;
-import de.dfki.common.interfaces.StickmanStage;
+import de.dfki.common.interfaces.Agent;
+import de.dfki.common.AgentsOnStage;
+import de.dfki.common.interfaces.AgentStage;
 import de.dfki.stickmanFX.xmlsettings.XmlTransformFX;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.stickmanSwing.StickmanSwing;
@@ -11,33 +11,41 @@ import de.dfki.stickmanSwing.StickmanSwing;
 /**
  * Created by alvaro on 9/19/16.
  */
-public class StickmansOnStageSwing extends StickmansOnStage {
+public class StickmansOnStageSwing extends AgentsOnStage
+{
 
-    public StickmansOnStageSwing(StickmanStage stickmanStage) {
+    public StickmansOnStageSwing(AgentStage stickmanStage)
+    {
         super(stickmanStage);
     }
 
-    public StickmansOnStageSwing(StickmanStage stickmanStage, StageRoom controller) {
+    public StickmansOnStageSwing(AgentStage stickmanStage, StageRoom controller)
+    {
         super(stickmanStage, controller);
     }
 
     @Override
-    protected void addStickmanToStage(String name, boolean fullScreen, Gender.TYPE gender) {
-        if (fullScreen) {
-            Stickman stickman = new StickmanSwing(name, gender, stickmanStage.getFullScreenScale(), stickmanStage.getFullScreenDimension());
-            putFullStickmanOnStage(name, stickman);
-        } else {
-            Stickman stickman = new StickmanSwing(name, gender, DEFAULT_SCALE);
-            putFullStickmanOnStage(name, stickman);
+    protected void addAgentToStage(String name, boolean fullScreen, Gender.TYPE gender)
+    {
+        if (fullScreen)
+        {
+            Agent stickman = new StickmanSwing(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            putFullAgentOnStage(name, stickman);
+        } else
+        {
+            Agent stickman = new StickmanSwing(name, gender, DEFAULT_SCALE);
+            putFullAgentOnStage(name, stickman);
         }
     }
 
     @Override
-    protected void addStickmanToStage(String name, boolean fullScreen, Gender.TYPE gender, boolean onlyFace) {
-        addStickmanToStage(name, fullScreen, gender);
+    protected void addAgentToStage(String name, boolean fullScreen, Gender.TYPE gender, boolean onlyFace)
+    {
+        addAgentToStage(name, fullScreen, gender);
     }
 
-    public XmlTransformFX getmXmlTransform() {
+    public XmlTransformFX getmXmlTransform()
+    {
         return null;
     }
 }
