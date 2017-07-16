@@ -22,9 +22,9 @@ public class HappyStart extends AnimationSwing
     {
         // happy start
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "HAPPY"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "HAPPY"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "HAPPY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "HAPPY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "HAPPY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "HAPPY"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

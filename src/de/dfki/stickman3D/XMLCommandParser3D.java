@@ -2,7 +2,7 @@ package de.dfki.stickman3D;
 
 import de.dfki.common.XMLCommandParser;
 import de.dfki.common.AgentsOnStage;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationLoader3D;
 import de.dfki.stickman3D.animationlogic.EventAnimation3D;
 import de.dfki.util.xml.XMLUtilities;
@@ -25,11 +25,11 @@ public class XMLCommandParser3D extends XMLCommandParser
     public void parseStickmanXMLCmd(String cmd)
     {
 // TODO cut the crap with the two animation types ...
-        Animation3D a = (cmd.contains("StickmanEventAnimation")) ? new EventAnimation3D() : new Animation3D();
+        AnimationStickman3D a = (cmd.contains("StickmanEventAnimation")) ? new EventAnimation3D() : new AnimationStickman3D();
 
         boolean r = XMLUtilities.parseFromXMLStream(a, new ByteArrayInputStream(cmd.getBytes(Charset.forName("UTF-8"))));
 
-        String stickmanname = a.mStickmanName;
+        String stickmanname = a.mAgentName;
         String animationname = a.mName;
         String id = a.getmID();
         int duration = a.mDuration;
@@ -51,7 +51,7 @@ public class XMLCommandParser3D extends XMLCommandParser
             a.setID(id); // give the animation the same id (TODO - This is bad design and caused that the animation has to be "reloaded"
             a.mParameter = parameter;
 
-            a.mStickmanFX.playAnimation(a);
+            a.mStickman3D.playAnimation(a);
         }
     }
 }

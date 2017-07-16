@@ -15,7 +15,7 @@ public class AnimationSchedulerFX extends Thread
 
     StickmanFX mStickmanFX;
     boolean mRunning = true;
-    public LinkedBlockingQueue<AnimationFX> mAnimationQueue = new LinkedBlockingQueue<>();
+    public LinkedBlockingQueue<AnimationStickmanFX> mAnimationQueue = new LinkedBlockingQueue<>();
     public Semaphore mTheBlockOfHell = new Semaphore(1);
 
     public AnimationSchedulerFX(StickmanFX s)
@@ -24,7 +24,7 @@ public class AnimationSchedulerFX extends Thread
         mStickmanFX = s;
     }
 
-    public void introduce(AnimationFX a)
+    public void introduce(AnimationStickmanFX a)
     {
         try
         {
@@ -35,13 +35,13 @@ public class AnimationSchedulerFX extends Thread
         }
     }
 
-    public void proceed(AnimationFX a)
+    public void proceed(AnimationStickmanFX a)
     {
         removeAnimation(a);
         mTheBlockOfHell.release();
     }
 
-    public void removeAnimation(AnimationFX a)
+    public void removeAnimation(AnimationStickmanFX a)
     {
         mAnimationQueue.remove(a);
     }
@@ -53,7 +53,7 @@ public class AnimationSchedulerFX extends Thread
         // throw in a last animation that unblocks the scheduler letting him end
         try
         {
-            mAnimationQueue.put(new AnimationFX(mStickmanFX, 1, false)
+            mAnimationQueue.put(new AnimationStickmanFX(mStickmanFX, 1, false)
             {
             });
         } catch (InterruptedException ex)
@@ -73,7 +73,7 @@ public class AnimationSchedulerFX extends Thread
                 mTheBlockOfHell.acquire(1);
 
                 // get the next animation in the animation queue
-                AnimationFX animationFX = mAnimationQueue.take();
+                AnimationStickmanFX animationFX = mAnimationQueue.take();
 
                 // tell the animation to render itself
                 animationFX.mAnimationStart.release();

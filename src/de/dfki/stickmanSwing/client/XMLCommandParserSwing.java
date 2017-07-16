@@ -29,7 +29,7 @@ public class XMLCommandParserSwing extends XMLCommandParser
 
         boolean r = XMLUtilities.parseFromXMLStream(a, new ByteArrayInputStream(cmd.getBytes(Charset.forName("UTF-8"))));
 
-        String stickmanname = a.mStickmanName;
+        String stickmanname = a.mAgentName;
         String animationname = a.mName;
         String id = a.mID;
         int duration = a.mDuration;
@@ -44,7 +44,7 @@ public class XMLCommandParserSwing extends XMLCommandParser
             a.setID(id); // give the animation the same id (TODO - This is bad design and caused that the animation has to be "reloaded"
             a.mParameter = parameter;
 
-            a.mStickman.playAnimation(a);
+            a.mStickmanSwing.playAnimation(a);
         }
     }
 }

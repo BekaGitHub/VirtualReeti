@@ -16,7 +16,7 @@ import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 /**
  * @author Patrick Gebhard
  */
-public class LeftEyebrow extends BodyPart
+public class LeftEyebrow extends StickmanSwingParts
 {
 
     public static enum SHAPE

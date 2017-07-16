@@ -1,6 +1,6 @@
 package de.dfki.stickmanSwing.stage;
 
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.AgentsOnStage;
@@ -65,7 +65,7 @@ public class StageRoomSwing implements StageRoom
     }
 
     @Override
-    public Agent getAgent(String name)
+    public AgentInterface getAgent(String name)
     {
         return commonStickmansOnStage.getAgent(name);
     }

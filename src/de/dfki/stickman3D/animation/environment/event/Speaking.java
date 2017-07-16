@@ -37,12 +37,12 @@ public class Speaking extends EventAnimation3D
             mWTS = (WordTimeMarkSequence) mParameter;
         }
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mSpeechBubble, "shape", SpeechBubble3D.SHAPE.SPEAK.name(), mWTS));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mSpeechBubble, "shape", SpeechBubble3D.SHAPE.SPEAK.name(), mWTS));
 
         playEventAnimationPart();
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mSpeechBubble, "shape", SpeechBubble3D.SHAPE.DEFAULT.name()));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mSpeechBubble, "shape", SpeechBubble3D.SHAPE.DEFAULT.name()));
         playAnimationPart(20);
 
     }

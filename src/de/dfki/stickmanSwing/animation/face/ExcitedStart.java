@@ -22,11 +22,11 @@ public class ExcitedStart extends AnimationSwing
     {
         // excited start
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "EXCITED"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "EXCITED"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "EXCITED"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEyebrow, "shape", "EXCITED"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEyebrow, "shape", "EXCITED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "EXCITED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "EXCITED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "EXCITED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEyebrow, "shape", "EXCITED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEyebrow, "shape", "EXCITED"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

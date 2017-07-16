@@ -35,38 +35,38 @@ public class UnsynchronizedConversationHandsStart extends AbstractConversationHa
     {
         if (!movementStarted)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -38));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "yrotate", 13));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -18));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", -38));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "yrotate", 13));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "zrotate", -18));
 
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -76));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "yrotate", 35));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", START_LEFT_FORE_ARM_POSITION));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", -76));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "yrotate", 35));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", START_LEFT_FORE_ARM_POSITION));
 
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 0));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", -54));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "zrotate", 7));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "rotate", 0));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "yrotate", -54));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "zrotate", 7));
 
 
             //Right Part
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -56));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "yrotate", 28));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 27));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "rotate", -56));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "yrotate", 28));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "zrotate", 27));
 
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", -19));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "yrotate", 27));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", START_RIGHT_FORE_ARM_POSITION));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "rotate", -19));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "yrotate", 27));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "zrotate", START_RIGHT_FORE_ARM_POSITION));
 
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "rotate", -8));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 34));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "zrotate", 0));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "rotate", -8));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", 34));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "zrotate", 0));
             playAnimationPart(200);
             pauseAnimation(mDuration);
             movementStarted = true;
         }
 
-        mAnimationPartFX = new ArrayList<>();
+        mAnimationPart = new ArrayList<>();
         moveConversationHands();
         playAnimationPart(200);
     }

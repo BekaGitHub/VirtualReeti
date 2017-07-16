@@ -28,12 +28,12 @@ public class EmbarrassedEnd extends AnimationSwing
 
         // embarrassed end
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "EMBARRASSEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "EMBARRASSEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEyebrow, "shape", "EMBARRASSEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mFaceWrinkle, "shape", "EMBARRASSEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "EMBARRASSEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEyebrow, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEyebrow, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mFaceWrinkle, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "EMBARRASSEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEyebrow, "shape", "EMBARRASSEDEND"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

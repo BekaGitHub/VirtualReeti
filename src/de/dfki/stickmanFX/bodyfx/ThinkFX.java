@@ -4,16 +4,15 @@ import java.awt.Dimension;
 import java.net.URL;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 /**
- * @author Beka movement = Animator3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
+ * @author Beka movement = AnimatorStickman3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
  */
-public class ThinkFX extends BodyPartFX
+public class ThinkFX extends StickmanFXParts
 {
 
     public static enum SHAPE

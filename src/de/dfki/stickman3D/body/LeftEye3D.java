@@ -8,7 +8,7 @@ import javafx.scene.shape.*;
 /**
  * @author Beka Aptsiauri
  */
-public class LeftEye3D extends BodyPartFX
+public class LeftEye3D extends Stickman3DParts
 {
 
     public enum SHAPE

@@ -29,38 +29,38 @@ public class TouchHead extends AnimationSwing
 
         // bring Shoulder, upper arm and fore arm in position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightShoulder, "rotate", rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightUpperArm, "rotate", rotationUnit * 8));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", -rotationUnit * 14));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", -rotationUnit * 2));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightShoulder, "rotate", rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightUpperArm, "rotate", rotationUnit * 8));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", -rotationUnit * 14));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", -rotationUnit * 2));
         playAnimationPart(200);
 
         pauseAnimation(200);
 
         // wave hands
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", rotationUnit * 4));
         playAnimationPart(100);
 
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", -rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", -rotationUnit * 4));
         playAnimationPart(100);
 
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", rotationUnit * 4));
         playAnimationPart(100);
 
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", -rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", -rotationUnit * 4));
         playAnimationPart(100);
         pauseAnimation(200);
 
         // go back in the default position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightShoulder, "rotate", -rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightUpperArm, "rotate", -rotationUnit * 8));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", rotationUnit * 14)); //14
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", rotationUnit * 2));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightShoulder, "rotate", -rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightUpperArm, "rotate", -rotationUnit * 8));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", rotationUnit * 14)); //14
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", rotationUnit * 2));
         playAnimationPart(200);
     }
 }

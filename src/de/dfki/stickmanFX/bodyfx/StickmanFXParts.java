@@ -5,22 +5,15 @@
  */
 package de.dfki.stickmanFX.bodyfx;
 
-import de.dfki.stickmanFX.animationlogic.AnimatorFX;
-
-import java.awt.BasicStroke;
-import java.awt.Dimension;
-import java.awt.Point;
+import de.dfki.common.parts.FXParts2D;
+import de.dfki.stickmanFX.animationlogic.AnimatorStickmanFX;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.MoveTo;
@@ -35,67 +28,24 @@ import javafx.util.Duration;
 /**
  * @author Beka Aptsiauri
  */
-public abstract class BodyPartFX extends Pane
+public abstract class StickmanFXParts extends FXParts2D
 {
-
-    public enum SHAPE
-    {
-        DEFAULT
-    }
-
-    ;
-
-    // variables for size and drawing
-    public Dimension mSize = new Dimension(10, 10);
-    public Point mStart = new Point(0, 0), mEnd = new Point(0, 0);
-    public int mLength = 0;
-
-    public double mAnimationStep = 0;
-    public int mShapeAnimationStep = 0;
-
-    public int mDefaultTranslation = 0;
-    public double mTranslation = mDefaultTranslation;
-    public double mToTranslation = mDefaultTranslation;
-    public double mTranslationStep = 0.0f;
-
-    public int mDefaultRotation = 0;
-    public Point mDefaultRotationPoint = new Point(0, 0);
-    public double mRotation = mDefaultRotation;
-    public double mToDegree = mDefaultRotation;
-    public double mRotationStep = 0.0f;
-
-    List<Path> mGraphicPaths = Collections.synchronizedList(new ArrayList());
-
-    public Color mColor = Color.rgb(0, 0, 0);
-    public float mColoropacity = 1.0f;
-
-    // used by RestButton.
-    public Color mColorRest = Color.rgb(0, 0, 0);
-    public float mColoropacityRest = 1.0f;
-
-    protected Color mColorRecorder = mColor;
-
-    public BasicStroke mStroke = new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
     public void init()
     {
-        this.setPrefHeight(mSize.height);
-        this.setPrefWidth(mSize.width);
-
+        super.init();
         calculate(0);
     }
 
     public void setTranslation(int length)
     {
-        mToTranslation = mTranslation + length;
-        mTranslationStep = (double) length / AnimatorFX.sMAX_ANIM_STEPS;
+        mTranslationStep = (double) length / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
     public synchronized void calculateTranslation(int step)
     {
         mTranslation += mTranslationStep;
         mTranslation = (double) Math.round(mTranslation * 1000d) / 1000d; // the poor man's round method
-
         Platform.runLater(() -> calculate(step));
     }
 
@@ -104,7 +54,7 @@ public abstract class BodyPartFX extends Pane
         mTranslationStep = 0.0d;
     }
 
-    public void setDefaulRotation(int degree)
+    public void setDefaultRotation(int degree)
     {
         mDefaultRotation = degree;
         mRotation = mDefaultRotation;
@@ -115,13 +65,13 @@ public abstract class BodyPartFX extends Pane
     public void setRotation(int degree)
     {
         mToDegree = mRotation + degree;
-        mRotationStep = (double) degree / AnimatorFX.sMAX_ANIM_STEPS;
+        mRotationStep = (double) degree / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
     public void setTilt(int degree)
     {
         mToDegree = mRotation + degree;
-        mRotationStep = (double) degree / AnimatorFX.sMAX_ANIM_STEPS;
+        mRotationStep = (double) degree / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
     public synchronized void calculateRotation(int step)
@@ -166,7 +116,7 @@ public abstract class BodyPartFX extends Pane
         mGraphicPaths = new ArrayList<>();
     }
 
-    public void clearChildren(BodyPartFX bodyPartFX)
+    public void clearChildren(StickmanFXParts bodyPartFX)
     {
         bodyPartFX.getChildren().clear();
     }
@@ -258,5 +208,95 @@ public abstract class BodyPartFX extends Pane
         af.appendRotation(Math.toRadians(mWobble), x, y);
         this.getTransforms().clear();
         this.getTransforms().add(af);
+    }
+
+    @Override
+    public void set_X_Rotation(int degree)
+    {
+
+    }
+
+    @Override
+    public void set_Y_Rotation(int degree)
+    {
+
+    }
+
+    @Override
+    public void set_Z_Rotation(int degree)
+    {
+
+    }
+
+    @Override
+    public void set_X_Translation(int length)
+    {
+
+    }
+
+    @Override
+    public void set_Y_Translation(int length)
+    {
+
+    }
+
+    @Override
+    public void set_Z_Translation(int length)
+    {
+
+    }
+
+    @Override
+    public void calculate_X_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Y_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Z_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_X_Translation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Y_Translation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Z_Translation(int step)
+    {
+
+    }
+
+    @Override
+    public void reset_X_Rotation()
+    {
+
+    }
+
+    @Override
+    public void reset_Y_Rotation()
+    {
+
+    }
+
+    @Override
+    public void reset_Z_Rotation()
+    {
+
     }
 }

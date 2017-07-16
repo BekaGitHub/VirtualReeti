@@ -7,14 +7,14 @@ package de.dfki.stickmanFX.animation.headfx;
 
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka Aptsiauri
  */
-public class Muster extends AnimationFX
+public class Muster extends AnimationStickmanFX
 {
 
     public Muster(StickmanFX sm, int duration, boolean block)
@@ -28,12 +28,12 @@ public class Muster extends AnimationFX
         int rotationUnit = 10;
         for (int i = 0; i < 8; i++)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftUpperLegFX, "rotate", 40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContentFX(mStickmanFX.mLeftUpperLegFX, "rotate", 40));
             playAnimationPart(200);
 
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mLeftUpperLegFX, "rotate", -40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContentFX(mStickmanFX.mLeftUpperLegFX, "rotate", -40));
             playAnimationPart(100);
         }
 

@@ -1,7 +1,7 @@
 package de.dfki.stickmanFX.animation.environmentfx;
 
 import de.dfki.stickmanFX.StickmanFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 /**
  * @author Robbie
  */
-public class ZoomIO extends AnimationFX
+public class ZoomIO extends AnimationStickmanFX
 {
 
     public ZoomIO(StickmanFX sm, int duration, boolean block)
@@ -21,7 +21,7 @@ public class ZoomIO extends AnimationFX
     public void playAnimation()
     {
         // make StickmanSwing to become 4 times big. Focus on StickmanSwing's face.
-//        mStickman.mScale = 4f;
+//        mStickmanSwing.mScale = 4f;
         String sParameter = (String) mParameter;
         sParameter = sParameter.trim();
 

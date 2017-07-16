@@ -27,9 +27,9 @@ public class LovedEnd extends AnimationSwing
     {
         // loved end
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILEEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "LOVEDEND"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "LOVEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILEEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "LOVEDEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "LOVEDEND"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

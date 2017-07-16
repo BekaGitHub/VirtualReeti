@@ -3,14 +3,14 @@ package de.dfki.stickman3D.animation.head;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Patrick Gebhard
  */
-public class LookDown extends Animation3D
+public class LookDown extends AnimationStickman3D
 {
 
     public LookDown()
@@ -27,16 +27,16 @@ public class LookDown extends Animation3D
     public void playAnimation()
     {
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKDOWN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "LOOKDOWN"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "LOOKDOWN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "LOOKDOWN"));
         playAnimationPart(100);
 
         pauseAnimation(100);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKDOWNEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "LOOKDOWNEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "LOOKDOWNEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "LOOKDOWNEND"));
         playAnimationPart(100);
 
         if (StickmanStageController.currentRadioButton != null)

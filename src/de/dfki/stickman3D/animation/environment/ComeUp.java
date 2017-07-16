@@ -8,7 +8,7 @@ package de.dfki.stickman3D.animation.environment;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import javafx.application.Platform;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * @author Beka
  */
-public class ComeUp extends Animation3D
+public class ComeUp extends AnimationStickman3D
 {
 
     public ComeUp()
@@ -29,8 +29,8 @@ public class ComeUp extends Animation3D
     public ComeUp(Stickman3D sm, int duration, boolean block)
     {
         super(sm, duration, block);
-        mStickmanFX = sm;
-        recordOriginLeaveSpeed = mStickmanFX.leaveSpeed;
+        mStickman3D = sm;
+        recordOriginLeaveSpeed = mStickman3D.leaveSpeed;
     }
 
     // WaveLeft
@@ -40,12 +40,12 @@ public class ComeUp extends Animation3D
         int rotationUnit = 5;
         int speed = 4;
 
-        mStickmanFX.leaveSpeed = 480;
+        mStickman3D.leaveSpeed = 480;
 
         // bring upper arm and fore arm in position
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -rotationUnit * 30));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", -rotationUnit));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", -rotationUnit * 30));
         playAnimationPart(100);
 
         for (int i = 0; i < 8; i++)
@@ -53,25 +53,25 @@ public class ComeUp extends Animation3D
             // wave right
             for (int j = 0; j < 10; j++)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -rotationUnit));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", -rotationUnit));
                 playComeSpeed(speed);
                 playAnimationPart(20);
             }
             // wave left
             for (int j = 0; j < 10; j++)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", rotationUnit));
                 playComeSpeed(speed);
                 playAnimationPart(20);
             }
         }
 
         // go back in the default position
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", rotationUnit * 30));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", rotationUnit));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", rotationUnit * 30));
         playAnimationPart(200);
 
         if (StickmanStageController.currentRadioButton != null)
@@ -83,13 +83,13 @@ public class ComeUp extends Animation3D
 
     private void playComeSpeed(int Speed)
     {
-        if (mStickmanFX.leaveSpeed > recordOriginLeaveSpeed)
+        if (mStickman3D.leaveSpeed > recordOriginLeaveSpeed)
         {
-            mStickmanFX.leaveSpeed = mStickmanFX.leaveSpeed - Speed;
+            mStickman3D.leaveSpeed = mStickman3D.leaveSpeed - Speed;
         } else
         {
-            mStickmanFX.leaveSpeed = recordOriginLeaveSpeed;
+            mStickman3D.leaveSpeed = recordOriginLeaveSpeed;
         }
-        Platform.runLater(() -> mStickmanFX.update());
+        Platform.runLater(() -> mStickman3D.update());
     }
 }

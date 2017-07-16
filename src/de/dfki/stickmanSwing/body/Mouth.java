@@ -1,7 +1,6 @@
 package de.dfki.stickmanSwing.body;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 
 import java.awt.Color;
@@ -12,7 +11,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Patrick Gebhard
  */
-public class Mouth extends BodyPart
+public class Mouth extends StickmanSwingParts
 {
 
     public static enum SHAPE

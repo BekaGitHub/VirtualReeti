@@ -28,7 +28,7 @@ public class Mouth_NINE extends AnimationSwing
     {
         // smile
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "NINE"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "NINE"));
         playAnimationPart(20);
     }
 }

@@ -6,21 +6,22 @@
 package de.dfki.stickmanFX.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.stickmanFX.bodyfx.BodyPartFX;
+import de.dfki.common.animationlogic.AnimationContent;
+import de.dfki.stickmanFX.bodyfx.StickmanFXParts;
 
 /**
  * @author Beka Aptsiauri
  */
-public class AnimationContentFX
+public class AnimationContentFX extends AnimationContent
 {
 
-    public BodyPartFX mBodyPartFX;
+    public StickmanFXParts mBodyPartFX;
     public String mAction;
     public int mParam;
     public String mParamString;
     public WordTimeMarkSequence mWTS;
 
-    public AnimationContentFX(BodyPartFX bp, String a, int p)
+    public AnimationContentFX(StickmanFXParts bp, String a, int p)
     {
         mBodyPartFX = bp;
         mAction = a;
@@ -28,7 +29,7 @@ public class AnimationContentFX
         mParamString = "";
     }
 
-    public AnimationContentFX(BodyPartFX bp, String a, String p)
+    public AnimationContentFX(StickmanFXParts bp, String a, String p)
     {
         mBodyPartFX = bp;
         mAction = a;
@@ -36,7 +37,7 @@ public class AnimationContentFX
         mParamString = p;
     }
 
-    public AnimationContentFX(BodyPartFX bp, String a, String p, WordTimeMarkSequence wts)
+    public AnimationContentFX(StickmanFXParts bp, String a, String p, WordTimeMarkSequence wts)
     {
         mBodyPartFX = bp;
         mAction = a;

@@ -8,7 +8,7 @@ package de.dfki.stickman3D.animation.environment;
 import de.dfki.common.Gender;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * @author Beka
  */
-public class FadeIn extends Animation3D
+public class FadeIn extends AnimationStickman3D
 {
 
     public FadeIn()
@@ -27,59 +27,59 @@ public class FadeIn extends Animation3D
     public FadeIn(Stickman3D sm, int duration, boolean block)
     {
         super(sm, duration, block);
-        mStickmanFX = sm;
+        mStickman3D = sm;
     }
 
     @Override
     public void playAnimation()
     {
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mStars, "shape", "STARSFADEIN"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mStars, "shape", "STARSFADEIN"));
         playAnimationPart(500);
 
         pauseAnimation(500);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mNose, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEar, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEar, "shape", "FADEIN"));
-        if (mStickmanFX.mType == Gender.TYPE.MALE)
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMaleHair, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mNeck, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mDownBody, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "shape", "FADEIN"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEyebrow, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEyebrow, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mNose, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEar, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEar, "shape", "FADEIN"));
+        if (mStickman3D.mType == Gender.TYPE.MALE)
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mMaleHair, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mNeck, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mUpperBody, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mDownBody, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "shape", "FADEIN"));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mStars, "shape", "STARSFADEOUT"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mStars, "shape", "STARSFADEOUT"));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger1, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger2, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger3, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFinger4, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger1, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger2, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger3, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFinger4, "shape", "FADEIN"));
-        if (mStickmanFX.mType == Gender.TYPE.FEMALE)
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFemaleHair, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperLeg, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeLeg, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftFoot, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperLeg, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeLeg, "shape", "FADEIN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftFinger1, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftFinger2, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftFinger3, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftFinger4, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightFinger1, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightFinger2, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightFinger3, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightFinger4, "shape", "FADEIN"));
+        if (mStickman3D.mType == Gender.TYPE.FEMALE)
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mFemaleHair, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperLeg, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeLeg, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftFoot, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperLeg, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeLeg, "shape", "FADEIN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightFoot, "shape", "FADEIN"));
         playAnimationPart(500);
 
         if (StickmanStageController.currentRadioButton != null)

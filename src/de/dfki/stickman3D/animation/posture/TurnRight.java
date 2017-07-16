@@ -9,11 +9,11 @@ import de.dfki.common.Gender;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
-public class TurnRight extends Animation3D
+public class TurnRight extends AnimationStickman3D
 {
 
     public TurnRight()
@@ -29,41 +29,41 @@ public class TurnRight extends Animation3D
     @Override
     public void playAnimation()
     {
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "yrotate", 20));
         playAnimationPart(100);
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        if (mStickman3D.mType == Gender.TYPE.MALE)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 40));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", 60));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", 40));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mUpperBody, "yrotate", 60));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "yrotate", 20));
             playAnimationPart(500);
         } else
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 70));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", 60));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", 70));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mUpperBody, "yrotate", 60));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "yrotate", 20));
             playAnimationPart(500);
         }
 
         pauseAnimation(1000);
 
-        if (mStickmanFX.mType == Gender.TYPE.MALE)
+        if (mStickman3D.mType == Gender.TYPE.MALE)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -40));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", -40));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mUpperBody, "yrotate", -60));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "yrotate", -40));
             playAnimationPart(500);
         } else
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -70));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mUpperBody, "yrotate", -60));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", -70));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mUpperBody, "yrotate", -60));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "yrotate", -40));
             playAnimationPart(500);
         }
 

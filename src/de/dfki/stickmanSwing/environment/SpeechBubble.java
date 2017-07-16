@@ -1,7 +1,7 @@
 package de.dfki.stickmanSwing.environment;
 
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
-import de.dfki.stickmanSwing.body.BodyPart;
+import de.dfki.stickmanSwing.body.StickmanSwingParts;
 import de.dfki.stickmanSwing.body.Head;
 
 import java.awt.BasicStroke;
@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * @author Patrick Gebhard
  */
-public class SpeechBubble extends BodyPart
+public class SpeechBubble extends StickmanSwingParts
 {
 
     public static enum SHAPE
@@ -37,7 +37,6 @@ public class SpeechBubble extends BodyPart
 
     Head mHead;
     public SpeechBubble.SHAPE mShape = SpeechBubble.SHAPE.DEFAULT;
-    public String mText = "";
     public String mCurrentlySpokenText = "";
     int mLength = 120;
     int mHeight = 30;
@@ -140,7 +139,7 @@ public class SpeechBubble extends BodyPart
             attributedString.addAttribute(TextAttribute.FONT, mFont);
             if (endB > startB)
             {
-                //mHeadGroup.mStickman.mLogger.info("total >" + mText + "< current >" + mCurrentlySpokenText + "< start " + startB + " end " + endB);
+                //mHeadGroup.mStickmanSwing.mLogger.info("total >" + mText + "< current >" + mCurrentlySpokenText + "< start " + startB + " end " + endB);
                 //attributedString.addAttribute(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON, startB, endB);
                 //attributedString.addAttribute(TextAttribute.INPUT_METHOD_UNDERLINE, TextAttribute.UNDERLINE_LOW_TWO_PIXEL, startB, endB);
                 attributedString.addAttribute(TextAttribute.FOREGROUND, new Color(92, 31, 32), startB, endB);

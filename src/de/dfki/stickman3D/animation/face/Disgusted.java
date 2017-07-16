@@ -8,14 +8,14 @@ package de.dfki.stickman3D.animation.face;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka Aptsiauri
  */
-public class Disgusted extends Animation3D
+public class Disgusted extends AnimationStickman3D
 {
 
     public Disgusted()
@@ -32,23 +32,23 @@ public class Disgusted extends Animation3D
     public void playAnimation()
     {
         // disgusted
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "DISGUSTED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "DISGUSTED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "DISGUSTED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "DISGUSTED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "DISGUSTED"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "DISGUSTED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "DISGUSTED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEyebrow, "shape", "DISGUSTED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "DISGUSTED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEyebrow, "shape", "DISGUSTED"));
         playAnimationPart(mDuration);
 
         pauseAnimation(1200);
 
         // no disgusted
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "DISGUSTEDEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "DISGUSTEDEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "DISGUSTEDEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "DISGUSTEDEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "DISGUSTEDEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "DISGUSTEDEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "DISGUSTEDEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEyebrow, "shape", "DISGUSTEDEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "DISGUSTEDEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEyebrow, "shape", "DISGUSTEDEND"));
         playAnimationPart(mDuration);
 
         if (StickmanStageController.currentRadioButton != null)

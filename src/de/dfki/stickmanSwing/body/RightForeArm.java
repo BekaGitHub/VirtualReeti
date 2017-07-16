@@ -18,7 +18,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Patrick Gebhard
  */
-public class RightForeArm extends BodyPart
+public class RightForeArm extends StickmanSwingParts
 {
 
     RightUpperArm mUpperArm;

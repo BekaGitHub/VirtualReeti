@@ -16,7 +16,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka Aptsiauri
  */
-public class FemaleHairFX extends BodyPartFX
+public class FemaleHairFX extends StickmanFXParts
 {
 
     public Dimension mSize = new Dimension(120, 100);
@@ -75,10 +75,10 @@ public class FemaleHairFX extends BodyPartFX
 
         // TODO - This schould be done in all bodyparts
         //????????????????????????????????????????
-//        resizeRelocate(mHead.getLayoutX() + new Float(mStickman.mGeneralXTranslation).intValue(),
-//                mHead.getLayoutY() + new Float(mStickman.mGeneralYTranslation).intValue(),
-//                new Float(mHead.prefWidth(-1) * mStickman.mScale).intValue(),
-//                new Float(mHead.prefHeight(-1) * mStickman.mScale).intValue());
+//        resizeRelocate(mHead.getLayoutX() + new Float(mStickmanSwing.mGeneralXTranslation).intValue(),
+//                mHead.getLayoutY() + new Float(mStickmanSwing.mGeneralYTranslation).intValue(),
+//                new Float(mHead.prefWidth(-1) * mStickmanSwing.mScale).intValue(),
+//                new Float(mHead.prefHeight(-1) * mStickmanSwing.mScale).intValue());
         this.getChildren().add(mFemaleHair);
 
         update();

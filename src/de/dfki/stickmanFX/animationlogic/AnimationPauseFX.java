@@ -11,10 +11,10 @@ public class AnimationPauseFX
 {
 
     private final StickmanFX mStickmanFX;
-    private final AnimationFX mAnimationFX;
+    private final AnimationStickmanFX mAnimationFX;
     public Semaphore mPauseEnd = new Semaphore(0);
 
-    public AnimationPauseFX(StickmanFX sm, AnimationFX a, int duration)
+    public AnimationPauseFX(StickmanFX sm, AnimationStickmanFX a, int duration)
     {
         mStickmanFX = sm;
         mAnimationFX = a;

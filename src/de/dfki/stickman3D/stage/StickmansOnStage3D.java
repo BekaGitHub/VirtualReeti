@@ -1,7 +1,7 @@
 package de.dfki.stickman3D.stage;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.interfaces.AgentStage;
@@ -45,7 +45,7 @@ public class StickmansOnStage3D extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new Stickman3D(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new Stickman3D(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
@@ -59,7 +59,7 @@ public class StickmansOnStage3D extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new Stickman3D(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new Stickman3D(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
@@ -81,7 +81,7 @@ public class StickmansOnStage3D extends AgentsOnStage
             {
                 HBox h = agentStage.getAgentBox(identifier);
 
-                Agent stickman = new Stickman3D(name, gender, scale, h.getPrefHeight());
+                AgentInterface stickman = new Stickman3D(name, gender, scale, h.getPrefHeight());
                 putFullAgentOnStage(name, stickman);
             } catch (Exception ex)
             {

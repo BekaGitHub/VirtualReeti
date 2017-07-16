@@ -1,14 +1,14 @@
 package de.dfki.stickmanFX.animation.environmentfx;
 
 import de.dfki.stickmanFX.StickmanFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 import javafx.application.Platform;
 import javafx.scene.layout.HBox;
 
 /**
  * @author Robbie
  */
-public class ZoomBack extends AnimationFX
+public class ZoomBack extends AnimationStickmanFX
 {
 
     public ZoomBack(StickmanFX sm, int duration, boolean block)

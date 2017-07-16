@@ -7,14 +7,14 @@ package de.dfki.stickman3D.animation.face;
 
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka
  */
-public class EmbarrassedStart extends Animation3D
+public class EmbarrassedStart extends AnimationStickman3D
 {
 
     public EmbarrassedStart(Stickman3D sm, int duration, boolean block)
@@ -27,13 +27,13 @@ public class EmbarrassedStart extends Animation3D
     {
 
         // embarrassed
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "EMBARRASSED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "EMBARRASSED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "EMBARRASSED"));
-        //mAnimationPart.add(new AnimationContent3D(mStickman.mFaceWrinkle, "shape", "EMBARRASSED"));   ///Add by Robbie
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "EMBARRASSED"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "EMBARRASSED"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "EMBARRASSED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "EMBARRASSED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEyebrow, "shape", "EMBARRASSED"));
+        //mAnimationPart.add(new AnimationContent3D(mStickmanSwing.mFaceWrinkle, "shape", "EMBARRASSED"));   ///Add by Robbie
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "EMBARRASSED"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEyebrow, "shape", "EMBARRASSED"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

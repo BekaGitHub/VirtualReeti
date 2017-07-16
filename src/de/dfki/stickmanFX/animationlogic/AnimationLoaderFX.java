@@ -6,7 +6,7 @@
 package de.dfki.stickmanFX.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.stickmanSwing.StickmanSwing;
 
 import java.lang.reflect.Constructor;
@@ -86,9 +86,9 @@ public class AnimationLoaderFX
         return classPath;
     }
 
-    public AnimationFX loadAnimation(Agent sm, String name, int duration, boolean block)
+    public AnimationStickmanFX loadAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
-        AnimationFX a = null;
+        AnimationStickmanFX a = null;
 
         String cp = getAnimationClasspath(sm.getType(), name);
         try
@@ -105,7 +105,7 @@ public class AnimationLoaderFX
                             && params[1].getSimpleName().equalsIgnoreCase("int")
                             && params[2].getSimpleName().equalsIgnoreCase("boolean"))
                     {
-                        a = (AnimationFX) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
+                        a = (AnimationStickmanFX) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
                     }
                 }
 
@@ -122,7 +122,7 @@ public class AnimationLoaderFX
         return a;
     }
 
-    public EventAnimationFX loadEventAnimation(Agent sm, String name, int duration, boolean block)
+    public EventAnimationFX loadEventAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         EventAnimationFX a = null;
 

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 /**
  * @author Beka Aptsiauri
  */
-public class HeadDown1 extends Animation3D
+public class HeadDown1 extends AnimationStickman3D
 {
 
     public HeadDown1()
@@ -31,19 +31,19 @@ public class HeadDown1 extends Animation3D
     @Override
     public void playAnimation()
     {
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", 15));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKDOWN"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "LOOKDOWN"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "rotate", 15));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "LOOKDOWN"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "LOOKDOWN"));
         playAnimationPart(mDuration);
 
         pauseAnimation(1000);
 
         // blink up
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", -15));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "LOOKDOWNEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "LOOKDOWNEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "rotate", -15));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "LOOKDOWNEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "LOOKDOWNEND"));
         playAnimationPart(mDuration);
 
         if (StickmanStageController.currentRadioButton != null)

@@ -3,78 +3,52 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.dfki.reeti.body;
+package de.dfki.stickman3D.body;
 
-import de.dfki.reeti.animationlogic.AnimatorReeti;
+import de.dfki.common.parts.FXParts3D;
+import de.dfki.stickman3D.animationlogic.AnimatorStickman3D;
 import javafx.application.Platform;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.PhongMaterial;
+import javafx.scene.transform.Affine;
 
 import java.awt.*;
-import java.net.URL;
 
 /**
  * @author Beka Aptsiauri
  */
-public abstract class Parts extends Pane
+public abstract class Stickman3DParts extends FXParts3D
 {
-    public enum SHAPE
-    {
-        DEFAULT
-    }
 
-    // variables for size and drawing
-    public Dimension mSize = new Dimension(10, 10);
-    public Point mStart = new Point(0, 0), mEnd = new Point(0, 0);
-    public int mLength = 0;
+    public Color mColorRecorder;
+    public double mXRotatationRecorder;
+    public double mYRotatationRecorder;
+    public double mZRotatationRecorder;
 
-    public int mShapeAnimationStep = 0;
-
-    private int mDefaultTranslation = 0;
-    private double mXTranslation = mDefaultTranslation;
-    private double mYTranslation = mDefaultTranslation;
-    private double mZTranslation = mDefaultTranslation;
-
-    private double mXTranslationStep = 0.0f;
-    private double mYTranslationStep = 0.0f;
-    private double mZTranslationStep = 0.0f;
-
-    public int mDefaultRotation = 0;
-    public Point mDefaultRotationPoint = new Point(0, 0);
-
-    public double mXRotation = mDefaultRotation;
-    public double mYRotation = mDefaultRotation;
-    public double mZRotation = mDefaultRotation;
-    public double mToDegreeX = mDefaultRotation;
-    private double mXRotationStep = 0.0f;
-    private double mYRotationStep = 0.0f;
-    private double mZRotationStep = 0.0f;
-
-    public Color mColor = Color.rgb(0, 0, 0);
-
-    private static PhongMaterial material = null;
+    public BasicStroke mStroke = new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
     public void init()
     {
-        this.setPrefHeight(mSize.height);
-        this.setPrefWidth(mSize.width);
+        super.init();
+        mColorRecorder = mColor;
+        mXRotatationRecorder = mXRotation;
+        mYRotatationRecorder = mYRotation;
+        mZRotatationRecorder = mZRotation;
         calculate(0);
     }
 
     public void set_X_Translation(int length)
     {
-        mXTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+        mXTranslationStep = (double) length / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public void set_Y_Translation(int length)
     {
-        mYTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+        mYTranslationStep = (double) length / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public void set_Z_Translation(int length)
     {
-        mZTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+        mZTranslationStep = (double) length / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public synchronized void calculate_X_Translation(int step)
@@ -116,29 +90,33 @@ public abstract class Parts extends Pane
         mZRotation = mDefaultRotation;
 
         mToDegreeX = mDefaultRotation;
+        mToDegreeY = mDefaultRotation;
+        mToDegreeZ = mDefaultRotation;
         mXRotationStep = 0.0f;
     }
 
     public void set_X_Rotation(int degree)
     {
         mToDegreeX = mXRotation + degree;
-        mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+        mXRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public void set_Y_Rotation(int degree)
     {
-        mYRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+        mToDegreeY = mYRotation + degree;
+        mYRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public void set_Z_Rotation(int degree)
     {
-        mZRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+        mToDegreeZ = mZRotation + degree;
+        mZRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public void setTilt(int degree)
     {
         mToDegreeX = mXRotation + degree;
-        mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+        mXRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
     }
 
     public synchronized void calculate_X_Rotation(int step)
@@ -205,7 +183,6 @@ public abstract class Parts extends Pane
     public synchronized void calculateShape(int step)
     {
         mShapeAnimationStep = step;
-
         Platform.runLater(() -> calculate(step));
     }
 
@@ -214,7 +191,7 @@ public abstract class Parts extends Pane
         mShapeAnimationStep = 0;
     }
 
-    public void clearChildren(Parts bodyPartFX)
+    public void clearChildren(Stickman3DParts bodyPartFX)
     {
         bodyPartFX.getChildren().clear();
     }
@@ -224,19 +201,46 @@ public abstract class Parts extends Pane
         createShape();
     }
 
-    protected PhongMaterial getMaterial()
+    public void update()
     {
-        if (material == null)
-        {
-            URL imageUrl = getClass().getClassLoader().getResource("Images/difuseMap2.png");
-            javafx.scene.image.Image image = new javafx.scene.image.Image(imageUrl.toExternalForm());
-            material = new PhongMaterial();
-            material.setDiffuseColor(mColor);
-            material.setDiffuseMap(image);
-            material.setSelfIlluminationMap(image);
-        }
-        return material;
+        recordColor();
     }
 
+    protected void recordColor()
+    {
 
+    }
+
+    public void rotatePerlinNoise(double mWobble, int x, int y)
+    {
+        Affine af = new Affine();
+        // Out put perlin noise
+        af.appendRotation(Math.toRadians(mWobble), x, y);
+        this.getTransforms().clear();
+        this.getTransforms().add(af);
+    }
+
+    @Override
+    public void setRotation(int degree)
+    {
+
+    }
+
+    @Override
+    public void setTranslation(int length)
+    {
+
+    }
+
+    @Override
+    public void calculateRotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculateTranslation(int step)
+    {
+
+    }
 }

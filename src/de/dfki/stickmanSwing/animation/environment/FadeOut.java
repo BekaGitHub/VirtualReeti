@@ -98,7 +98,7 @@ public class FadeOut extends AnimationSwing
         mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit * 16));
         playAnimationPart(2);
 
-//		mStickman.setCharacterInvisible = false;
+//		mStickmanSwing.setCharacterInvisible = false;
         mStickman.starShowControler = false;
         mStickman.starShowC = false;
     }

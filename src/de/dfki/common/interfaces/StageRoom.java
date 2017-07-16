@@ -24,7 +24,7 @@ public interface StageRoom
 
     void addAgent(String name, boolean onlyFace);
 
-    Agent getAgent(String name);
+    AgentInterface getAgent(String name);
 
     void launchAgentStage(boolean show);
 

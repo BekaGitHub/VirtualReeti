@@ -17,7 +17,7 @@ public class StopIdle extends AnimationSwing
     @Override
     public void playAnimation()
     {
-        mStickman.mIdleRun = false;
-        while (mStickman.mIdleBehavior.isAlive()) ;
+        mStickmanSwing.mIdleRun = false;
+        while (mStickmanSwing.mIdleBehavior.isAlive()) ;
     }
 }

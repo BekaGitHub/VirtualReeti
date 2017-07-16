@@ -41,11 +41,11 @@ public class ComeBackFromSmall extends AnimationSwing
 //		Show words		
 //		for(int i=0; i<15;i++)
 //		{
-//			mStickman.mScale = mStickman.mScale*1.05f;
-//			if(mStickman.mScale >= 1)
-//				mStickman.mScale = 1;
+//			mStickmanSwing.mScale = mStickmanSwing.mScale*1.05f;
+//			if(mStickmanSwing.mScale >= 1)
+//				mStickmanSwing.mScale = 1;
 //			mAnimationPart = new ArrayList<>();
-//			mAnimationPart.add(new AnimationContentSwing(mStickman.mWordShow, "shape", "SAYHI"));
+//			mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mWordShow, "shape", "SAYHI"));
 //			playAnimationPart(2);	
 //		}
 //		show stars

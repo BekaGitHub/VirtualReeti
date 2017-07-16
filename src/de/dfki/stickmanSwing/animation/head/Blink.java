@@ -26,16 +26,16 @@ public class Blink extends AnimationSwing
     public void playAnimation()
     {
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "BLINK"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "BLINK"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "BLINK"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "BLINK"));
         playAnimationPart(20);
 
         pauseAnimation(300);
 
         // blink up
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "DEFAULT"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "DEFAULT"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "DEFAULT"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "DEFAULT"));
         playAnimationPart(20);
     }
 }

@@ -6,7 +6,7 @@
 package de.dfki.reeti.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.reeti.Reeti;
 
 import java.lang.reflect.Constructor;
@@ -84,7 +84,7 @@ public class AnimationLoaderReeti
         return classPath;
     }
 
-    public AnimationReeti loadAnimation(Agent sm, String name, int duration, boolean block, HashMap<String, String> extraParams)
+    public AnimationReeti loadAnimation(AgentInterface sm, String name, int duration, boolean block, HashMap<String, String> extraParams)
     {
         AnimationReeti a = null;
 
@@ -118,7 +118,7 @@ public class AnimationLoaderReeti
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Reeti) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -128,7 +128,7 @@ public class AnimationLoaderReeti
         return a;
     }
 
-    public AnimationReeti loadAnimation(Agent sm, String name, int duration, boolean block)
+    public AnimationReeti loadAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         AnimationReeti a = null;
 
@@ -154,7 +154,7 @@ public class AnimationLoaderReeti
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Reeti) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -165,7 +165,7 @@ public class AnimationLoaderReeti
         return a;
     }
 
-    public AnimationReeti loadAnimation(Agent sm, String name, int frequent, int pos, boolean block)
+    public AnimationReeti loadAnimation(AgentInterface sm, String name, int frequent, int pos, boolean block)
     {
         AnimationReeti a = null;
 
@@ -192,7 +192,7 @@ public class AnimationLoaderReeti
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Reeti) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -202,7 +202,7 @@ public class AnimationLoaderReeti
         return a;
     }
 
-    public EventAnimationReeti loadEventAnimation(Agent sm, String name, int duration, boolean block)
+    public EventAnimationReeti loadEventAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         EventAnimationReeti a = null;
 
@@ -229,7 +229,7 @@ public class AnimationLoaderReeti
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Reeti) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         a.mID = getNextID();

@@ -2,14 +2,14 @@ package de.dfki.stickmanFX.animation.facefx;
 
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka
  */
-public class SmileEnd extends AnimationFX
+public class SmileEnd extends AnimationStickmanFX
 {
 
     public SmileEnd()
@@ -26,8 +26,8 @@ public class SmileEnd extends AnimationFX
     public void playAnimation()
     {
         // smile end
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SMILEEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SMILEEND"));
         playAnimationPart(mDuration);
         pauseAnimation(10);
     }

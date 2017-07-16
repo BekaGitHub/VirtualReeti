@@ -1,6 +1,6 @@
 package de.dfki.common.decorators;
 
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.AgentsOnStage;
@@ -67,7 +67,7 @@ public abstract class StageRoomDecorator implements StageRoom
     }
 
     @Override
-    public Agent getAgent(String name)
+    public AgentInterface getAgent(String name)
     {
         return controllerFX.getAgent(name);
     }

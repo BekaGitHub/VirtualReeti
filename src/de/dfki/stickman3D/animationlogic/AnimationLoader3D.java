@@ -6,7 +6,7 @@
 package de.dfki.stickman3D.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.stickman3D.Stickman3D;
 
 import java.lang.reflect.Constructor;
@@ -84,9 +84,9 @@ public class AnimationLoader3D
         return classPath;
     }
 
-    public Animation3D loadAnimation(Agent sm, String name, int duration, boolean block, HashMap<String, String> extraParams)
+    public AnimationStickman3D loadAnimation(AgentInterface sm, String name, int duration, boolean block, HashMap<String, String> extraParams)
     {
-        Animation3D a = null;
+        AnimationStickman3D a = null;
 
         String cp = getAnimationClasspath(((Stickman3D) sm).mType, name);
         try
@@ -103,7 +103,7 @@ public class AnimationLoader3D
                             && params[1].getSimpleName().equalsIgnoreCase("int")
                             && params[2].getSimpleName().equalsIgnoreCase("boolean"))
                     {
-                        a = (Animation3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
+                        a = (AnimationStickman3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
                     }
                 } else if (params.length == 4)
                 {
@@ -112,14 +112,14 @@ public class AnimationLoader3D
                             && params[2].getSimpleName().equalsIgnoreCase("boolean")
                             && params[3].getSimpleName().equalsIgnoreCase("hashMap"))
                     {
-                        a = (Animation3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block, extraParams);
+                        a = (AnimationStickman3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block, extraParams);
                     }
                 }
 
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Stickman3D) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Stickman3D) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -129,9 +129,9 @@ public class AnimationLoader3D
         return a;
     }
 
-    public Animation3D loadAnimation(Agent sm, String name, int duration, boolean block)
+    public AnimationStickman3D loadAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
-        Animation3D a = null;
+        AnimationStickman3D a = null;
 
         String cp = getAnimationClasspath(((Stickman3D) sm).mType, name);
         try
@@ -148,14 +148,14 @@ public class AnimationLoader3D
                             && params[1].getSimpleName().equalsIgnoreCase("int")
                             && params[2].getSimpleName().equalsIgnoreCase("boolean"))
                     {
-                        a = (Animation3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
+                        a = (AnimationStickman3D) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
                     }
                 }
 
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Stickman3D) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Stickman3D) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -165,9 +165,9 @@ public class AnimationLoader3D
         return a;
     }
 
-    public Animation3D loadAnimation(Agent sm, String name, int frequent, int actionDuration, boolean block)
+    public AnimationStickman3D loadAnimation(AgentInterface sm, String name, int frequent, int actionDuration, boolean block)
     {
-        Animation3D a = null;
+        AnimationStickman3D a = null;
 
         String cp = getAnimationClasspath(((Stickman3D) sm).mType, name);
         try
@@ -185,14 +185,14 @@ public class AnimationLoader3D
                             && params[2].getSimpleName().equalsIgnoreCase("int")
                             && params[3].getSimpleName().equalsIgnoreCase("boolean"))
                     {
-                        a = (Animation3D) c.getDeclaredConstructor(params).newInstance(sm, frequent, actionDuration, block);
+                        a = (AnimationStickman3D) c.getDeclaredConstructor(params).newInstance(sm, frequent, actionDuration, block);
                     }
                 }
 
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Stickman3D) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Stickman3D) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         if (a != null)
@@ -202,7 +202,7 @@ public class AnimationLoader3D
         return a;
     }
 
-    public EventAnimation3D loadEventAnimation(Agent sm, String name, int duration, boolean block)
+    public EventAnimation3D loadEventAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         EventAnimation3D a = null;
 
@@ -229,7 +229,7 @@ public class AnimationLoader3D
             }
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-            ((Stickman3D) sm).mLogger.severe("Animation \"" + name + "\" cannot be found in " + cp);
+            ((Stickman3D) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
         }
 
         a.mID = getNextID();

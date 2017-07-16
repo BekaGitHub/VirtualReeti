@@ -7,7 +7,7 @@ package de.dfki.stickman3D.animation.environment;
 
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 import javafx.application.Platform;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * @author Beka
  */
-public class ComeBackFromSmall extends Animation3D
+public class ComeBackFromSmall extends AnimationStickman3D
 {
 
     public ComeBackFromSmall()
@@ -27,7 +27,7 @@ public class ComeBackFromSmall extends Animation3D
     public ComeBackFromSmall(Stickman3D sm, int duration, boolean block)
     {
         super(sm, duration, block);
-        mStickmanFX = sm;
+        mStickman3D = sm;
     }
 
     @Override
@@ -36,17 +36,17 @@ public class ComeBackFromSmall extends Animation3D
 
         int rotationUnit = 5;
 
-        float recordOriginScale = mStickmanFX.mScale;
+        float recordOriginScale = mStickman3D.mScale;
 
         for (int j = 0; j < 19; j++)
         {
-            mStickmanFX.mScale = mStickmanFX.mScale * 0.95f;
+            mStickman3D.mScale = mStickman3D.mScale * 0.95f;
         }
 
         // bring upper arm and fore arm in position
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -rotationUnit));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -rotationUnit * 30));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", -rotationUnit));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", -rotationUnit * 30));
         playAnimationPart(20);
 
         pauseAnimation(20);
@@ -56,40 +56,40 @@ public class ComeBackFromSmall extends Animation3D
             // wave right
             for (int j = 0; j < 9; j++)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -rotationUnit));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", -rotationUnit));
 
-                mStickmanFX.mScale = mStickmanFX.mScale * 1.05f;
-                if (mStickmanFX.mScale >= recordOriginScale)
+                mStickman3D.mScale = mStickman3D.mScale * 1.05f;
+                if (mStickman3D.mScale >= recordOriginScale)
                 {
-                    mStickmanFX.mScale = recordOriginScale;
+                    mStickman3D.mScale = recordOriginScale;
                 }
                 playAnimationPart(20);
-                Platform.runLater(() -> mStickmanFX.update());
-                mStickmanFX.showAllParts();
+                Platform.runLater(() -> mStickman3D.update());
+                mStickman3D.showAllParts();
             }
 
             // wave left
             for (int j = 0; j < 9; j++)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", rotationUnit));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", rotationUnit));
 
-                mStickmanFX.mScale = mStickmanFX.mScale * 1.05f;
-                if (mStickmanFX.mScale >= recordOriginScale)
+                mStickman3D.mScale = mStickman3D.mScale * 1.05f;
+                if (mStickman3D.mScale >= recordOriginScale)
                 {
-                    mStickmanFX.mScale = recordOriginScale;
+                    mStickman3D.mScale = recordOriginScale;
                 }
                 playAnimationPart(20);
-                Platform.runLater(() -> mStickmanFX.update());
-                mStickmanFX.showAllParts();
+                Platform.runLater(() -> mStickman3D.update());
+                mStickman3D.showAllParts();
             }
         }
 
         // go back in the default position
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", rotationUnit));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", rotationUnit * 30));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", rotationUnit));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", rotationUnit * 30));
         playAnimationPart(20);
 
         if (StickmanStageController.currentRadioButton != null)

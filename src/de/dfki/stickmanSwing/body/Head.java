@@ -15,7 +15,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Patrick Gebhard
  */
-public class Head extends BodyPart
+public class Head extends StickmanSwingParts
 {
 
     public Dimension mSize = new Dimension(120, 100);

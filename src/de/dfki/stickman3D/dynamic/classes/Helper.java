@@ -6,7 +6,7 @@
 package de.dfki.stickman3D.dynamic.classes;
 
 import de.dfki.stickman3D.StickmanStageController;
-import de.dfki.stickman3D.body.BodyPartFX;
+import de.dfki.stickman3D.body.Stickman3DParts;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -90,7 +90,7 @@ public class Helper
     public static int recordLeftForeLegSliderZValue = 0;
 
 
-    public static void resetBodyPartRotation(BodyPartFX bodyPartFX)
+    public static void resetBodyPartRotation(Stickman3DParts bodyPartFX)
     {
         bodyPartFX.mXRotation = 0;
         bodyPartFX.mYRotation = 0;
@@ -494,11 +494,11 @@ public class Helper
     private static void appendMethodCommands(String bodypart, int x, int y, int z)
     {
         DynamicCompiler.methodContent.append("mAnimationPart = new ArrayList<>(); \n");
-        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickman.").append(bodypart)
+        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickmanSwing.").append(bodypart)
                 .append(",\"rotate\",").append(x).append(")); \n");
-        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickman.").append(bodypart)
+        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickmanSwing.").append(bodypart)
                 .append(",\"yrotate\",").append(y).append(")); \n");
-        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickman.").append(bodypart)
+        DynamicCompiler.methodContent.append("mAnimationPart.add(new AnimationContent3D(mStickmanSwing.").append(bodypart)
                 .append(",\"zrotate\",").append(z).append(")); \n");
         DynamicCompiler.methodContent.append("playAnimationPart(mDuration);\n");
     }
@@ -531,7 +531,7 @@ public class Helper
         reset(controller.currentStickman.mUpperBodyAndHead);
     }
 
-    private static void reset(BodyPartFX bodyPartFX)
+    private static void reset(Stickman3DParts bodyPartFX)
     {
         bodyPartFX.mXRotation = bodyPartFX.mXRotatationRecorder;
         bodyPartFX.mYRotation = bodyPartFX.mYRotatationRecorder;

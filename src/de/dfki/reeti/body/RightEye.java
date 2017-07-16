@@ -14,7 +14,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class RightEye extends Parts
+public class RightEye extends ReetiParts
 {
     private Group mRightEarMesh;
 

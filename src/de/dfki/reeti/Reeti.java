@@ -1,6 +1,7 @@
 package de.dfki.reeti;
 
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.agents.Agent3D;
+import de.dfki.common.parts.FXParts;
 import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
 import de.dfki.reeti.animationlogic.AnimationSchedulerReeti;
 import de.dfki.reeti.body.LeftEye;
@@ -15,7 +16,6 @@ import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.reeti.animation.environment.Blinking;
-import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 import de.dfki.reeti.animationlogic.EventAnimationReeti;
 import de.dfki.reeti.body.LeftCheek;
@@ -32,15 +32,9 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.layout.Pane;
 import javafx.scene.transform.Affine;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.Semaphore;
 import java.util.logging.ConsoleHandler;
-import java.util.logging.Formatter;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import javafx.scene.effect.BlurType;
@@ -57,31 +51,17 @@ import javafx.scene.paint.Stop;
  *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
  *         by Ross Ching in 2012
  */
-public class Reeti extends Pane implements Agent
+public class Reeti extends Agent3D
 {
-
     public enum LED
     {
         LEFTLED, RIGHTLED, BOTHLED
     }
 
-    public Gender.TYPE mType = Gender.TYPE.FEMALE;
-    public String mName = "StickmanSwing";
-    public float mScale = 1.0f;
-    public double stageHeight;
-    public boolean isFullScreen = false;
-
     private static final double REETI_HEIGHT = 480;
 
-    private static Dimension mDefaultSize = new Dimension(300, 800);
-    public static Dimension sSize = new Dimension(mDefaultSize);
-
     public Blinking mBlinking;
-
-    // amimation stuff
-    public Semaphore mAnimationLaunchControl = new Semaphore(1);
     public AnimationSchedulerReeti mAnimationSchedulerReeti;
-    private final List<AnimationListener> mAnimationListeners = new CopyOnWriteArrayList<AnimationListener>();
 
     // body parts
     public Head mHead;
@@ -105,8 +85,6 @@ public class Reeti extends Pane implements Agent
     private StageRoom stageController = null;
     // logging
     public final Logger mLogger = Logger.getAnonymousLogger();
-    // id
-    private long mID = 0;
 
     //Movement
     private double mUpperLipOldPos = 0;
@@ -129,7 +107,7 @@ public class Reeti extends Pane implements Agent
 
     public Reeti(String name, Gender.TYPE gender, float scale, Dimension size)
     {
-        sSize = size;
+        mSize = size;
         this.mScale = scale;
         this.isFullScreen = true;
         this.mName = name;
@@ -168,6 +146,7 @@ public class Reeti extends Pane implements Agent
 
     private void init()
     {
+        mName = "Reeti";
         this.mHead = new Head(this);
         this.mLeftEyelid = new LeftEyelid(mHead);
         this.mLeftEye = new LeftEye(mHead);
@@ -186,17 +165,17 @@ public class Reeti extends Pane implements Agent
         this.mBody = new Body(mNeck);
         this.mSpeechBubble = new SpeechBubbleFX(mHead);
 
-        this.setPrefHeight(sSize.height);
-        this.setPrefWidth(sSize.width);
-        this.setMinHeight(sSize.height);
-        this.setMinWidth(sSize.width);
+        this.setPrefHeight(mSize.height);
+        this.setPrefWidth(mSize.width);
+        this.setMinHeight(mSize.height);
+        this.setMinWidth(mSize.width);
 
         InnerShadow is = new InnerShadow();
         is.setOffsetX(4.0f);
         is.setOffsetY(4.0f);
 
         ConsoleHandler ch = new ConsoleHandler();
-        ch.setFormatter(new StickmanLogFormatter());
+        ch.setFormatter(new logFormatter());
 
         this.mLogger.addHandler(ch);
         this.mLogger.setUseParentHandlers(false);
@@ -205,34 +184,7 @@ public class Reeti extends Pane implements Agent
         this.mAnimationSchedulerReeti.start();
     }
 
-    public void addListener(AnimationListener al)
-    {
-        mAnimationListeners.add(al);
-    }
 
-    public void removeListener(AnimationListener al)
-    {
-        synchronized (mAnimationListeners)
-        {
-            if (mAnimationListeners.contains(al))
-            {
-                mAnimationListeners.remove(al);
-            }
-        }
-    }
-
-    public void notifyListeners(String animationId)
-    {
-        synchronized (mAnimationListeners)
-        {
-            mAnimationListeners.stream().forEach((al) -> al.update(animationId));
-        }
-    }
-
-    public String getID()
-    {
-        return (new StringBuffer()).append(mName).append(" AnimationSwing ").append(mID++).toString();
-    }
 
     @Override
     public AnimationReeti doEventFeedbackAnimation(String name, int duration, WordTimeMarkSequence wts, boolean block)
@@ -380,21 +332,17 @@ public class Reeti extends Pane implements Agent
         this.getTransforms().add(af);
     }
 
+    @Override
+    public FXParts getSpeechBubble()
+    {
+        return this.mSpeechBubble;
+    }
+
     public void setScale(float scale)
     {
         mScale = scale;
     }
 
-    private static class StickmanLogFormatter extends Formatter
-    {
-
-        @Override
-        public String format(LogRecord record)
-        {
-            return ((new StringBuffer()).append(record.getLevel()).append(": ").append(record.getMessage())
-                    .append("\n")).toString();
-        }
-    }
 
     private void addAllParts()
     {

@@ -3,7 +3,7 @@ package de.dfki.stickmanFX.bodyfx;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import de.dfki.stickmanFX.animationlogic.AnimatorFX;
+import de.dfki.stickmanFX.animationlogic.AnimatorStickmanFX;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
@@ -12,7 +12,7 @@ import javafx.scene.shape.Path;
 /**
  * @author Beka
  */
-public class FaceWrinkleFX extends BodyPartFX
+public class FaceWrinkleFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -70,7 +70,7 @@ public class FaceWrinkleFX extends BodyPartFX
                 break;
 
             case ANGRY:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 // Add wrinkle for angry face:
                 int angryColorChange = (int) (movement / 4 * 16);
@@ -112,7 +112,7 @@ public class FaceWrinkleFX extends BodyPartFX
                 break;
 
             case EMBARRASSED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 // Add wrinkles for embarrassed face:
                 int embarrassedColorChange = (int) (movement / 4 * 16);

@@ -22,7 +22,7 @@ public class SmileEnd extends AnimationSwing
     {
         // smile end
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILEEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILEEND"));
         playAnimationPart(mDuration);
         pauseAnimation(10);
     }

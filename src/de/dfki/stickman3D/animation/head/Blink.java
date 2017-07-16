@@ -8,14 +8,14 @@ package de.dfki.stickman3D.animation.head;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka Aptsiauri
  */
-public class Blink extends Animation3D
+public class Blink extends AnimationStickman3D
 {
 
     public Blink()
@@ -31,17 +31,17 @@ public class Blink extends Animation3D
     @Override
     public void playAnimation()
     {
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "BLINK"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "BLINK"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "BLINK"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "BLINK"));
         playAnimationPart(50);
 
         pauseAnimation(300);
 
         //blink up
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "BLINKEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "BLINKEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "BLINKEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "BLINKEND"));
         playAnimationPart(50);
 
         if (StickmanStageController.currentRadioButton != null)

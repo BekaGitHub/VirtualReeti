@@ -6,7 +6,6 @@
 package de.dfki.stickmanFX.bodyfx;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -22,7 +21,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka
  */
-public class LeftForeLegFX extends BodyPartFX
+public class LeftForeLegFX extends StickmanFXParts
 {
 
     LeftUpperLegFX mUpperLegFX;

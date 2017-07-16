@@ -1,7 +1,7 @@
 package de.dfki.stickmanSwing.stage;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.stickmanFX.xmlsettings.XmlTransformFX;
@@ -29,11 +29,11 @@ public class StickmansOnStageSwing extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new StickmanSwing(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new StickmanSwing(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
-            Agent stickman = new StickmanSwing(name, gender, DEFAULT_SCALE);
+            AgentInterface stickman = new StickmanSwing(name, gender, DEFAULT_SCALE);
             putFullAgentOnStage(name, stickman);
         }
     }

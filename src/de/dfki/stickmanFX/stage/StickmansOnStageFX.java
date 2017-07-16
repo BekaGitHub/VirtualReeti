@@ -1,7 +1,7 @@
 package de.dfki.stickmanFX.stage;
 
 import de.dfki.common.*;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.stickmanFX.StickmanFX;
@@ -30,11 +30,11 @@ public class StickmansOnStageFX extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new StickmanFX(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new StickmanFX(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
-            Agent stickman = new StickmanFX(name, gender, DEFAULT_SCALE);
+            AgentInterface stickman = new StickmanFX(name, gender, DEFAULT_SCALE);
             putFullAgentOnStage(name, stickman);
         }
     }
@@ -44,7 +44,7 @@ public class StickmansOnStageFX extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new StickmanFX(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new StickmanFX(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
@@ -53,7 +53,7 @@ public class StickmansOnStageFX extends AgentsOnStage
             {
                 scale = 9.0f;
             }
-            Agent stickman = new StickmanFX(name, gender, scale, onlyFace);
+            AgentInterface stickman = new StickmanFX(name, gender, scale);
             putFullAgentOnStage(name, stickman);
         }
     }

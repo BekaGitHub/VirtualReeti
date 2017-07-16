@@ -14,7 +14,7 @@ import java.net.URL;
 /**
  * @author Beka Aptsiauri
  */
-public class Head extends Parts
+public class Head extends ReetiParts
 {
     private Group mHeadGroup;
 
@@ -99,4 +99,5 @@ public class Head extends Parts
     {
         return mHeadGroup;
     }
+
 }

@@ -6,39 +6,33 @@
 package de.dfki.stickman3D.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.stickman3D.body.BodyPartFX;
+import de.dfki.common.animationlogic.AnimationContent;
+import de.dfki.stickman3D.body.Stickman3DParts;
 
 /**
  * @author Beka Aptsiauri
  */
-public class AnimationContent3D
+public class AnimationContent3D extends AnimationContent
 {
-
-    public BodyPartFX mBodyPartFX;
-    public String mAction;
-    public int mParam;
-    public String mParamString;
-    public WordTimeMarkSequence mWTS;
-
-    public AnimationContent3D(BodyPartFX bp, String a, int p)
+    public AnimationContent3D(Stickman3DParts bp, String a, int p)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = p;
         mParamString = "";
     }
 
-    public AnimationContent3D(BodyPartFX bp, String a, String p)
+    public AnimationContent3D(Stickman3DParts bp, String a, String p)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
     }
 
-    public AnimationContent3D(BodyPartFX bp, String a, String p, WordTimeMarkSequence wts)
+    public AnimationContent3D(Stickman3DParts bp, String a, String p, WordTimeMarkSequence wts)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;

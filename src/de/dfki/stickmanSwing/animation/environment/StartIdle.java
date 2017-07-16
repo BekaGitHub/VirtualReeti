@@ -23,11 +23,11 @@ public class StartIdle extends AnimationSwing
     @Override
     public void playAnimation()
     {
-        if (!mStickman.mIdleBehavior.isAlive())
+        if (!mStickmanSwing.mIdleBehavior.isAlive())
         {
-            mStickman.mIdleRun = true;
-            mStickman.mIdleBehavior = new IdleBehavior(mStickman, mStickman.simplexNoise);
-            mStickman.mIdleBehavior.start();
+            mStickmanSwing.mIdleRun = true;
+            mStickmanSwing.mIdleBehavior = new IdleBehavior(mStickmanSwing, mStickmanSwing.simplexNoise);
+            mStickmanSwing.mIdleBehavior.start();
         }
     }
 }

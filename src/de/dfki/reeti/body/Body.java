@@ -20,7 +20,7 @@ import java.net.URL;
 /**
  * @author Beka Aptsiauri
  */
-public class Body extends Parts
+public class Body extends ReetiParts
 {
     public Body(Neck neck)
     {

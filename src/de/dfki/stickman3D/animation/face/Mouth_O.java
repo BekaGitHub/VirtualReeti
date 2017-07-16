@@ -7,14 +7,14 @@ package de.dfki.stickman3D.animation.face;
 
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka
  */
-public class Mouth_O extends Animation3D
+public class Mouth_O extends AnimationStickman3D
 {
 
     public Mouth_O(Stickman3D sm, int duration, boolean block)
@@ -26,8 +26,8 @@ public class Mouth_O extends Animation3D
     public void playAnimation()
     {
         // smile
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "O"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "O"));
         playAnimationPart(20);
     }
 }

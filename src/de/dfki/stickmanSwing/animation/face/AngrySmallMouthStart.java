@@ -27,12 +27,12 @@ public class AngrySmallMouthStart extends AnimationSwing
     {
         // angry with small mouth start
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "ANGRYSMALLMOUTH"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "ANGRY"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEyebrow, "shape", "ANGRY"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mFaceWrinkle, "shape", "ANGRY"));   ///Add by Robbie
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "ANGRY"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEyebrow, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "ANGRYSMALLMOUTH"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEyebrow, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mFaceWrinkle, "shape", "ANGRY"));   ///Add by Robbie
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEyebrow, "shape", "ANGRY"));
 //		playAnimationPart(20);
         playAnimationPart(mDuration);
 

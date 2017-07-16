@@ -24,14 +24,14 @@ public class LookRight extends AnimationSwing
 
         // look left
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "LOOKRIGHT"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "LOOKRIGHT"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "LOOKRIGHT"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "LOOKRIGHT"));
         playAnimationPart(20);
 
 //		// blink up
 //		mAnimationPart = new ArrayList<>();
-//		mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "DEFAULT"));
-//		mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "DEFAULT"));
+//		mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "DEFAULT"));
+//		mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "DEFAULT"));
 //		playAnimationPart(2);
     }
 }

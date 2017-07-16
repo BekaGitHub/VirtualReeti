@@ -9,7 +9,6 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -21,7 +20,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka
  */
-public class LeftShoulderFX extends BodyPartFX
+public class LeftShoulderFX extends StickmanFXParts
 {
 
     BodyFX mBodyFX;

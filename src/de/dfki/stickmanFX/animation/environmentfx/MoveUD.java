@@ -6,14 +6,14 @@
 package de.dfki.stickmanFX.animation.environmentfx;
 
 import de.dfki.stickmanFX.StickmanFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 import javafx.application.Platform;
 
 /**
  * @author Robbie This is used when ZoomIn is used to only show a head of the
  *         stickmanSwing
  */
-public class MoveUD extends AnimationFX
+public class MoveUD extends AnimationStickmanFX
 {
 
     private StickmanFX mStickmanFX;
@@ -30,8 +30,8 @@ public class MoveUD extends AnimationFX
     {
         //move down slowly
 //        for (int i = 0; i < 16; i++) {
-//                mStickman.voffset = mStickman.voffset + speed;
-//                Platform.runLater(() -> mStickman.posOnScreen());
+//                mStickmanSwing.voffset = mStickmanSwing.voffset + speed;
+//                Platform.runLater(() -> mStickmanSwing.posOnScreen());
 //                pauseAnimation(40);
 //        }
 

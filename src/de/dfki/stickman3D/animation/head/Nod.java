@@ -8,14 +8,14 @@ package de.dfki.stickman3D.animation.head;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka
  */
-public class Nod extends Animation3D
+public class Nod extends AnimationStickman3D
 {
 
     public Nod()
@@ -32,12 +32,12 @@ public class Nod extends Animation3D
     public void playAnimation()
     {
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", 10));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "rotate", 10));
         playAnimationPart(200);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "rotate", -10));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "rotate", -10));
         playAnimationPart(200);
 
         if (StickmanStageController.currentRadioButton != null)

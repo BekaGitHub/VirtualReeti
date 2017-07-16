@@ -1,7 +1,7 @@
 package de.dfki.stickman3D.animation.gesture;
 
 import de.dfki.stickman3D.Stickman3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 /**
  * Created by alvaro on 1/20/17.
  */
-public class HeadConversation extends Animation3D
+public class HeadConversation extends AnimationStickman3D
 {
 
     private int degrees;
@@ -52,9 +52,9 @@ public class HeadConversation extends Animation3D
     {
         int movement = degrees;
         current_movment += movement;
-        mAnimationPartFX = new ArrayList<>();
+        mAnimationPart = new ArrayList<>();
         String rotationAxis = getRotationAxisName();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, rotationAxis, current_movment));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, rotationAxis, current_movment));
         playAnimationPart(200);
         pauseAnimation(500);
         current_movment = movement * -1;

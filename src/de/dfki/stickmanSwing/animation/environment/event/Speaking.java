@@ -38,11 +38,11 @@ public class Speaking extends EventAnimationSwing
         }
 
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mSpeechBubble, "shape", SpeechBubble.SHAPE.SPEAK.name(), mWTS));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mSpeechBubble, "shape", SpeechBubble.SHAPE.SPEAK.name(), mWTS));
 
         playEventAnimationPart();
 
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mSpeechBubble, "shape", SpeechBubble.SHAPE.DEFAULT.name()));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mSpeechBubble, "shape", SpeechBubble.SHAPE.DEFAULT.name()));
         playAnimationPart(20);
 
     }

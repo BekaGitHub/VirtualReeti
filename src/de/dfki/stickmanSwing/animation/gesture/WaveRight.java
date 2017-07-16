@@ -32,32 +32,32 @@ public class WaveRight extends AnimationSwing
 
         // bring upper arm and fore arm in position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightUpperArm, "rotate", -rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", -rotationUnit * 16));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", -rotationUnit * 16));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightUpperArm, "rotate", -rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", -rotationUnit * 16));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", -rotationUnit * 16));
         playAnimationPart(200);
 
         pauseAnimation(200);
 
         // wave right
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", rotationUnit * 4));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", rotationUnit * 4));
         playAnimationPart(100);
 
         // wave left
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", -rotationUnit * 4));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", -rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", -rotationUnit * 4));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", -rotationUnit * 4));
         playAnimationPart(100);
 
         pauseAnimation(200);
 
         // go back in the default position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightUpperArm, "rotate", rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightForeArm, "rotate", rotationUnit * 16));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightHand, "rotate", rotationUnit * 16));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightUpperArm, "rotate", rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightForeArm, "rotate", rotationUnit * 16));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightHand, "rotate", rotationUnit * 16));
         playAnimationPart(200);
     }
 }

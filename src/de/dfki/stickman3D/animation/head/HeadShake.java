@@ -7,7 +7,7 @@ package de.dfki.stickman3D.animation.head;
 
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * @author Beka
  */
-public class HeadShake extends Animation3D
+public class HeadShake extends AnimationStickman3D
 {
 
     public HeadShake()
@@ -26,7 +26,7 @@ public class HeadShake extends Animation3D
     public HeadShake(Stickman3D sm, int duration, boolean block)
     {
         super(sm, duration, block);
-        this.mStickmanFX = sm;
+        this.mStickman3D = sm;
     }
 
     @Override
@@ -38,23 +38,23 @@ public class HeadShake extends Animation3D
         {
             if (i == 0)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", -10));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "zrotate", -10));
                 playAnimationPart(200);
             } else if (i == 5)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", 10));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "zrotate", 10));
                 playAnimationPart(200);
             } else if (i % 2 == 1)
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", 20));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "zrotate", 20));
                 playAnimationPart(400);
             } else
             {
-                mAnimationPartFX = new ArrayList<>();
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "zrotate", -20));
+                mAnimationPart = new ArrayList<>();
+                mAnimationPart.add(new AnimationContent3D(mStickman3D.mHead, "zrotate", -20));
                 playAnimationPart(400);
             }
         }

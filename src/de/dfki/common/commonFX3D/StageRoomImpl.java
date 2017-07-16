@@ -1,8 +1,8 @@
 package de.dfki.common.commonFX3D;
 
 import de.dfki.common.*;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.ApplicationLauncher;
-import de.dfki.common.interfaces.Agent;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
 
@@ -36,7 +36,7 @@ public abstract class StageRoomImpl implements StageRoom
     @Override
     public void animate(String agentName, String name, int duration, String text, boolean block)
     {
-        Agent agent = getCommonAgentsOnStage().getAgent(agentName);
+        AgentInterface agent = getCommonAgentsOnStage().getAgent(agentName);
         agent.doAnimation(name, duration, text, block);
     }
 
@@ -81,7 +81,7 @@ public abstract class StageRoomImpl implements StageRoom
     }
 
     @Override
-    public Agent getAgent(String name)
+    public AgentInterface getAgent(String name)
     {
         return getCommonAgentsOnStage().getAgent(name);
     }

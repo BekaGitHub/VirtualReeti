@@ -18,7 +18,7 @@ import javafx.scene.shape.MeshView;
 /**
  * @author Beka Aptsiauri
  */
-public class RightEar3D extends BodyPartFX
+public class RightEar3D extends Stickman3DParts
 {
     public enum SHAPE
     {

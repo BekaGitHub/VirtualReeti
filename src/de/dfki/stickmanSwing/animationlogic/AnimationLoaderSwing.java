@@ -6,7 +6,7 @@
 package de.dfki.stickmanSwing.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.stickmanSwing.StickmanSwing;
 
 import java.lang.reflect.Constructor;
@@ -86,7 +86,7 @@ public class AnimationLoaderSwing
         return classPath;
     }
 
-    public AnimationSwing loadAnimation(Agent sm, String name, int duration, boolean block)
+    public AnimationSwing loadAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         AnimationSwing a = null;
 
@@ -123,7 +123,7 @@ public class AnimationLoaderSwing
         return a;
     }
 
-    public EventAnimationSwing loadEventAnimation(Agent sm, String name, int duration, boolean block)
+    public EventAnimationSwing loadEventAnimation(AgentInterface sm, String name, int duration, boolean block)
     {
         EventAnimationSwing a = null;
 

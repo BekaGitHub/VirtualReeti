@@ -27,7 +27,7 @@ public class Mouth_Default extends AnimationSwing
     {
         // smile
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "DEFAULT"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "DEFAULT"));
         playAnimationPart(20);
     }
 }

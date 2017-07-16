@@ -18,7 +18,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka
  */
-public class LeftFootFX extends BodyPartFX
+public class LeftFootFX extends StickmanFXParts
 {
 
     LeftForeLegFX mLeftForeLegFX;
@@ -33,7 +33,7 @@ public class LeftFootFX extends BodyPartFX
         mLeftForeLegFX = leftForeLeg;
         mLength = 10;
         mColor = Color.rgb(80, 80, 80);
-        setDefaulRotation(0);
+        setDefaultRotation(0);
 
         mLeg = new Path();
         this.getChildren().add(mLeg);

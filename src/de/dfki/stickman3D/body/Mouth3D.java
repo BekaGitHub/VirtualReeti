@@ -13,7 +13,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class Mouth3D extends BodyPartFX
+public class Mouth3D extends Stickman3DParts
 {
 
     public enum SHAPE

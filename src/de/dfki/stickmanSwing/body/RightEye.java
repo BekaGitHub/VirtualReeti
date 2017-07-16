@@ -1,7 +1,6 @@
 package de.dfki.stickmanSwing.body;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 
 import java.awt.Color;
@@ -16,7 +15,7 @@ import java.awt.BasicStroke;
 /**
  * @author Patrick Gebhard
  */
-public class RightEye extends BodyPart
+public class RightEye extends StickmanSwingParts
 {
 
     public static enum SHAPE

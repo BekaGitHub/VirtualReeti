@@ -85,21 +85,21 @@ public class DisappearToSmall extends AnimationSwing
         playAnimationPart(20);
 
 //		Show words syebye
-//		mStickman.wordShowControler = true;
+//		mStickmanSwing.wordShowControler = true;
 //		for(int i=0; i<15;i++)
 //		{
-//			mStickman.mScale = mStickman.mScale*1.05f;
-//			if(mStickman.mScale >= 1.3)
-//				mStickman.mScale = 1.334445f;
+//			mStickmanSwing.mScale = mStickmanSwing.mScale*1.05f;
+//			if(mStickmanSwing.mScale >= 1.3)
+//				mStickmanSwing.mScale = 1.334445f;
 //			mAnimationPart = new ArrayList<>();
-//			mAnimationPart.add(new AnimationContentSwing(mStickman.mWordShow, "shape", "SAYBYE"));
+//			mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mWordShow, "shape", "SAYBYE"));
 //			playAnimationPart(2);	
 //		}
 //		pauseAnimation(200);
 //		
 ////		disappeared words
 //		mAnimationPart = new ArrayList<>();
-//		mAnimationPart.add(new AnimationContentSwing(mStickman.mWordShow, "shape", "DEFAULT"));
+//		mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mWordShow, "shape", "DEFAULT"));
 //		playAnimationPart(2);	
 //		show stars
         mStickman.starShowControler = true;

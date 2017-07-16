@@ -6,7 +6,7 @@
 package de.dfki.stickman3D.dynamic.classes;
 
 import de.dfki.stickman3D.Stickman3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -101,8 +101,8 @@ public class DynamicCompiler
         startClass.append("import de.dfki.stickman3D.Stickman3D;\n");
         startClass.append("import de.dfki.stickman3D.StickmanStageController;\n");
         startClass.append("import de.dfki.stickman3D.animationlogic.AnimationContent3D;\n");
-        startClass.append("import de.dfki.stickman3D.animationlogic.Animation3D;");
-        startClass.append("public class ").append(className).append(" extends Animation3D{ \n");
+        startClass.append("import de.dfki.stickman3D.animationlogic.AnimationStickman3D;");
+        startClass.append("public class ").append(className).append(" extends AnimationStickman3D{ \n");
         startClass.append("public ").append(className).append("(){ \n");
         startClass.append("mAnimType = ANIMTYPE.ON; \n");
         startClass.append("} \n");
@@ -191,7 +191,7 @@ public class DynamicCompiler
                             && params[1].getSimpleName().equalsIgnoreCase("int")
                             && params[2].getSimpleName().equalsIgnoreCase("boolean"))
                     {
-                        Animation3D a = (Animation3D) thisClass.getDeclaredConstructor(params).newInstance(currentStickman, 500, true);
+                        AnimationStickman3D a = (AnimationStickman3D) thisClass.getDeclaredConstructor(params).newInstance(currentStickman, 500, true);
                         a.start();
                     }
                 }

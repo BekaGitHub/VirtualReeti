@@ -24,20 +24,20 @@ public class CoverMouth extends AnimationSwing
 
         // bring upper arm and fore arm in position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftShoulder, "rotate", -rotationUnit * 3));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftUpperArm, "rotate", rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", rotationUnit * 9));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", rotationUnit * 9));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftShoulder, "rotate", -rotationUnit * 3));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftUpperArm, "rotate", rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftForeArm, "rotate", rotationUnit * 9));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftHand, "rotate", rotationUnit * 9));
         playAnimationPart(200);
 
         pauseAnimation(1200);
 
         // go back in the default position
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftShoulder, "rotate", +rotationUnit * 3));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftUpperArm, "rotate", -rotationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftForeArm, "rotate", -rotationUnit * 9));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftHand, "rotate", -rotationUnit * 9));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftShoulder, "rotate", +rotationUnit * 3));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftUpperArm, "rotate", -rotationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftForeArm, "rotate", -rotationUnit * 9));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftHand, "rotate", -rotationUnit * 9));
         playAnimationPart(300);
     }
 }

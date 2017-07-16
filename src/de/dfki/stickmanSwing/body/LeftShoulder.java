@@ -18,7 +18,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Patrick Gebhard
  */
-public class LeftShoulder extends BodyPart
+public class LeftShoulder extends StickmanSwingParts
 {
 
     Body mBody;

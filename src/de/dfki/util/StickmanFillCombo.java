@@ -12,8 +12,8 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX.ANIMTYPE;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX.ANIMTYPE;
 
 public class StickmanFillCombo
 {
@@ -88,10 +88,10 @@ public class StickmanFillCombo
 
                         Object object = myClass.newInstance();
 
-                        AnimationFX class1 = null;
-                        if (object instanceof AnimationFX)
+                        AnimationStickmanFX class1 = null;
+                        if (object instanceof AnimationStickmanFX)
                         {
-                            class1 = (AnimationFX) object;
+                            class1 = (AnimationStickmanFX) object;
                         }
 
                         if (class1 != null && class1.mAnimType == ANIMTYPE.EmotionExpression)
@@ -153,10 +153,10 @@ public class StickmanFillCombo
                 Class<?> myClass = loaderjar.loadClass(entryName.substring(0, entryName.length() - 6));
                 Object object = myClass.newInstance();
 
-                AnimationFX class1 = null;
-                if (object instanceof AnimationFX)
+                AnimationStickmanFX class1 = null;
+                if (object instanceof AnimationStickmanFX)
                 {
-                    class1 = (AnimationFX) object;
+                    class1 = (AnimationStickmanFX) object;
                 }
                 if (class1 != null && class1.mAnimType == ANIMTYPE.EmotionExpression)
                 {

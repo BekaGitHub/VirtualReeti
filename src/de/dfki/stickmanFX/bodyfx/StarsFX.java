@@ -14,7 +14,7 @@ import javafx.scene.shape.QuadCurveTo;
  * @author Robbie
  * @modified Beka
  */
-public class StarsFX extends BodyPartFX
+public class StarsFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -168,12 +168,12 @@ public class StarsFX extends BodyPartFX
                     creatStar(30, mStart, path);
 
                     // STAR 2 right side
-//					mStart = mBodyFX.mNeck.mHead.mStickman.mLeftForeLegFX.getLegStartPosition();
+//					mStart = mBodyFX.mNeck.mHead.mStickmanSwing.mLeftForeLegFX.getLegStartPosition();
                     mStart = mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mRightUpperArmFX.getRightUpperArmEndPosition();
                     creatStar(15, mStart, path);
 
                     // STAR 3 left side
-//					mStart = mBodyFX.mNeck.mHead.mStickman.mRightUpperLegFX.getRightUpperLegEndPosition();
+//					mStart = mBodyFX.mNeck.mHead.mStickmanSwing.mRightUpperLegFX.getRightUpperLegEndPosition();
                     mStart = mBodyFX.mNeckFX.getBodyStartPosition();
                     creatStar(15, mStart, path);
                 }

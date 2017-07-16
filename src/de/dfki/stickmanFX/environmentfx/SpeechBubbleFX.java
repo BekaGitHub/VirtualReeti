@@ -1,6 +1,6 @@
 package de.dfki.stickmanFX.environmentfx;
 
-import de.dfki.stickmanFX.bodyfx.BodyPartFX;
+import de.dfki.stickmanFX.bodyfx.StickmanFXParts;
 import de.dfki.stickmanFX.bodyfx.HeadFX;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -11,7 +11,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Beka
  */
-public class SpeechBubbleFX extends BodyPartFX
+public class SpeechBubbleFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -24,7 +24,6 @@ public class SpeechBubbleFX extends BodyPartFX
 
     HeadFX mHeadFX;
     public SpeechBubbleFX.SHAPE mShape = SpeechBubbleFX.SHAPE.DEFAULT;
-    public String mText = "";
 
     GridPane bubblePane;
     Label message;

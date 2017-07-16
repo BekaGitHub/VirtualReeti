@@ -1,7 +1,7 @@
 package de.dfki.reeti.stage;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.XmlTransform;
@@ -42,7 +42,7 @@ public class ReetiOnStage extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent stickman = new Reeti(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface stickman = new Reeti(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, stickman);
         } else
         {
@@ -56,7 +56,7 @@ public class ReetiOnStage extends AgentsOnStage
     {
         if (fullScreen)
         {
-            Agent agent = new Reeti(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
+            AgentInterface agent = new Reeti(name, gender, agentStage.getFullScreenScale(), agentStage.getFullScreenDimension());
             putFullAgentOnStage(name, agent);
         } else
         {
@@ -78,7 +78,7 @@ public class ReetiOnStage extends AgentsOnStage
             {
                 HBox h = agentStage.getAgentBox(identifier);
 
-                Agent agent = new Reeti(name, gender, scale, h.getPrefHeight());
+                AgentInterface agent = new Reeti(name, gender, scale, h.getPrefHeight());
                 putFullAgentOnStage(name, agent);
             } catch (Exception ex)
             {

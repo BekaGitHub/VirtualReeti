@@ -16,7 +16,7 @@ import javafx.scene.transform.Translate;
 /**
  * @author Beka Aptsiauri
  */
-public class Head3D extends BodyPartFX
+public class Head3D extends Stickman3DParts
 {
 
     public enum SHAPE

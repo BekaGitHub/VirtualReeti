@@ -1,6 +1,6 @@
 package de.dfki.common;
 
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.stickmanSwing.util.Names;
@@ -18,7 +18,7 @@ public abstract class AgentsOnStage
 
     public static final float DEFAULT_SCALE = 0.8f;
     protected AgentStage agentStage;
-    private Map<String, Agent> agentMap = new HashMap<>();
+    private Map<String, AgentInterface> agentMap = new HashMap<>();
     private StageRoom stageRoom;
     private String mFilePath;
 
@@ -86,7 +86,7 @@ public abstract class AgentsOnStage
 
     public void showStickmanNameFX(boolean show)
     {
-        for (Agent s : agentMap.values())
+        for (AgentInterface s : agentMap.values())
         {
             s.setShowName(show);
         }
@@ -98,7 +98,7 @@ public abstract class AgentsOnStage
 
     public abstract XmlTransform getmXmlTransform();
 
-    public Agent getAgent(String name)
+    public AgentInterface getAgent(String name)
     {
         if (agentMap.containsKey(name.toLowerCase()))
         {
@@ -121,7 +121,7 @@ public abstract class AgentsOnStage
         });
     }
 
-    protected void putFullAgentOnStage(String name, Agent agent)
+    protected void putFullAgentOnStage(String name, AgentInterface agent)
     {
         agentMap.put(name.toLowerCase(), agent);
         agent.setStageController(stageRoom);
@@ -132,7 +132,7 @@ public abstract class AgentsOnStage
         return agentMap.keySet();
     }
 
-    public Agent getStickmanByKey(String key)
+    public AgentInterface getStickmanByKey(String key)
     {
         return agentMap.get(key);
     }

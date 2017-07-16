@@ -15,7 +15,7 @@ import java.awt.*;
 /**
  * @author Beka Aptsiauri
  */
-public class NoseFX extends BodyPartFX
+public class NoseFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -70,7 +70,7 @@ public class NoseFX extends BodyPartFX
         switch (mShape)
         {
             case DEFAULT:
-//            	if (mHead.mStickman.setCharacterInvisible == false)
+//            	if (mHead.mStickmanSwing.setCharacterInvisible == false)
 //            		mColorRecorder = mColor;
                 if (mHeadFX.mStickmanFX.setCharacterInvisible == true)
                 {

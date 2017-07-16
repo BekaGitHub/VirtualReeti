@@ -22,7 +22,7 @@ import javafx.scene.transform.Translate;
 /**
  * @author Beka Aptsiauri
  */
-public class DownBody3D extends BodyPartFX
+public class DownBody3D extends Stickman3DParts
 {
 
     public enum SHAPE

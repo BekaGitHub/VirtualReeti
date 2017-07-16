@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 /**
  * @author Beka
  */
-public class Clap extends Animation3D
+public class Clap extends AnimationStickman3D
 {
 
     public Clap()
@@ -31,41 +31,41 @@ public class Clap extends Animation3D
     @Override
     public void playAnimation()
     {
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", -30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", -30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", -70));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", -90));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", -120));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", -10));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", -30));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "rotate", -30));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", -70));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "rotate", -90));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "yrotate", -120));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", -10));
         playAnimationPart(500);
 
         for (int i = 0; i < 10; i++)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", 10));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -15));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", 17));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", 10));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "zrotate", -15));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "rotate", 17));
             playAnimationPart(200);
 
             pauseAnimation(100);
 
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -10));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 15));
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", -17));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", -10));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "zrotate", 15));
+            mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "rotate", -17));
             playAnimationPart(200);
         }
 
         pauseAnimation(1000);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "rotate", 30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "rotate", 30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "rotate", 70));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "rotate", 90));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", 120));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightWrist, "yrotate", 10));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftUpperArm, "rotate", 30));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightUpperArm, "rotate", 30));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftForeArm, "rotate", 70));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightForeArm, "rotate", 90));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftWrist, "yrotate", 120));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightWrist, "yrotate", 10));
         playAnimationPart(500);
 
         if (StickmanStageController.currentRadioButton != null)

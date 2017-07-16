@@ -64,7 +64,7 @@ public class Body extends JComponent
 
         mFemaleBodyFront.curveTo(mStart.x + mHalfSizeX - 40, mSize.height - 10, mStart.x - mHalfSizeX + 40, mSize.height + 20, mStart.x - mHalfSizeX, mSize.height);
 
-        //mFemaleBodyFront.lineTo(mStart.x - mHalfSizeX, sSize.height);
+        //mFemaleBodyFront.lineTo(mStart.x - mHalfSizeX, mSize.height);
         mFemaleBodyFront.quadTo(mStart.x, mHalfSizeY + mDrawOffset, mStart.x, mStart.y);
 
         mFemaleBodyLeft = new GeneralPath();

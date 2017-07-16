@@ -2,12 +2,12 @@ package de.dfki.stickman3D.animation.environment;
 
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 /**
  * @author Robbie
  */
-public class StopBlinking extends Animation3D
+public class StopBlinking extends AnimationStickman3D
 {
 
     public StopBlinking()
@@ -23,9 +23,9 @@ public class StopBlinking extends Animation3D
     @Override
     public void playAnimation()
     {
-        if (mStickmanFX.mBlinking != null)
+        if (mStickman3D.mBlinking != null)
         {
-            mStickmanFX.mBlinking.stopBlinkAktion();
+            mStickman3D.mBlinking.stopBlinkAktion();
         }
 
         if (StickmanStageController.currentRadioButton != null)

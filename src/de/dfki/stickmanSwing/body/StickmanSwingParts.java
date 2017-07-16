@@ -5,6 +5,8 @@
  */
 package de.dfki.stickmanSwing.body;
 
+import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.interfaces.PartsInterface;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 
 import java.awt.BasicStroke;
@@ -23,36 +25,32 @@ import javax.swing.JComponent;
 /**
  * @author Patrick Gebhard
  */
-public abstract class BodyPart extends JComponent
+public  class StickmanSwingParts extends JComponent implements PartsInterface
 {
-
     public enum SHAPE
     {
-
-        DEFAULT
+        DEFAULT;
     }
-
-    ;
-
     // variables for size and drawing
     public Dimension mSize = new Dimension(10, 10);
+
     public Point mStart = new Point(0, 0), mEnd = new Point(0, 0);
     public int mLength = 0;
-
     public double mAnimationStep = 0;
-    public int mShapeAnimationStep = 0;
 
+    public int mShapeAnimationStep = 0;
     public int mDefaultTranslation = 0;
+
     public double mTranslation = mDefaultTranslation;
     public double mToTranslation = mDefaultTranslation;
     public double mTranslationStep = 0.0f;
-
     public int mDefaultRotation = 0;
+
     public Point mDefaultRotationPoint = new Point(0, 0);
     public double mRotation = mDefaultRotation;
     public double mToDegree = mDefaultRotation;
     public double mRotationStep = 0.0f;
-
+    public String mText = "";
     List<GeneralPath> mGraphicPaths = Collections.synchronizedList(new ArrayList());
 
     public Color mColor = new Color(0, 0, 0);
@@ -72,6 +70,42 @@ public abstract class BodyPart extends JComponent
         mToTranslation = mTranslation + length;
 //		mTranslationStep = Math.abs(Math.abs(mTranslation) - Math.abs(mToTranslation)) / AnimatorSwing.sMAX_ANIM_STEPS * (length / Math.abs(length));
         mTranslationStep = (double) length / AnimatorSwing.sMAX_ANIM_STEPS;
+
+    }
+
+    @Override
+    public void calculate_X_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Y_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Z_Rotation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_X_Translation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Y_Translation(int step)
+    {
+
+    }
+
+    @Override
+    public void calculate_Z_Translation(int step)
+    {
 
     }
 
@@ -110,6 +144,24 @@ public abstract class BodyPart extends JComponent
         mRotationStep = (double) degree / AnimatorSwing.sMAX_ANIM_STEPS;
     }
 
+    @Override
+    public void set_X_Translation(int length)
+    {
+
+    }
+
+    @Override
+    public void set_Y_Translation(int length)
+    {
+
+    }
+
+    @Override
+    public void set_Z_Translation(int length)
+    {
+
+    }
+
     public synchronized void calculateRotation(int step)
     {
         mRotation += mRotationStep;
@@ -137,6 +189,24 @@ public abstract class BodyPart extends JComponent
         mShapeAnimationStep = step;
 
         calculate(step);
+    }
+
+    @Override
+    public void reset_X_Rotation()
+    {
+
+    }
+
+    @Override
+    public void reset_Y_Rotation()
+    {
+
+    }
+
+    @Override
+    public void reset_Z_Rotation()
+    {
+
     }
 
     public void resetShape()
@@ -182,5 +252,35 @@ public abstract class BodyPart extends JComponent
         {
             g2.draw(gp);
         }
+    }
+
+    @Override
+    public String getText()
+    {
+        return mText;
+    }
+
+    @Override
+    public void setText(String text)
+    {
+        this.mText = text;
+    }
+
+    @Override
+    public void set_X_Rotation(int degree)
+    {
+        
+    }
+
+    @Override
+    public void set_Y_Rotation(int degree)
+    {
+
+    }
+
+    @Override
+    public void set_Z_Rotation(int degree)
+    {
+
     }
 }

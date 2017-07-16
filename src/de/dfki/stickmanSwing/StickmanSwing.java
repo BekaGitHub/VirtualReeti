@@ -2,9 +2,10 @@ package de.dfki.stickmanSwing;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.Animation;
+import de.dfki.common.parts.FXParts;
+import de.dfki.common.interfaces.AnimationInterface;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.Agent;
+import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.stickmanSwing.animationlogic.*;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
@@ -62,11 +63,11 @@ import de.dfki.stickmanSwing.stage.StickmanStageSwing;
  *         (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot
  *         by Ross Ching in 2012
  */
-public class StickmanSwing extends JComponent implements Agent
+public class StickmanSwing extends JComponent implements AgentInterface
 {
 
     @Override
-    public Animation doAnimation(String name, int frequent, int actionDuration, boolean block)
+    public AnimationInterface doAnimation(String name, int frequent, int actionDuration, boolean block)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -400,6 +401,12 @@ public class StickmanSwing extends JComponent implements Agent
         }
 
         return a;
+    }
+
+    @Override
+    public FXParts getSpeechBubble()
+    {
+        return null;
     }
 
     public AnimationSwing doAnimation(String name, int duration, boolean block)

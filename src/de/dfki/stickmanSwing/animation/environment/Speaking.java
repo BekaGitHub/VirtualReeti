@@ -28,14 +28,14 @@ public class Speaking extends AnimationSwing
     {
         if (mParameter instanceof String)
         {
-            mStickman.mSpeechBubble.mText = (String) mParameter;
+            mStickmanSwing.mSpeechBubble.mText = (String) mParameter;
         }
 
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mSpeechBubble, "shape", SpeechBubble.SHAPE.SPEAK.name()));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mSpeechBubble, "shape", SpeechBubble.SHAPE.SPEAK.name()));
         playAnimationPart(mDuration);
 
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mSpeechBubble, "shape", SpeechBubble.SHAPE.DEFAULT.name()));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mSpeechBubble, "shape", SpeechBubble.SHAPE.DEFAULT.name()));
         playAnimationPart(20);
 
     }

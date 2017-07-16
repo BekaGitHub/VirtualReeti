@@ -1,8 +1,7 @@
 package de.dfki.stickmanFX.bodyfx;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
-import de.dfki.stickmanFX.animationlogic.AnimatorFX;
+import de.dfki.stickmanFX.animationlogic.AnimatorStickmanFX;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -16,7 +15,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthFX extends BodyPartFX
+public class MouthFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -71,7 +70,7 @@ public class MouthFX extends BodyPartFX
         switch (mShape)
         {
             case DEFAULT:
-//			if (mHead.mStickman.setCharacterInvisible == false)
+//			if (mHead.mStickmanSwing.setCharacterInvisible == false)
 //				mColorRecorder = mColor;
                 if (mHeadFX.mStickmanFX.setCharacterInvisible == true)
                 {
@@ -102,7 +101,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case SMILE:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 3 * 2, mStart.y - movement / 2));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y + 1 + movement / 3 * 2, mEnd.x + movement / 3 * 2, mStart.y - movement / 2));
@@ -123,7 +122,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case SAD:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 2, mStart.y + movement / 4));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y - movement, mEnd.x + movement / 2, mEnd.y + movement / 4));
@@ -143,7 +142,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case ANGRY:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 4, mStart.y + movement / 10));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y + 1 - movement / 3 * 2, mEnd.x + movement / 4, mStart.y + movement / 10));
@@ -165,7 +164,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case ANGRYSMALLMOUTH:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 + movement / 10, mStart.y + movement / 10));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y + 1 - movement / 4, mEnd.x - movement / 10, mStart.y + movement / 10));
@@ -186,7 +185,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case SURPRISED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2, mStart.y));
                 mPath.getElements().add(new QuadCurveTo(mStart.x - movement / 4 - 4, mStart.y - movement / 2, mStart.x, mStart.y - movement / 2 - 1));
@@ -213,7 +212,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case HAPPY:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 2, mStart.y - movement / 4));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y + 1 + movement, mEnd.x + movement / 2, mStart.y - movement / 4));
@@ -235,7 +234,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case DISGUSTED:
-                movement = mLength / 2 + (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep) / 2;
+                movement = mLength / 2 + (AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep) / 2;
 
                 mPath.getElements().add(new MoveTo(mStart.x - movement, mStart.y));
                 mPath.getElements().add(new QuadCurveTo(mStart.x - movement * 2 / 3, mStart.y - movement / 4, mStart.x - movement / 3, mStart.y));
@@ -260,7 +259,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case CONTEMPT:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2, mStart.y));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y - movement / 1.5, mEnd.x + movement / 2, mEnd.y - movement / 2));
@@ -281,7 +280,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case FEAR:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 4, mStart.y));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y - movement / 2, mEnd.x + movement / 4, mEnd.y));
@@ -304,7 +303,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case EXCITED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 - movement / 3 * 2, mStart.y - movement / 2));
                 mPath.getElements().add(new QuadCurveTo(mStart.x, mStart.y + movement, mEnd.x + movement / 3 * 2, mStart.y - movement / 2));
@@ -327,7 +326,7 @@ public class MouthFX extends BodyPartFX
                 break;
 
             case EMBARRASSED:
-                movement = (AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep);
+                movement = (AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep);
 
                 mPath.getElements().add(new MoveTo(mStart.x - mLength / 2 + movement / 10 * 7, mStart.y + movement / 20));
                 mPath.getElements().add(new QuadCurveTo((mStart.x - mLength / 2 + mEnd.x + movement / 10 * 3) / 2, mStart.y + 1, mEnd.x + movement / 10 * 3, mEnd.y + movement / 20));

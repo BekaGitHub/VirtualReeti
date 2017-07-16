@@ -6,21 +6,22 @@
 package de.dfki.stickmanSwing.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.stickmanSwing.body.BodyPart;
+import de.dfki.common.animationlogic.AnimationContent;
+import de.dfki.stickmanSwing.body.StickmanSwingParts;
 
 /**
  * @author Patrick Gebhard
  */
-public class AnimationContentSwing
+public class AnimationContentSwing extends AnimationContent
 {
 
-    public BodyPart mBodyPart;
+    public StickmanSwingParts mBodyPart;
     public String mAction;
     public int mParam;
     public String mParamString;
     public WordTimeMarkSequence mWTS;
 
-    public AnimationContentSwing(BodyPart bp, String a, int p)
+    public AnimationContentSwing(StickmanSwingParts bp, String a, int p)
     {
         mBodyPart = bp;
         mAction = a;
@@ -28,7 +29,7 @@ public class AnimationContentSwing
         mParamString = "";
     }
 
-    public AnimationContentSwing(BodyPart bp, String a, String p)
+    public AnimationContentSwing(StickmanSwingParts bp, String a, String p)
     {
         mBodyPart = bp;
         mAction = a;
@@ -36,7 +37,7 @@ public class AnimationContentSwing
         mParamString = p;
     }
 
-    public AnimationContentSwing(BodyPart bp, String a, String p, WordTimeMarkSequence wts)
+    public AnimationContentSwing(StickmanSwingParts bp, String a, String p, WordTimeMarkSequence wts)
     {
         mBodyPart = bp;
         mAction = a;

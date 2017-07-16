@@ -27,9 +27,9 @@ public class LovedStart extends AnimationSwing
     {
         // loved start
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILE"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "shape", "LOVED"));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "shape", "LOVED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILE"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "shape", "LOVED"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "shape", "LOVED"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

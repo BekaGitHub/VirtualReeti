@@ -9,7 +9,7 @@ import java.awt.geom.GeneralPath;
 /**
  * @author Patrick Gebhard
  */
-public class Stars extends BodyPart
+public class Stars extends StickmanSwingParts
 {
 
     public static enum SHAPE

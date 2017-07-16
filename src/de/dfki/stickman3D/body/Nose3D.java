@@ -16,7 +16,7 @@ import java.net.URL;
 /**
  * @author Beka Aptsiauri
  */
-public class Nose3D extends BodyPartFX
+public class Nose3D extends Stickman3DParts
 {
 
     public enum SHAPE

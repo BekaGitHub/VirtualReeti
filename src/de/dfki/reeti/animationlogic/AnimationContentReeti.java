@@ -6,39 +6,34 @@
 package de.dfki.reeti.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.reeti.body.Parts;
+import de.dfki.common.animationlogic.AnimationContent;
+import de.dfki.reeti.body.ReetiParts;
 
 /**
  * @author Beka Aptsiauri
  */
-public class AnimationContentReeti
+public class AnimationContentReeti extends AnimationContent
 {
 
-    public Parts mBodyPart;
-    public String mAction;
-    public int mParam;
-    public String mParamString;
-    public WordTimeMarkSequence mWTS;
-
-    public AnimationContentReeti(Parts bp, String a, int p)
+    public AnimationContentReeti(ReetiParts bp, String a, int p)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = p;
         mParamString = "";
     }
 
-    public AnimationContentReeti(Parts bp, String a, String p)
+    public AnimationContentReeti(ReetiParts bp, String a, String p)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
     }
 
-    public AnimationContentReeti(Parts bp, String a, String p, WordTimeMarkSequence wts)
+    public AnimationContentReeti(ReetiParts bp, String a, String p, WordTimeMarkSequence wts)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;

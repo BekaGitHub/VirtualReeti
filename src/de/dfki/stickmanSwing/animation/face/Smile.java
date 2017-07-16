@@ -27,14 +27,14 @@ public class Smile extends AnimationSwing
     {
         // smile
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILE"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILE"));
 //		playAnimationPart(20);
         playAnimationPart(mDuration);
         pauseAnimation(1200);
 
         // no smile
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILEEND"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILEEND"));
 
         playAnimationPart(20);
     }

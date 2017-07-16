@@ -18,7 +18,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka
  */
-public class LeftHandFX extends BodyPartFX
+public class LeftHandFX extends StickmanFXParts
 {
 
     LeftForeArmFX mLeftForeArmFX;
@@ -35,7 +35,7 @@ public class LeftHandFX extends BodyPartFX
         mStroke = new BasicStroke(2.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
         af = new Affine();
 
-        setDefaulRotation(30);
+        setDefaultRotation(30);
         mHand = new Path();
         this.getChildren().add(mHand);
         init();
@@ -50,7 +50,7 @@ public class LeftHandFX extends BodyPartFX
         clearDrawObjects();
         clearChildren(this);
         mHand = new Path();
-//        if (mLeftForeArm.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeck.mHead.mStickman.setCharacterInvisible == false) {
+//        if (mLeftForeArm.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeck.mHead.mStickmanSwing.setCharacterInvisible == false) {
 //        	mColorRecorder = mColor;
 //        }
         if (mLeftForeArmFX.mUpperArmFX.mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true)

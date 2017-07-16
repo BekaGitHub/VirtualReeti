@@ -8,14 +8,14 @@ package de.dfki.stickmanFX.animation.facefx;
 
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.stickmanFX.animationlogic.AnimationContentFX;
-import de.dfki.stickmanFX.animationlogic.AnimationFX;
+import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 
 import java.util.ArrayList;
 
 /**
  * @author Beka
  */
-public class Mouth_SIX extends AnimationFX
+public class Mouth_SIX extends AnimationStickmanFX
 {
 
     public Mouth_SIX()
@@ -32,8 +32,8 @@ public class Mouth_SIX extends AnimationFX
     public void playAnimation()
     {
         // smile
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SIX"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContentFX(mStickmanFX.mMouthFX, "shape", "SIX"));
         playAnimationPart(20);
     }
 }

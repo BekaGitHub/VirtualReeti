@@ -5,7 +5,7 @@
  */
 package de.dfki.stickmanFX.bodyfx;
 
-import de.dfki.stickmanFX.animationlogic.AnimatorFX;
+import de.dfki.stickmanFX.animationlogic.AnimatorStickmanFX;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -18,7 +18,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class LeftEyebrowFX extends BodyPartFX
+public class LeftEyebrowFX extends StickmanFXParts
 {
 
     public static enum SHAPE
@@ -73,7 +73,7 @@ public class LeftEyebrowFX extends BodyPartFX
         switch (mShape)
         {
             case DEFAULT:
-//            	if (mHead.mStickman.setCharacterInvisible == false)
+//            	if (mHead.mStickmanSwing.setCharacterInvisible == false)
 //            		mColorRecorder = mColor;
                 if (mHeadFX.mStickmanFX.setCharacterInvisible == true)
                 {
@@ -104,7 +104,7 @@ public class LeftEyebrowFX extends BodyPartFX
                 break;
 
             case ANGRY:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
                 mPath.getElements().add(new MoveTo(mStart.x - movement / 4, mStart.y + movement / 4));
                 mPath.getElements().add(new QuadCurveTo((mStart.x - movement / 4 + mEnd.x - movement / 3) / 2, mStart.y + movement / 4 - 3, mEnd.x - movement / 4, mEnd.y));
@@ -126,7 +126,7 @@ public class LeftEyebrowFX extends BodyPartFX
                 break;
 
             case DISGUSTED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
                 mPath.getElements().add(new MoveTo(mStart.x, mStart.y - movement / 4));
                 mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3 + movement / 7, mEnd.x - movement / 10, mEnd.y));
                 break;
@@ -145,7 +145,7 @@ public class LeftEyebrowFX extends BodyPartFX
                 break;
 
             case SURPRISED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
                 mPath.getElements().add(new MoveTo(mStart.x, mStart.y - movement / 7));
                 mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3 - movement / 7, mEnd.x, mEnd.y - movement / 7));
                 break;
@@ -164,7 +164,7 @@ public class LeftEyebrowFX extends BodyPartFX
                 break;
 
             case EXCITED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
                 mPath.getElements().add(new MoveTo(mStart.x, mStart.y - movement / 4));
                 mPath.getElements().add(new QuadCurveTo((mStart.x + mEnd.x) / 2, mStart.y - 3 - movement / 5, mEnd.x, mEnd.y - movement / 4));
                 break;
@@ -183,7 +183,7 @@ public class LeftEyebrowFX extends BodyPartFX
                 break;
 
             case EMBARRASSED:
-                movement = AnimatorFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
+                movement = AnimatorStickmanFX.sMAX_ANIM_STEPS - mShapeAnimationStep;
                 mPath.getElements().add(new MoveTo(mStart.x + movement / 2, mStart.y + movement / 3));
                 mPath.getElements().add(new QuadCurveTo((mStart.x + movement / 2 + mEnd.x + movement / 2) / 2, mStart.y - 3 + movement / 5 * 4, mEnd.x + movement / 2, mEnd.y + movement / 2));
                 break;

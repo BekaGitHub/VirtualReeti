@@ -1,7 +1,7 @@
 package de.dfki.stickman3D.animation.face;
 
 import de.dfki.stickman3D.Stickman3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * @author beka
  */
-public class HappyEnd extends Animation3D
+public class HappyEnd extends AnimationStickman3D
 {
 
     public HappyEnd(Stickman3D sm, int duration, boolean block)
@@ -21,10 +21,10 @@ public class HappyEnd extends Animation3D
     public void playAnimation()
     {
         // no happy
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "HAPPYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "HAPPYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "HAPPYEND"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mMouth, "shape", "HAPPYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mLeftEye, "shape", "HAPPYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickman3D.mRightEye, "shape", "HAPPYEND"));
         playAnimationPart(mDuration);
 
         pauseAnimation(10);

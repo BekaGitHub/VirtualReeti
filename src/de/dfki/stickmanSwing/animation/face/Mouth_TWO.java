@@ -28,7 +28,7 @@ public class Mouth_TWO extends AnimationSwing
     {
         // smile
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "TWO"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "TWO"));
         playAnimationPart(20);
     }
 }

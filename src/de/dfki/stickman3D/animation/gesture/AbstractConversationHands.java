@@ -1,7 +1,7 @@
 package de.dfki.stickman3D.animation.gesture;
 
 import de.dfki.stickman3D.Stickman3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
 
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * Created by alvaro on 1/20/17.
  */
-public abstract class AbstractConversationHands extends Animation3D
+public abstract class AbstractConversationHands extends AnimationStickman3D
 {
     public static final int MAXIMUM = 10;
     protected boolean movementFinished = false;
@@ -53,7 +53,7 @@ public abstract class AbstractConversationHands extends Animation3D
     {
         leftForeArmZ = getLeftArmMovement();
         rightForeArmZ = getRightArmMovement();
-        moveArms(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", rightForeArmZ), new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", leftForeArmZ));
+        moveArms(new AnimationContent3D(mStickman3D.mRightForeArm, "zrotate", rightForeArmZ), new AnimationContent3D(mStickman3D.mLeftForeArm, "zrotate", leftForeArmZ));
     }
 
     protected int getMaximumPermitedMovement()
@@ -74,8 +74,8 @@ public abstract class AbstractConversationHands extends Animation3D
 
     protected void moveArms(AnimationContent3D zrotate, AnimationContent3D zrotate2)
     {
-        mAnimationPartFX.add(zrotate);
-        mAnimationPartFX.add(zrotate2);
+        mAnimationPart.add(zrotate);
+        mAnimationPart.add(zrotate2);
     }
 
 

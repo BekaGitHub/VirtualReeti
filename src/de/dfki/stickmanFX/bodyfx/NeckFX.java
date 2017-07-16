@@ -16,7 +16,7 @@ import javafx.scene.shape.Path;
 /**
  * @author Patrick Gebhard
  */
-public class NeckFX extends BodyPartFX
+public class NeckFX extends StickmanFXParts
 {
 
     HeadFX mHeadFX;
@@ -48,7 +48,7 @@ public class NeckFX extends BodyPartFX
         clearDrawObjects();
         clearChildren(this);
         mPath = new Path();
-//		if(mHead.mStickman.setCharacterInvisible == false)
+//		if(mHead.mStickmanSwing.setCharacterInvisible == false)
 //			mColorRecorder = mColor;
         if (mHeadFX.mStickmanFX.setCharacterInvisible == true)
         {

@@ -6,7 +6,8 @@
 package de.dfki.stickmanFX.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.common.interfaces.Animation;
+import de.dfki.common.animationlogic.Animation;
+import de.dfki.common.interfaces.AnimationInterface;
 import de.dfki.stickmanFX.StickmanFX;
 import de.dfki.util.ios.IOSIndentWriter;
 import de.dfki.util.xml.XMLParseAction;
@@ -15,62 +16,48 @@ import de.dfki.util.xml.XMLParseable;
 import de.dfki.util.xml.XMLWriteError;
 import de.dfki.util.xml.XMLWriteable;
 
-import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
-
 import org.w3c.dom.Element;
 
 /**
  * @author Patrick Gebhard
  * @modified Beka Aptsiauri
  */
-public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, Animation
+public class AnimationStickmanFX extends Animation implements XMLParseable, XMLWriteable, AnimationInterface
 {
-
-    public String mName = "";
-    public ArrayList<AnimationContentFX> mAnimationPartFX = new ArrayList<>();
-    public Semaphore mAnimationPartStart = new Semaphore(0);
-    public Semaphore mAnimationStart = new Semaphore(1);
-    public AnimatorFX mAnimatorFX;
-    public AnimationPauseFX mAnimationPauseFX;
-    public StickmanFX mStickmanFX;
-    public String mStickmanName;
-    public boolean mBlocking = false;
-    public int mDuration = -1;
-    public String mID;
-    public Object mParameter = "";
-
-    public String getmID()
-    {
-        return mID;
-    }
-
     public enum ANIMTYPE
     {
         EmotionExpression, Gesture
     }
 
+    public AnimatorStickmanFX mAnimator;
+    public AnimationPauseFX mAnimationPause;
+    public StickmanFX mStickmanFX;
     public ANIMTYPE mAnimType = null;
 
-    public AnimationFX()
-    {
-        mAnimType = null;
-    }
-
-    public AnimationFX(StickmanFX sm, int duration, boolean block)
+    public AnimationStickmanFX(StickmanFX sm, int duration, boolean block)
     {
         mName = getClass().getSimpleName();
         mStickmanFX = sm;
-        mStickmanName = mStickmanFX.mName;
-        setName(mStickmanName + "'s AnimationSwing " + mName);
+        mAgentName = mStickmanFX.mName;
+        setName(mAgentName + "'s AnimationSwing " + mName);
         mID = mStickmanFX.getID(); // default ID;
         mBlocking = block;
         mDuration = duration;
     }
 
+    public AnimationStickmanFX()
+    {
+        mAnimType = null;
+    }
+
     public void setParameter(Object p)
     {
         mParameter = p;
+    }
+
+    public String getmID()
+    {
+        return mID;
     }
 
     public void setID(String id)
@@ -80,9 +67,9 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
 
     public void setStickmanName(String stickmanName)
     {
-        mStickmanName = stickmanName;
-        //mStickman = StickmanStage3D.getAgent(mReetiName);
-        setName(mStickmanName + "'s AnimationSwing " + mName);
+        mAgentName = stickmanName;
+        //mStickmanSwing = StickmanStage3D.getAgent(mAgentName);
+        setName(mAgentName + "'s AnimationSwing " + mName);
     }
 
     public void setAnimationName(String animationName)
@@ -112,7 +99,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
             mStickmanFX.mLogger.severe(ex.getMessage());
         }
 
-        // tell StickmanSwing this animation has been scheduled and a next one can come
+        // tell Agent this animation has been scheduled and a next one can come
         mStickmanFX.mAnimationLaunchControl.release();
     }
 
@@ -137,7 +124,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
 
     public void playAnimationPart(int duration)
     {
-        mAnimatorFX = new AnimatorFX(mStickmanFX, this, mAnimationPartFX, duration);
+        mAnimator = new AnimatorStickmanFX(mStickmanFX, this, mAnimationPart, duration);
 
         try
         {
@@ -151,7 +138,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
 
     public void pauseAnimation(int duration)
     {
-        mAnimationPauseFX = new AnimationPauseFX(mStickmanFX, this, duration);
+        mAnimationPause = new AnimationPauseFX(mStickmanFX, this, duration);
 
         try
         {
@@ -172,7 +159,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
         {
             mStickmanFX.mAnimationSchedulerFX.removeAnimation(this);
         }
-        // send event that Animation3D is ended
+        // send event that AnimationStickman3D is ended
 
         // API or TCP-Interface
         if (!mStickmanFX.getStageController().ismNetwork())
@@ -187,7 +174,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
     @Override
     public void writeXML(IOSIndentWriter out) throws XMLWriteError
     {
-        out.println("<StickmanAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + getmID() + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
+        out.println("<StickmanAnimation stickmanname = \"" + mAgentName + "\" name=\"" + mName + "\" id=\"" + getmID() + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
         if (mParameter != null)
         {
             if (mParameter instanceof WordTimeMarkSequence)
@@ -206,7 +193,7 @@ public class AnimationFX extends Thread implements XMLParseable, XMLWriteable, A
     @Override
     public void parseXML(final Element element) throws XMLParseError
     {
-        mStickmanName = element.getAttribute("stickmanname");
+        mAgentName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
         mID = element.getAttribute("id");
         mDuration = Integer.parseInt(element.getAttribute("duration"));

@@ -19,7 +19,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka
  */
-public class RightUpperArmFX extends BodyPartFX
+public class RightUpperArmFX extends StickmanFXParts
 {
 
     RightShoulderFX mRightShoulderFX;

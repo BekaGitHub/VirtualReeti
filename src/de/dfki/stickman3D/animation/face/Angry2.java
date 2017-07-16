@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickman3D.StickmanStageController;
 import de.dfki.stickman3D.animationlogic.AnimationContent3D;
-import de.dfki.stickman3D.animationlogic.Animation3D;
+import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
 
 /**
  * An angry facial movement is created in this class. The face moves from the
@@ -20,7 +20,7 @@ import de.dfki.stickman3D.animationlogic.Animation3D;
  *
  * @author Beka Aptsiauri
  */
-public class Angry2 extends Animation3D
+public class Angry2 extends AnimationStickman3D
 {
 
     Stickman3D mStickmanFX;
@@ -32,7 +32,7 @@ public class Angry2 extends Animation3D
     }
 
     /**
-     * @param sm       Agent
+     * @param sm       AgentInterface
      * @param duration Control the speed of the movement from one emotion state
      *                 to another emotion state.
      * @param block    block or not the others movements, when one movement is not
@@ -58,50 +58,50 @@ public class Angry2 extends Animation3D
             rotationUnit = 30;
         }
         // angry
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRY"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "ANGRY"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "ANGRY"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "ANGRY"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRY"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "ANGRY"));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRY"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "ANGRY"));
         playAnimationPart(mDuration);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", 60));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", -30));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", 60));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 10));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -20));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", 10));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", -20));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", -15));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", 35));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", -15));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", 35));
         playAnimationPart(mDuration);
 
         // foot
         for (int i = 0; i < 8; i++)
         {
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "rotate", 40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightFoot, "rotate", 40));
             playAnimationPart(200);
 
-            mAnimationPartFX = new ArrayList<>();
-            mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightFoot, "rotate", -40));
+            mAnimationPart = new ArrayList<>();
+            mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightFoot, "rotate", -40));
             playAnimationPart(200);
         }
 
         for (int i = 0; i < 7; i++)
         {
-            mAnimationPartFX = new ArrayList<>();
+            mAnimationPart = new ArrayList<>();
             if (i == 0 || i == 6)
             {
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -10));
+                mAnimationPart.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -10));
             } else if (i % 2 == 1)
             {
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
+                mAnimationPart.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", 20));
             } else if (i % 2 == 0)
             {
-                mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -20));
+                mAnimationPart.add(new AnimationContent3D(mStickmanFX.mHead, "yrotate", -20));
             }
             playAnimationPart(200);
         }
@@ -109,26 +109,26 @@ public class Angry2 extends Animation3D
         pauseAnimation(1200);
 
         // no angry
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "ANGRYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "ANGRYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "ANGRYEND"));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRYEND")); /// Add
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mMouth, "shape", "ANGRYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftEye, "shape", "ANGRYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftEyebrow, "shape", "ANGRYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightEyebrow, "shape", "ANGRYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mFaceWrinkle, "shape", "ANGRYEND")); /// Add
         /// by
         /// Robbie
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "ANGRYEND"));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightEye, "shape", "ANGRYEND"));
         playAnimationPart(mDuration);
 
-        mAnimationPartFX = new ArrayList<>();
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 30));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -60));
+        mAnimationPart = new ArrayList<>();
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftUpperArm, "zrotate", 30));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftForeArm, "zrotate", -60));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -10));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 20));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightUpperArm, "zrotate", -10));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mRightForeArm, "zrotate", 20));
 
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 15));
-        mAnimationPartFX.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", -35));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "rotate", 15));
+        mAnimationPart.add(new AnimationContent3D(mStickmanFX.mLeftWrist, "yrotate", -35));
         playAnimationPart(mDuration);
 
         if (StickmanStageController.currentRadioButton != null)

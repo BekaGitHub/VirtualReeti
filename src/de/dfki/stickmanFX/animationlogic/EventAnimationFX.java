@@ -19,7 +19,7 @@ import org.w3c.dom.Element;
 /**
  * @author Beka Aptsiauri
  */
-public class EventAnimationFX extends AnimationFX
+public class EventAnimationFX extends AnimationStickmanFX
 {
 
     public List<Long> mTimepoints;
@@ -39,7 +39,7 @@ public class EventAnimationFX extends AnimationFX
 
     public void playEventAnimationPart()
     {
-        mAnimatorFX = new AnimatorFX(mStickmanFX, this, mAnimationPartFX, mWTS);
+        mAnimator = new AnimatorStickmanFX(mStickmanFX, this, mAnimationPart, mWTS);
 
         try
         {
@@ -53,7 +53,7 @@ public class EventAnimationFX extends AnimationFX
     @Override
     public void writeXML(IOSIndentWriter out) throws XMLWriteError
     {
-        out.println("<StickmanEventAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + getmID() + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
+        out.println("<StickmanEventAnimation stickmanname = \"" + mAgentName + "\" name=\"" + mName + "\" id=\"" + getmID() + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
         if (mParameter != null)
         {
             if (mParameter instanceof WordTimeMarkSequence)
@@ -72,7 +72,7 @@ public class EventAnimationFX extends AnimationFX
     @Override
     public void parseXML(final Element element) throws XMLParseError
     {
-        mStickmanName = element.getAttribute("stickmanname");
+        mAgentName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
         mID = element.getAttribute("id");
         mDuration = Integer.parseInt(element.getAttribute("duration"));

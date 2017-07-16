@@ -22,7 +22,7 @@ public class SmileStart extends AnimationSwing
     {
         // smile start
         mAnimationPart = new ArrayList<>();
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "shape", "SMILE"));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "shape", "SMILE"));
 //		playAnimationPart(20);
         playAnimationPart(mDuration);
         pauseAnimation(10);

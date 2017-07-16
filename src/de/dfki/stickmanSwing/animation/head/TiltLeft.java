@@ -30,12 +30,12 @@ public class TiltLeft extends AnimationSwing
         // head down
         mAnimationPart = new ArrayList<>();
         // which bodyparts are involved - check dependencies
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEye, "tilt", translationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mRightEyebrow, "tilt", translationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEye, "tilt", translationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mLeftEyebrow, "tilt", translationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mHead, "tilt", translationUnit));
-        mAnimationPart.add(new AnimationContentSwing(mStickman.mMouth, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEye, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mRightEyebrow, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEye, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mLeftEyebrow, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mHead, "tilt", translationUnit));
+        mAnimationPart.add(new AnimationContentSwing(mStickmanSwing.mMouth, "tilt", translationUnit));
 
         playAnimationPart(200);
     }

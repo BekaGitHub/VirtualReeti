@@ -17,7 +17,7 @@ import java.net.URL;
 /**
  * @author Beka
  */
-public class RightFoot3D extends BodyPartFX
+public class RightFoot3D extends Stickman3DParts
 {
 
     public enum SHAPE

@@ -11,7 +11,7 @@ import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 /**
  * @author Patrick Gebhard
  */
-public class FaceWrinkle extends BodyPart
+public class FaceWrinkle extends StickmanSwingParts
 {
 
     public static enum SHAPE

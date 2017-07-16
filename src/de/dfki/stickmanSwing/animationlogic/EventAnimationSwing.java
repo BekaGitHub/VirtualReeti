@@ -39,21 +39,21 @@ public class EventAnimationSwing extends AnimationSwing
 
     public void playEventAnimationPart()
     {
-        mAnimator = new AnimatorSwing(mStickman, this, mAnimationPart, mWTS);
+        mAnimator = new AnimatorSwing(mStickmanSwing, this, mAnimationPart, mWTS);
 
         try
         {
             mAnimationPartStart.acquire();
         } catch (InterruptedException ex)
         {
-            mStickman.mLogger.severe(ex.getMessage());
+            mStickmanSwing.mLogger.severe(ex.getMessage());
         }
     }
 
     @Override
     public void writeXML(IOSIndentWriter out) throws XMLWriteError
     {
-        out.println("<StickmanEventAnimation stickmanname = \"" + mStickmanName + "\" name=\"" + mName + "\" id=\"" + mID + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
+        out.println("<StickmanEventAnimation stickmanname = \"" + mAgentName + "\" name=\"" + mName + "\" id=\"" + mID + "\" duration=\"" + mDuration + "\" blocking=\"" + mBlocking + "\">").push();
         if (mParameter != null)
         {
 
@@ -74,7 +74,7 @@ public class EventAnimationSwing extends AnimationSwing
     public void parseXML(final Element element) throws XMLParseError
     {
 
-        mStickmanName = element.getAttribute("stickmanname");
+        mAgentName = element.getAttribute("stickmanname");
         mName = element.getAttribute("name");
         mID = element.getAttribute("id");
         mDuration = Integer.parseInt(element.getAttribute("duration"));

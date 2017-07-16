@@ -16,7 +16,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Beka Aptsiauri
  */
-public class HeadFX extends BodyPartFX
+public class HeadFX extends StickmanFXParts
 {
 
     public Dimension mSize = new Dimension(120, 100);
@@ -167,10 +167,10 @@ public class HeadFX extends BodyPartFX
 
         // TODO - This schould be done in all bodyparts
         //????????????????????????????????????????
-//        resizeRelocate(mHeadGroup.getLayoutX() + new Float(mStickman.mGeneralXTranslation).intValue(),
-//                mHeadGroup.getLayoutY() + new Float(mStickman.mGeneralYTranslation).intValue(),
-//                new Float(mHeadGroup.prefWidth(-1) * mStickman.mScale).intValue(),
-//                new Float(mHeadGroup.prefHeight(-1) * mStickman.mScale).intValue());
+//        resizeRelocate(mHeadGroup.getLayoutX() + new Float(mStickmanSwing.mGeneralXTranslation).intValue(),
+//                mHeadGroup.getLayoutY() + new Float(mStickmanSwing.mGeneralYTranslation).intValue(),
+//                new Float(mHeadGroup.prefWidth(-1) * mStickmanSwing.mScale).intValue(),
+//                new Float(mHeadGroup.prefHeight(-1) * mStickmanSwing.mScale).intValue());
         this.getChildren().addAll(mHead, mLeftEar, mRightEar);
 
         update();

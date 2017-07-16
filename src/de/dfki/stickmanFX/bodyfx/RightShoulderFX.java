@@ -1,7 +1,6 @@
 package de.dfki.stickmanFX.bodyfx;
 
 import de.dfki.common.Gender;
-import de.dfki.stickmanSwing.StickmanSwing;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -17,7 +16,7 @@ import javafx.scene.transform.Affine;
 /**
  * @author Patrick Gebhard
  */
-public class RightShoulderFX extends BodyPartFX
+public class RightShoulderFX extends StickmanFXParts
 {
 
     BodyFX mBodyFX;

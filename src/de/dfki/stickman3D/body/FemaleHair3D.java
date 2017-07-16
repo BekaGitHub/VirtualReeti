@@ -14,7 +14,7 @@ import java.net.URL;
 /**
  * @author Beka Aptsiauri
  */
-public class FemaleHair3D extends BodyPartFX
+public class FemaleHair3D extends Stickman3DParts
 {
     public enum SHAPE
     {
