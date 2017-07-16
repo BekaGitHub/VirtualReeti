@@ -31,17 +31,20 @@ import javafx.util.Duration;
 public abstract class StickmanFXParts extends FXParts2D
 {
 
+    @Override
     public void init()
     {
         super.init();
         calculate(0);
     }
 
+    @Override
     public void setTranslation(int length)
     {
         mTranslationStep = (double) length / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public synchronized void calculateTranslation(int step)
     {
         mTranslation += mTranslationStep;
@@ -49,6 +52,7 @@ public abstract class StickmanFXParts extends FXParts2D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public void resetTranslation()
     {
         mTranslationStep = 0.0d;
@@ -62,18 +66,21 @@ public abstract class StickmanFXParts extends FXParts2D
         mRotationStep = 0.0f;
     }
 
+    @Override
     public void setRotation(int degree)
     {
         mToDegree = mRotation + degree;
         mRotationStep = (double) degree / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void setTilt(int degree)
     {
         mToDegree = mRotation + degree;
         mRotationStep = (double) degree / AnimatorStickmanFX.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public synchronized void calculateRotation(int step)
     {
         mRotation += mRotationStep;
@@ -82,6 +89,7 @@ public abstract class StickmanFXParts extends FXParts2D
 
     }
 
+    @Override
     public void resetRotation()
     {
 
@@ -89,16 +97,12 @@ public abstract class StickmanFXParts extends FXParts2D
 
     }
 
-    public void setShape(String s)
-    {
-        // place code for setting shape
-    }
-
     public void createShape()
     {
         // create the shape
     }
 
+    @Override
     public synchronized void calculateShape(int step)
     {
         mShapeAnimationStep = step;
@@ -208,95 +212,5 @@ public abstract class StickmanFXParts extends FXParts2D
         af.appendRotation(Math.toRadians(mWobble), x, y);
         this.getTransforms().clear();
         this.getTransforms().add(af);
-    }
-
-    @Override
-    public void set_X_Rotation(int degree)
-    {
-
-    }
-
-    @Override
-    public void set_Y_Rotation(int degree)
-    {
-
-    }
-
-    @Override
-    public void set_Z_Rotation(int degree)
-    {
-
-    }
-
-    @Override
-    public void set_X_Translation(int length)
-    {
-
-    }
-
-    @Override
-    public void set_Y_Translation(int length)
-    {
-
-    }
-
-    @Override
-    public void set_Z_Translation(int length)
-    {
-
-    }
-
-    @Override
-    public void calculate_X_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Y_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Z_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_X_Translation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Y_Translation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Z_Translation(int step)
-    {
-
-    }
-
-    @Override
-    public void reset_X_Rotation()
-    {
-
-    }
-
-    @Override
-    public void reset_Y_Rotation()
-    {
-
-    }
-
-    @Override
-    public void reset_Z_Rotation()
-    {
-
     }
 }

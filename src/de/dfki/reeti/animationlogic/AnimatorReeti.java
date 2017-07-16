@@ -1,14 +1,9 @@
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.action.sequence.Entry;
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.animationlogic.AnimationContent;
-import de.dfki.common.animationlogic.Animator;
 import de.dfki.common.animationlogic.Animator3D;
-import de.dfki.common.interfaces.PartsInterface;
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.body.ReetiParts;
-import de.dfki.stickmanSwing.util.TimingInfo;
 
 import java.util.ArrayList;
 

@@ -19,27 +19,32 @@ public abstract class ReetiParts extends FXParts3D
 {
     private static PhongMaterial material = null;
 
+    @Override
     public void init()
     {
         super.init();
         calculate(0);
     }
 
+    @Override
     public void set_X_Translation(int length)
     {
         mXTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void set_Y_Translation(int length)
     {
         mYTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void set_Z_Translation(int length)
     {
         mZTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public synchronized void calculate_X_Translation(int step)
     {
         mXTranslation += mXTranslationStep;
@@ -48,6 +53,7 @@ public abstract class ReetiParts extends FXParts3D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public synchronized void calculate_Y_Translation(int step)
     {
         mYTranslation += mYTranslationStep;
@@ -56,6 +62,7 @@ public abstract class ReetiParts extends FXParts3D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public synchronized void calculate_Z_Translation(int step)
     {
         mZTranslation += mZTranslationStep;
@@ -64,6 +71,7 @@ public abstract class ReetiParts extends FXParts3D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public void resetTranslation()
     {
         mXTranslationStep = 0.0d;
@@ -82,28 +90,33 @@ public abstract class ReetiParts extends FXParts3D
         mXRotationStep = 0.0f;
     }
 
+    @Override
     public void set_X_Rotation(int degree)
     {
         mToDegreeX = mXRotation + degree;
         mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void set_Y_Rotation(int degree)
     {
         mYRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void set_Z_Rotation(int degree)
     {
         mZRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void setTilt(int degree)
     {
         mToDegreeX = mXRotation + degree;
         mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public synchronized void calculate_X_Rotation(int step)
     {
         mXRotation += mXRotationStep;
@@ -112,6 +125,7 @@ public abstract class ReetiParts extends FXParts3D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public synchronized void calculate_Y_Rotation(int step)
     {
         mYRotation += mYRotationStep;
@@ -120,6 +134,7 @@ public abstract class ReetiParts extends FXParts3D
         Platform.runLater(() -> calculate(step));
     }
 
+    @Override
     public synchronized void calculate_Z_Rotation(int step)
     {
         mZRotation += mZRotationStep;
@@ -129,11 +144,7 @@ public abstract class ReetiParts extends FXParts3D
 
     }
 
-    public void resetRotation()
-    {
-//        mTranslationStep = 0.0d;
-    }
-
+    @Override
     public void reset_X_Rotation()
     {
         mXRotation += mXRotationStep;
@@ -141,6 +152,7 @@ public abstract class ReetiParts extends FXParts3D
         mXRotationStep = 0;
     }
 
+    @Override
     public void reset_Y_Rotation()
     {
         mYRotation += mYRotationStep;
@@ -148,6 +160,7 @@ public abstract class ReetiParts extends FXParts3D
         mYRotationStep = 0;
     }
 
+    @Override
     public void reset_Z_Rotation()
     {
         mZRotation += mZRotationStep;
@@ -155,16 +168,12 @@ public abstract class ReetiParts extends FXParts3D
         mZRotationStep = 0;
     }
 
-    public void setShape(String s)
-    {
-        // place code for setting shape
-    }
-
     public void createShape()
     {
         // create the shape
     }
 
+    @Override
     public synchronized void calculateShape(int step)
     {
         mShapeAnimationStep = step;
@@ -200,29 +209,4 @@ public abstract class ReetiParts extends FXParts3D
         }
         return material;
     }
-
-    @Override
-    public void setRotation(int degree)
-    {
-
-    }
-
-    @Override
-    public void setTranslation(int length)
-    {
-
-    }
-
-    @Override
-    public void calculateRotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculateTranslation(int step)
-    {
-
-    }
-
 }

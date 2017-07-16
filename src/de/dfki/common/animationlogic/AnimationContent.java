@@ -1,7 +1,7 @@
 package de.dfki.common.animationlogic;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.common.interfaces.PartsInterface;
+import de.dfki.common.parts.PartsInterface;
 
 /**
  * Created by EmpaT on 16.07.2017.

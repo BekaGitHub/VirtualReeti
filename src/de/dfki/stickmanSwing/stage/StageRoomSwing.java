@@ -1,6 +1,6 @@
 package de.dfki.stickmanSwing.stage;
 
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.AgentsOnStage;

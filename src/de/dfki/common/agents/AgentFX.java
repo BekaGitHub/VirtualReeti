@@ -1,7 +1,6 @@
 package de.dfki.common.agents;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.AgentInterface;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;
 import javafx.scene.layout.Pane;

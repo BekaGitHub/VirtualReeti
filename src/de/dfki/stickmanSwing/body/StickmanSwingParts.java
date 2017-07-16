@@ -5,8 +5,7 @@
  */
 package de.dfki.stickmanSwing.body;
 
-import de.dfki.common.interfaces.AgentInterface;
-import de.dfki.common.interfaces.PartsInterface;
+import de.dfki.common.parts.PartsInterface;
 import de.dfki.stickmanSwing.animationlogic.AnimatorSwing;
 
 import java.awt.BasicStroke;
@@ -65,50 +64,15 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         calculate(0);
     }
 
+    @Override
     public void setTranslation(int length)
     {
         mToTranslation = mTranslation + length;
-//		mTranslationStep = Math.abs(Math.abs(mTranslation) - Math.abs(mToTranslation)) / AnimatorSwing.sMAX_ANIM_STEPS * (length / Math.abs(length));
         mTranslationStep = (double) length / AnimatorSwing.sMAX_ANIM_STEPS;
 
     }
 
     @Override
-    public void calculate_X_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Y_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Z_Rotation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_X_Translation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Y_Translation(int step)
-    {
-
-    }
-
-    @Override
-    public void calculate_Z_Translation(int step)
-    {
-
-    }
-
     public synchronized void calculateTranslation(int step)
     {
         mTranslation += mTranslationStep;
@@ -117,6 +81,7 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         calculate(step);
     }
 
+    @Override
     public void resetTranslation()
     {
         mTranslationStep = 0.0d;
@@ -130,6 +95,7 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         mRotationStep = 0.0f;
     }
 
+    @Override
     public void setRotation(int degree)
     {
         mToDegree = mRotation + degree;
@@ -137,6 +103,7 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         mRotationStep = (double) degree / AnimatorSwing.sMAX_ANIM_STEPS;
     }
 
+    @Override
     public void setTilt(int degree)
     {
         mToDegree = mRotation + degree;
@@ -145,23 +112,6 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
     }
 
     @Override
-    public void set_X_Translation(int length)
-    {
-
-    }
-
-    @Override
-    public void set_Y_Translation(int length)
-    {
-
-    }
-
-    @Override
-    public void set_Z_Translation(int length)
-    {
-
-    }
-
     public synchronized void calculateRotation(int step)
     {
         mRotation += mRotationStep;
@@ -169,14 +119,10 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         calculate(step);
     }
 
+    @Override
     public void resetRotation()
     {
         mTranslationStep = 0.0d;
-    }
-
-    public void setShape(String s)
-    {
-        // place code for setting shape
     }
 
     public void createShape()
@@ -184,29 +130,12 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
         // create the shape
     }
 
+    @Override
     public synchronized void calculateShape(int step)
     {
         mShapeAnimationStep = step;
 
         calculate(step);
-    }
-
-    @Override
-    public void reset_X_Rotation()
-    {
-
-    }
-
-    @Override
-    public void reset_Y_Rotation()
-    {
-
-    }
-
-    @Override
-    public void reset_Z_Rotation()
-    {
-
     }
 
     public void resetShape()
@@ -264,23 +193,5 @@ public  class StickmanSwingParts extends JComponent implements PartsInterface
     public void setText(String text)
     {
         this.mText = text;
-    }
-
-    @Override
-    public void set_X_Rotation(int degree)
-    {
-        
-    }
-
-    @Override
-    public void set_Y_Rotation(int degree)
-    {
-
-    }
-
-    @Override
-    public void set_Z_Rotation(int degree)
-    {
-
     }
 }

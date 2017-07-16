@@ -2,8 +2,7 @@ package de.dfki.common.animationlogic;
 
 import de.dfki.action.sequence.Entry;
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.common.agents.AgentFX;
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.stickmanSwing.util.TimingInfo;
 
 import java.util.ArrayList;

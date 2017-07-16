@@ -6,7 +6,7 @@
 package de.dfki.reeti.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.reeti.Reeti;
 
 import java.lang.reflect.Constructor;

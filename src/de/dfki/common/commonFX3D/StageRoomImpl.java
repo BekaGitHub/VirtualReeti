@@ -1,7 +1,7 @@
 package de.dfki.common.commonFX3D;
 
 import de.dfki.common.*;
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.common.interfaces.ApplicationLauncher;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.common.interfaces.StageRoom;

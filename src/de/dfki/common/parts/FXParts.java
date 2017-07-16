@@ -1,6 +1,5 @@
 package de.dfki.common.parts;
 
-import de.dfki.common.interfaces.PartsInterface;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 

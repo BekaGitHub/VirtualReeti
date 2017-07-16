@@ -1,15 +1,9 @@
 package de.dfki.stickmanSwing.animationlogic;
 
-import de.dfki.action.sequence.Entry;
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.animationlogic.AnimationContent;
-import de.dfki.common.animationlogic.Animator;
 import de.dfki.common.animationlogic.Animator2D;
-import de.dfki.common.interfaces.AgentInterface;
-import de.dfki.common.interfaces.PartsInterface;
 import de.dfki.stickmanSwing.StickmanSwing;
-import de.dfki.stickmanSwing.body.StickmanSwingParts;
-import de.dfki.stickmanSwing.util.TimingInfo;
 
 import static java.lang.Thread.sleep;
 

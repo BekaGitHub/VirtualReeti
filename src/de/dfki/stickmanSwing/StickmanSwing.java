@@ -5,7 +5,7 @@ import de.dfki.common.Gender;
 import de.dfki.common.parts.FXParts;
 import de.dfki.common.interfaces.AnimationInterface;
 import de.dfki.common.interfaces.StageRoom;
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.stickmanSwing.animationlogic.*;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 import de.dfki.stickmanSwing.animationlogic.listener.AnimationListener;

@@ -15,15 +15,9 @@ import de.dfki.stickmanFX.bodyfx.StickmanFXParts;
 public class AnimationContentFX extends AnimationContent
 {
 
-    public StickmanFXParts mBodyPartFX;
-    public String mAction;
-    public int mParam;
-    public String mParamString;
-    public WordTimeMarkSequence mWTS;
-
     public AnimationContentFX(StickmanFXParts bp, String a, int p)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = p;
         mParamString = "";
@@ -31,7 +25,7 @@ public class AnimationContentFX extends AnimationContent
 
     public AnimationContentFX(StickmanFXParts bp, String a, String p)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
@@ -39,7 +33,7 @@ public class AnimationContentFX extends AnimationContent
 
     public AnimationContentFX(StickmanFXParts bp, String a, String p, WordTimeMarkSequence wts)
     {
-        mBodyPartFX = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;

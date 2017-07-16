@@ -1,8 +1,6 @@
 package de.dfki.common.animationlogic;
 
-import de.dfki.common.interfaces.PartsInterface;
-import de.dfki.reeti.animationlogic.AnimationReeti;
-import de.dfki.stickman3D.animationlogic.AnimationStickman3D;
+import de.dfki.common.parts.PartsInterface;
 
 import java.util.ArrayList;
 
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Animator3D extends Animator
 {
     public ArrayList<AnimationContent> mAnimationComponents = new ArrayList<>();
-        public Animation mAnimation;
+    public Animation mAnimation;
 
     public void render()
     {

@@ -1,7 +1,7 @@
 package de.dfki.common.animationlogic;
 
-import de.dfki.common.interfaces.AgentInterface;
-import de.dfki.common.interfaces.PartsInterface;
+import de.dfki.common.agents.AgentInterface;
+import de.dfki.common.parts.PartsInterface;
 import de.dfki.stickmanFX.animationlogic.AnimationStickmanFX;
 import de.dfki.stickmanSwing.animationlogic.AnimationSwing;
 
@@ -13,9 +13,7 @@ import java.util.ArrayList;
 public abstract class Animator2D extends Animator
 {
     public ArrayList<AnimationContent> mAnimationComponents = new ArrayList<>();
-    public AgentInterface agent;
-    public AnimationStickmanFX mAnimationFX;
-    public AnimationSwing mAnimation;
+    public Animation mAnimation;
 
     public void render()
     {
@@ -122,7 +120,7 @@ public abstract class Animator2D extends Animator
                 {
                     ex.printStackTrace();
                 }
-                mAnimationFX.mAnimationPartStart.release();
+                mAnimation.mAnimationPartStart.release();
                 return;
             }
 

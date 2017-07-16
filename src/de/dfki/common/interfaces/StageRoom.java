@@ -1,6 +1,7 @@
 package de.dfki.common.interfaces;
 
 import de.dfki.common.AgentsOnStage;
+import de.dfki.common.agents.AgentInterface;
 
 import java.awt.image.BufferedImage;
 

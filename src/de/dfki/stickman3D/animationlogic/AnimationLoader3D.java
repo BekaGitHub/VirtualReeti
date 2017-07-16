@@ -6,7 +6,7 @@
 package de.dfki.stickman3D.animationlogic;
 
 import de.dfki.common.Gender;
-import de.dfki.common.interfaces.AgentInterface;
+import de.dfki.common.agents.AgentInterface;
 import de.dfki.stickman3D.Stickman3D;
 
 import java.lang.reflect.Constructor;

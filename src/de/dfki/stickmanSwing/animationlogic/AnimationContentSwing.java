@@ -15,15 +15,9 @@ import de.dfki.stickmanSwing.body.StickmanSwingParts;
 public class AnimationContentSwing extends AnimationContent
 {
 
-    public StickmanSwingParts mBodyPart;
-    public String mAction;
-    public int mParam;
-    public String mParamString;
-    public WordTimeMarkSequence mWTS;
-
     public AnimationContentSwing(StickmanSwingParts bp, String a, int p)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = p;
         mParamString = "";
@@ -31,7 +25,7 @@ public class AnimationContentSwing extends AnimationContent
 
     public AnimationContentSwing(StickmanSwingParts bp, String a, String p)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
@@ -39,7 +33,7 @@ public class AnimationContentSwing extends AnimationContent
 
     public AnimationContentSwing(StickmanSwingParts bp, String a, String p, WordTimeMarkSequence wts)
     {
-        mBodyPart = bp;
+        mBodypart = bp;
         mAction = a;
         mParam = 0;
         mParamString = p;
